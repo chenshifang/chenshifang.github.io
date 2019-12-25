@@ -246,9 +246,10 @@
     
     <h3 id="迷你圣诞树"><a href="#迷你圣诞树" class="headerlink" title="迷你圣诞树"></a>迷你圣诞树</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">height &#x3D; 5</span><br><span class="line">stars &#x3D; 1</span><br><span class="line">for i in range(height):</span><br><span class="line">    print((&#39; &#39; * (height - i)) + (&#39;*&#39; * stars))</span><br><span class="line">    stars +&#x3D; 2</span><br><span class="line">print((&#39; &#39; * height) + &#39;|&#39;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="再整个花里胡哨的"><a href="#再整个花里胡哨的" class="headerlink" title="再整个花里胡哨的"></a>再整个花里胡哨的</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">screen = turtle.Screen()</span><br><span class="line">screen.setup(<span class="number">800</span>,<span class="number">600</span>)</span><br><span class="line">circle = turtle.Turtle()</span><br><span class="line">circle.shape(<span class="string">'circle'</span>)</span><br><span class="line">circle.color(<span class="string">'red'</span>)</span><br><span class="line">circle.speed(<span class="string">'fastest'</span>)</span><br><span class="line">circle.up()</span><br><span class="line">square = turtle.Turtle()</span><br><span class="line">square.shape(<span class="string">'square'</span>)</span><br><span class="line">square.color(<span class="string">'green'</span>)</span><br><span class="line">square.speed(<span class="string">'fastest'</span>)</span><br><span class="line">square.up()</span><br><span class="line">circle.goto(<span class="number">0</span>,<span class="number">280</span>)</span><br><span class="line">circle.stamp()</span><br><span class="line">k = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">17</span>):</span><br><span class="line">    y = <span class="number">30</span>*i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i-k):</span><br><span class="line">        x = <span class="number">30</span>*j</span><br><span class="line">        square.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">        square.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">4</span> == <span class="number">0</span>:</span><br><span class="line">        x = <span class="number">30</span>*(j+<span class="number">1</span>)</span><br><span class="line">        circle.color(<span class="string">'red'</span>)</span><br><span class="line">        circle.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">        circle.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">        k += <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">4</span> == <span class="number">3</span>:</span><br><span class="line">        x = <span class="number">30</span>*(j+<span class="number">1</span>)</span><br><span class="line">        circle.color(<span class="string">'yellow'</span>)</span><br><span class="line">        circle.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">        circle.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">square.color(<span class="string">'brown'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">17</span>,<span class="number">20</span>):</span><br><span class="line">    y = <span class="number">30</span>*i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        x = <span class="number">30</span>*j</span><br><span class="line">        square.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">        square.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">turtle.exitonclick()</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="再整个花里胡哨的"><a href="#再整个花里胡哨的" class="headerlink" title="再整个花里胡哨的)"></a>再整个花里胡哨的
+    
+    <a class="article-more-a" href="/2019/12/24/python%E5%AE%9E%E7%8E%B0%E5%9C%A3%E8%AF%9E%E6%A0%91/#more">more >></a>
+    
     
 
     
@@ -323,32 +324,10 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="爬虫简介："><a href="#爬虫简介：" class="headerlink" title="爬虫简介："></a>爬虫简介：</h3><p>网络爬虫是按照一定的规则，自动的抓取万维网信息的程序或者脚本。</p>
-<h5 id="各编程语言编写爬虫程序："><a href="#各编程语言编写爬虫程序：" class="headerlink" title="各编程语言编写爬虫程序："></a>各编程语言编写爬虫程序：</h5><p>1，PHP：PHP是世界是最好的语言，但他天生不是做这个的，而且对多线程、异步支持不是很好，并发处理能力弱。爬虫是工具性程序，对速度和效率要求比较高。</p>
-<p>2，Java：生态圈很完善，是Python爬虫最大的竞争对手。但是Java语言本身很笨重，代码量很大。重构成本比较高，任何修改会导致代码大量改动。爬虫经常要修改采集代码。</p>
-<p>3，C/C++：运行效率是无敌的。但是学习和开发成本高。写个小爬虫程序可能要大半天时间。</p>
-<p>4，Python：语法优美、代码简洁、开发效率高、支持的模块多。相关的HTTP请求模块和HTML解析模块非常丰富。还有Scrapy和Scrapy-redis框架让我们开发爬虫变得异常简单。</p>
-<h4 id="爬虫分类："><a href="#爬虫分类：" class="headerlink" title="爬虫分类："></a>爬虫分类：</h4><p>1，通用爬虫：通用爬虫是搜索引擎抓取系统的重要组成部分，主要是将互联网上的网页下载到本地，形成一个互联网内容的镜像备份。</p>
-<p>2，聚焦爬虫：聚焦爬虫指针对某一领域根据特定要求实现的爬虫程序，抓取需要的数据（垂直领域爬取）</p>
-<h5 id="聚焦爬虫设计思路："><a href="#聚焦爬虫设计思路：" class="headerlink" title="聚焦爬虫设计思路："></a>聚焦爬虫设计思路：</h5><p>1，确定爬取的url，模拟浏览器向服务器发起请求；</p>
-<p>2，获取响应数据并进行数据解析；</p>
-<p>3，将目标数据持久化到本地；</p>
-<h4 id="请求："><a href="#请求：" class="headerlink" title="请求："></a>请求：</h4><p>由客户端向服务器发出的，可以分为四部分内容：</p>
-<p>1，请求方法：request method</p>
-<p>2，请求网址：request URL</p>
-<p>3，请求头：request headers</p>
-<p>4，请求体：request </p>
-<h4 id="requests请求的8种方法："><a href="#requests请求的8种方法：" class="headerlink" title="requests请求的8种方法："></a>requests请求的8种方法：</h4><p>1，GET：请求页面，并返回页面内容；</p>
-<p>2，POST：用于提交表单数据或上传文件 ，数据包含在请求体中；</p>
-<p>3，PUT：从客户端向服务器传送的数据取代指定文档中的内容；</p>
-<p>4，DELETE：请求服务器删除指定的页面；</p>
-<p>5，HEAD：类似于GET请求，只不过返回的响应中没有具体的内容，用户获取报头</p>
-<p>6，CONNECT：把服务器当做跳板，让服务器代替客户端访问其他网页；</p>
-<p>7，OPTIONS：允许客户端查看服务器的性能；</p>
-<p>8，TRACE：回显服务器收到的请求，主要用于测试或诊断；</p>
-<h5 id="GET与POST请求的区别："><a href="#GET与POST请求的区别：" class="headerlink" title="GET与POST请求的区别："></a>GET与POST请求的区别：</h5><p>1，GET请求中的参数包含在url里面，数据可以在url中看到，而POST请求的url不会包含这些数据，POST数据都是通过表单形式传输的，会包含在请求体中</p>
-<p>2，GET请求提交的数据最多只有1024字节，而POST方式没有限制</p>
-<p>3，POST请求比GET请求相对安全</p>
-
+<h5 id="各编程语言编写爬虫程序："><a href="#各编程语言编写爬虫程序：" class="headerlink" title="各编程语言编写爬虫程序："></a>各编程语言编写爬虫程序：</h5><p>1，PHP：PHP是世界是最好的语言，但他天生不是做这个的，而且对多线程、异步支持不是很好，并发处理能力弱。爬虫是工具性程序，对速度和效率要求比较高。
+    
+    <a class="article-more-a" href="/2019/12/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
+    
     
 
     
