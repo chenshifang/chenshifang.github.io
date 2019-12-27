@@ -6,21 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多线程爬虫小案例 | 陈士方的博客</title>
+  <title>正则 | 陈士方的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="随便拿一个笑话网做一个小测试：">
+  <meta name="description" content="正则 一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则 正则中的特殊符号 匹配一个范围： [] [A-Z]：A, B, C… [0-9]：1, 2, 3…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程爬虫小案例">
-<meta property="og:url" content="http://yoursite.com/2019/12/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/index.html">
+<meta property="og:title" content="正则">
+<meta property="og:url" content="http://yoursite.com/2019/12/27/%E6%AD%A3%E5%88%99/index.html">
 <meta property="og:site_name" content="陈士方的博客">
-<meta property="og:description" content="随便拿一个笑话网做一个小测试：">
+<meta property="og:description" content="正则 一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则 正则中的特殊符号 匹配一个范围： [] [A-Z]：A, B, C… [0-9]：1, 2, 3…">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-26T06:49:18.000Z">
-<meta property="article:modified_time" content="2019-12-27T05:55:29.316Z">
+<meta property="article:published_time" content="2019-12-27T08:16:30.907Z">
+<meta property="article:modified_time" content="2019-12-27T08:46:15.991Z">
 <meta property="article:author" content="陈士方">
-<meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="陈士方的博客" type="application/atom+xml">
@@ -219,14 +218,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程爬虫" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-正则" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      多线程爬虫小案例
+      正则
     </h1>
   
 
@@ -238,8 +237,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/12/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/" class="archive-article-date">
-        <time datetime="2019-12-26T06:49:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
+<a href="/2019/12/27/%E6%AD%A3%E5%88%99/" class="archive-article-date">
+        <time datetime="2019-12-27T08:16:30.907Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
 </a>
 
   
@@ -252,7 +251,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">663字</span>
+      <span class="post-count">1.2k字</span>
     </span>
   </span>
 
@@ -261,7 +260,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -272,7 +271,96 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h5 id="随便拿一个笑话网做一个小测试："><a href="#随便拿一个笑话网做一个小测试：" class="headerlink" title="随便拿一个笑话网做一个小测试：)"></a>随便拿一个笑话网做一个小测试：<a id="more"></a>)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 爬虫类: 负责数据采集</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CrawlThread</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, crawlname, pageQueue, dataQueue)</span>:</span></span><br><span class="line">        super().__init__()</span><br><span class="line">        self.crawlname = crawlname  <span class="comment"># 爬虫名, 用于监控爬虫的运行过程</span></span><br><span class="line">        self.pageQueue = pageQueue  <span class="comment"># url队列, 用于存放url的</span></span><br><span class="line">        self.dataQueue = dataQueue  <span class="comment"># 存放响应数据的</span></span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'</span></span><br><span class="line">        &#125;  <span class="comment"># UA伪装</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 定义一个基准url</span></span><br><span class="line">        base_url = <span class="string">'http://xiaohua.zol.com.cn/lengxiaohua/%s.html'</span></span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                page = self.pageQueue.get(block=<span class="literal">False</span>)</span><br><span class="line">                <span class="comment"># block参数代表队列是否阻塞</span></span><br><span class="line">                <span class="comment"># 如果block=True, 代表阻塞, 如果队列为空, 在get时则产生阻塞, 直到队列中有元素可以get时为止, 开始获取元素</span></span><br><span class="line">                <span class="comment"># block=False, 代表不阻塞, 如果队列为空, get操作会抛出异常</span></span><br><span class="line">                print(<span class="string">'%s正在爬取数据'</span>%self.crawlname)</span><br><span class="line">                <span class="comment"># 请求页面, 获取响应数据</span></span><br><span class="line">                res = requests.get(base_url%page, headers=self.headers).text</span><br><span class="line">                <span class="comment"># 将响应数据提交给dataQueue, 以便后续的解析线程取用</span></span><br><span class="line">                self.dataQueue.put(res)</span><br><span class="line">                print(<span class="string">'%s提交数据完毕'</span>%self.crawlname)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析类: 负责数据的解析及存储</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParseThread</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parsename, dataQueue, lock)</span>:</span></span><br><span class="line">        super().__init__()</span><br><span class="line">        self.parsename = parsename</span><br><span class="line">        self.dataQueue = dataQueue</span><br><span class="line">        self.lock = lock</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                html = self.dataQueue.get(block=<span class="literal">False</span>)</span><br><span class="line">                print(<span class="string">'%s正在解析数据'</span>%self.parsename)</span><br><span class="line">                self.parse(html)</span><br><span class="line">                print(<span class="string">'%s解析数据完毕'</span> % self.parsename)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, html)</span>:</span></span><br><span class="line">        tree = etree.HTML(html)</span><br><span class="line">        li_list = tree.xpath(<span class="string">'//li[@class="article-summary"]'</span>)</span><br><span class="line">        <span class="keyword">for</span> li <span class="keyword">in</span> li_list:</span><br><span class="line">            title = li.xpath(<span class="string">'./span[2]/a/text()'</span>)</span><br><span class="line">            href = li.xpath(<span class="string">'./span[2]/a/@href'</span>)</span><br><span class="line">            content = li.xpath(<span class="string">'.//div[@class="summary-text"]/text()'</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> all([title, href, content]):</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            d = &#123;<span class="string">'title'</span>: title[<span class="number">0</span>], <span class="string">'href'</span>:href[<span class="number">0</span>], <span class="string">'content'</span>: content[<span class="number">0</span>]&#125;</span><br><span class="line">            <span class="comment"># 上锁</span></span><br><span class="line">            <span class="keyword">with</span> self.lock:</span><br><span class="line">                self.save(d)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save</span><span class="params">(self, d)</span>:</span></span><br><span class="line">        <span class="comment"># 建立连接</span></span><br><span class="line">        conn = pymongo.MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br><span class="line">        <span class="comment"># 创建或连接已有的数据库</span></span><br><span class="line">        db = conn.douxing</span><br><span class="line">        table = db.suibian</span><br><span class="line">        table.insert_one(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    pageQueue = Queue()  <span class="comment"># 存放url的队列</span></span><br><span class="line">    dataQueue = Queue()  <span class="comment"># 存放响应数据的队列</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">        <span class="comment"># 向url队列中添加页码</span></span><br><span class="line">        pageQueue.put(i)</span><br><span class="line">    <span class="comment"># 爬虫名列表, 用于监控爬虫</span></span><br><span class="line">    lock = Lock()</span><br><span class="line">    CrawlName = [<span class="string">'爬虫1'</span>, <span class="string">'爬虫2'</span>, <span class="string">'爬虫3'</span>,<span class="string">'爬虫4'</span>,<span class="string">'爬虫5'</span>,<span class="string">'爬虫6'</span>,<span class="string">'爬虫7'</span>,<span class="string">'爬虫8'</span>,<span class="string">'爬虫9'</span>]</span><br><span class="line">    crawlList = []</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> CrawlName:</span><br><span class="line">        <span class="comment"># 实例化爬虫线程对象</span></span><br><span class="line">        c = CrawlThread(var, pageQueue, dataQueue)</span><br><span class="line">        <span class="comment"># 调用线程对象的start方法, 开启线程</span></span><br><span class="line">        c.start()</span><br><span class="line">        crawlList.append(c)</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> crawlList:</span><br><span class="line">        <span class="comment"># 将线程统一执行join()操作</span></span><br><span class="line">        c.join()</span><br><span class="line">    parseName = [<span class="string">'解析1号'</span>,<span class="string">'解析2号'</span>,<span class="string">'解析3号'</span>,<span class="string">'爬虫4'</span>,<span class="string">'解析5号'</span>,<span class="string">'解析6号'</span>,<span class="string">'解析7号'</span>,<span class="string">'解析8号'</span>,<span class="string">'解析9号'</span>]</span><br><span class="line">    parseList = []</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> parseName:</span><br><span class="line">        p = ParseThread(var, dataQueue, lock)</span><br><span class="line">        p.start()</span><br><span class="line">        parseList.append(p)</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> parseList:</span><br><span class="line">        p.join()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    main()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(end_time-start_time)</span><br></pre></td></tr></table></figure>
+    <p><strong>正则</strong></p>
+<p>一些特殊符号及文本组合在一起的用来描述字符或字符串的一些规则，叫做正则</p>
+<p><strong>正则中的特殊符号</strong></p>
+<p><strong>匹配一个范围</strong>： <strong>[]</strong></p>
+<p><strong>[A-Z]</strong>：A, B, C…</p>
+<p><strong>[0-9]</strong>：1, 2, 3…</p>
+ <a id="more"></a>)
+
+<p><strong>匹配任何数字字符</strong>：<strong>\d</strong></p>
+<p><strong>\d</strong>：1, 2, 3…</p>
+<p><strong>匹配任何空白符</strong>：<strong>\s</strong></p>
+<p><strong>\s</strong>：\t (水平制表), \v (垂直制表), \n (换行), \r (回车), \f (换页)</p>
+<p><strong>匹配任何数字、字母、字符及下划线</strong>：<strong>\w</strong></p>
+<p><strong>\w</strong>： a, 1, _</p>
+<p><strong>匹配除了换行符任意一个单个字符</strong>：<strong>.</strong></p>
+<p>a<strong>.</strong>c：abc, a2c, a_c</p>
+<p><strong>..</strong>：匹配任意字符组成的两个长度的字符串</p>
+<p><strong>匹配前面出现的正则表达式0次或多次</strong>：<strong><em>*</em></strong></p>
+<p>a*****：aaa 或是一个空</p>
+<p>[abc]***：aaabbb abc bbaacc</p>
+<p><strong>匹配前面出现的正则表达式0次或一次</strong>：<strong>?</strong></p>
+<p><strong>a?</strong>：a 或是一个空</p>
+<p><strong>匹配前面出现的正则表达式1次或多次</strong>：<strong>+</strong></p>
+<p><strong>a+</strong>：aaa a</p>
+<p><strong>abc+</strong>：abcabc</p>
+<p><strong>匹配前面出现的正则表达式固定次数</strong>：<strong>{}</strong></p>
+<p><strong>a{5}</strong>： aaaaa</p>
+<p><strong>\d{5}</strong>：12345, 22222</p>
+<p><strong>匹配明确的多个选择</strong>：<strong>|</strong></p>
+<p><strong>a | b</strong>：a, b</p>
+<p><strong>abc|cdf|123</strong>：abc, cdf, 123</p>
+<p><strong>匹配字符串的开头或结尾</strong>：<strong>^, $</strong></p>
+<p><strong>^abc</strong>：匹配所有以abc开头的字符串</p>
+<p><strong>abc$</strong>：匹配所有以abc结尾的字符串</p>
+<p><strong>否定匹配</strong>：<strong>[^]</strong></p>
+<p><strong>[^a]</strong>：匹配除了a之外的所有字符</p>
+<p><strong>re模块函数</strong></p>
+<p><strong>re.compile(pattern)</strong></p>
+<p>编译正则表达式</p>
+<p>一般的，特殊字符再进行正则匹配的时候，如果你不预先编译正则表达式，解释器也会在你传入参数的时候进行编译</p>
+<p>一些常用正则表达式，我们可以提前使用该函数进行预先编译，提高程序的效率 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; regex &#x3D; re.compile(&#39;abc&#39;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>re.match(pattern,string)</strong></p>
+<p>尝试使用正则模式<strong>pattern</strong>在字符串中的开头进行严格匹配，如果开头匹配失败则匹配失败</p>
+<p><strong>匹配成功</strong>：返回一个匹配对象，匹配到的值可通过<strong>group</strong>函数获取</p>
+<p><strong>匹配失败</strong>：返回<strong>None</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; res &#x3D; re.match(&#39;abc&#39;,&#39;abcac&#39;)</span><br><span class="line">&lt;_sre.SRE_Match object; span&#x3D;(0, 3), match&#x3D;&#39;abc&#39;&gt; </span><br><span class="line">#返回表示选择的区间以及匹配到的结果</span><br><span class="line">&gt;&gt;&gt; &gt;&gt;&gt;res.group()</span><br><span class="line">&#39;abc&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>re.findall(pattern,string)</strong></p>
+<p>返回字符串中正则模式的所有非重复出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; re.findall(&#39;\*&#39;,&#39;a*b*c*&#39;)</span><br><span class="line">[&#39;*&#39;, &#39;*&#39;, &#39;*&#39;]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong>：由于匹配的表达式中，我希望匹配的只是单纯的*****号，并不具有特殊意义，所以要加一个斜杠防止转义</p>
+<p><strong>re.search(pattern,string)</strong></p>
+<p>返回字符串中正则模式的第一次出现，没有匹配结果则返回<strong>None</strong></p>
+<p>结果可以通过返回值的group函数获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; res &#x3D; re.search(&#39;\*&#39;,&#39;a*b*c*&#39;)</span><br><span class="line">&lt;_sre.SRE_Match object; span&#x3D;(1, 2), match&#x3D;&#39;*&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; res.group()</span><br><span class="line">&#39;*&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>re.sub(str1,str2,str3)</strong></p>
+<p><strong>re.subn(str1,str2,str3)</strong></p>
+<p><strong>str1</strong>：要替换的字符串</p>
+<p><strong>str2</strong>：替换成什么</p>
+<p><strong>str3</strong>：在哪个字符串里进行替换</p>
+<p>这两个函数都可以实现<strong>搜索</strong>和<strong>替换</strong>功能，均返回一个替换之后的新字符串</p>
+<p><strong>subn</strong>函数会以元组形式包含一个表示替换的总数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; var &#x3D; re.sub(&#39;\*&#39;,&#39;_&#39;,&#39;a*b*c*&#39;)</span><br><span class="line">&gt;&gt;&gt; var</span><br><span class="line">&#39;a_b_c_&#39;</span><br><span class="line">&gt;&gt;&gt; var &#x3D; re.subn(&#39;\*&#39;,&#39;_&#39;,&#39;a*b*c*&#39;)</span><br><span class="line">&gt;&gt;&gt; var</span><br><span class="line">(&#39;a_b_c_&#39;, 3)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>贪婪非贪婪</strong></p>
+<p>如果<strong>问号**</strong>?<strong>紧跟在任何使用</strong>闭合<strong>（类似*</strong> +** 这样的操作符）的匹配后面， 它将直接要求正则表达式引擎匹配<strong>尽可能少</strong>的次数，这叫做<strong>非贪婪</strong></p>
+<p><strong>贪婪匹配</strong>：正则表达式引擎将试图“吸收”匹配该模式的<strong>尽可能多</strong>的字符</p>
+<p><strong>非贪婪匹配</strong>：问号要求正则表达式引擎去<strong>“偷懒”</strong>，如果可能，就在当前的正则表达式中尽<strong>可能少</strong>地匹配字符，留下尽可能多的字符给后面的模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; mystr &#x3D; &#39;a*b*c*d*e*f*g&#39;ac</span><br><span class="line">&gt;&gt;&gt; re.findall(&#39;.+?&#39;, mystr) #非贪婪模式进行匹配</span><br><span class="line">[&#39;a&#39;, &#39;*&#39;, &#39;b&#39;, &#39;*&#39;, &#39;c&#39;, &#39;*&#39;, &#39;d&#39;, &#39;*&#39;, &#39;e&#39;, &#39;*&#39;, &#39;f&#39;, &#39;*&#39;, &#39;g&#39;]</span><br><span class="line">&gt;&gt;&gt; re.findall(&#39;.+&#39;, mystr) #贪婪模式进行匹配</span><br><span class="line">[&#39;a*b*c*d*e*f*g&#39;]</span><br><span class="line">&gt;&gt;&gt; re.findall(&#39;.*&#39;, mystr) #贪婪模式进行匹配</span><br><span class="line">[&#39;a*b*c*d*e*f*g&#39;, &#39;&#39;]</span><br><span class="line">&gt;&gt;&gt; re.findall(&#39;.*?&#39;, mystr) #非贪婪模式进行匹配</span><br><span class="line">[&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;] </span><br><span class="line">#结果不同在于对+号和*号特殊字符的解释</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 
 
 
@@ -291,7 +379,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2019/12/26/多线程爬虫/" title="多线程爬虫小案例" target="_blank">http://yoursite.com/2019/12/26/多线程爬虫/</a>
+          <a href="http://yoursite.com/2019/12/27/正则/" title="正则" target="_blank">http://yoursite.com/2019/12/27/正则/</a>
         </li>
         
         <li>
@@ -308,17 +396,6 @@
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
     
 
     
@@ -369,7 +446,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/27/%E6%AD%A3%E5%88%99/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -384,18 +461,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/12/27/%E6%AD%A3%E5%88%99/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          正则
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/25/python%E5%AE%9E%E7%8E%B0%E5%9C%A3%E8%AF%9E%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">圣诞快乐</div>
+    <a href="/2019/12/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多线程爬虫小案例</div>
       <i class="icon-circle-right"></i>
     </a>
   
