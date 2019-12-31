@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
 <meta property="article:published_time" content="2019-12-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-12-31T06:51:39.866Z">
+<meta property="article:modified_time" content="2019-12-31T08:30:37.663Z">
 <meta property="article:author" content="陈士方">
 <meta property="article:tag" content="spider">
 <meta property="article:tag" content="scrapy">
@@ -284,7 +284,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">14分</span>
+      <span class="post-count">13分</span>
     </span>
   </span>
 </div>
@@ -326,70 +326,28 @@
 <p>　　pip install scrapy</p>
 <p>Windows下的安装</p>
 <p>　　a. 下载twisted<br>　　　　<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted" target="_blank" rel="noopener">http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted</a><br>　　b. 安装wheel<br>　　　　pip3 install wheel<br>　　c. 安装twisted<br>　　　　<code>进入下载目录，执行</code> pip3 install Twisted‑18.7.0‑cp36‑cp36m‑win_amd64.whl<br>　　d. 安装pywin32<br>　　　　pip3 install pywin32<br>　　e. 安装scrapy<br>　　　　pip3 install scrapy</p>
-<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a><strong>基本命令</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.&#96; &#96;scrapy startproject 项目名称</span><br></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a><strong>常用命令</strong></h3><p> 1，在当前目录中创建一个项目文件（类似于Django）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject 项目名称</span><br></pre></td></tr></table></figure>
 
+<p> 2，创建一个爬虫应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy genspider 爬虫名 域名 (注意：爬虫名尽量不要和项目名重名)</span><br></pre></td></tr></table></figure>
 
+<p> 3，启动爬虫应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl 爬虫名 </span><br><span class="line">scrapy crawl 爬虫名 --nolog(不打印日志)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;-&#96; &#96;在当前目录中创建一个项目文件（类似于Django）</span><br></pre></td></tr></table></figure>
+<p> 4，查看帮助信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy -help</span><br></pre></td></tr></table></figure>
 
+<p>5，查看版本信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy version -v</span><br></pre></td></tr></table></figure>
 
+<p>6，查看项目里的爬虫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy list</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.&#96; &#96;scrapy genspider [&#96;&#96;-&#96;&#96;t template]</span><br></pre></td></tr></table></figure>
+<p>7，执行一个基准的测试，用来检测爬虫是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy bench</span><br></pre></td></tr></table></figure>
 
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;-&#96; &#96;创建爬虫应用</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;如：</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;scrapy gensipider &#96;&#96;-&#96;&#96;t basic oldboy oldboy.com</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;scrapy gensipider &#96;&#96;-&#96;&#96;t xmlfeed autohome autohome.com.cn</span><br></pre></td></tr></table></figure>
-
-
-
-<p>　　　　　或者简单直接  scrapy gensipider app名 要爬取的域名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;PS:</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;查看所有命令：scrapy gensipider &#96;&#96;-&#96;&#96;l</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;查看模板命令：scrapy gensipider &#96;&#96;-&#96;&#96;d 模板名称</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.&#96; &#96;scrapy &#96;&#96;list</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;-&#96; &#96;展示爬虫应用列表</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4.&#96; &#96;scrapy crawl 爬虫应用名称</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;-&#96; &#96;运行单独爬虫应用</span><br></pre></td></tr></table></figure>
-
-
-
-<p>备注：scrapy crawl 应用名称 表示以日志的形式运行爬虫应用，可以在后面加 –nolog 取消日志   scrapy crawl 名称 –nolog</p>
+<p>注：命令不全，只是几个常用的；详情见spider中文文档：<a href="http://www.scrapyd.cn/doc/181.html" target="_blank" rel="noopener">http://www.scrapyd.cn/doc/181.html</a></p>
 <h3 id="项目结构以及爬虫应用简介"><a href="#项目结构以及爬虫应用简介" class="headerlink" title="项目结构以及爬虫应用简介"></a><strong>项目结构以及爬虫应用简介</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">project_name&#96;&#96;&#x2F;&#96;&#96;  &#96;&#96;scrapy.cfg&#96;&#96;  &#96;&#96;project_name&#96;&#96;&#x2F;&#96;&#96;    &#96;&#96;__init__.py&#96;&#96;    &#96;&#96;items.py&#96;　　　　　　　middlewares.py &#96;    &#96;&#96;pipelines.py&#96;&#96;    &#96;&#96;settings.py&#96;&#96;    &#96;&#96;spiders&#96;&#96;&#x2F;&#96;&#96;      &#96;&#96;__init__.py&#96;&#96;      &#96;&#96;爬虫&#96;&#96;1.py&#96;&#96;      &#96;&#96;爬虫&#96;&#96;2.py&#96;&#96;      &#96;&#96;爬虫&#96;&#96;3.py</span><br></pre></td></tr></table></figure>
 
 <p>文件说明：</p>
