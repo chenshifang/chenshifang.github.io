@@ -10,14 +10,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="scrapy简介Scrapy 使用了 Twisted异步网络库来处理网络通讯。整体架构大致如下  Scrapy主要包括了以下组件：  引擎(Scrapy)用来处理整个系统的数据流处理, 触发事务(框架核心) 调度器(Scheduler)用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址">
+  <meta name="description" content="scrapy简介Scrapy主要包括了以下组件：  引擎(Scrapy)用来处理整个系统的数据流处理, 触发事务(框架核心) 调度器(Scheduler)用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scrapy框架">
 <meta property="og:url" content="http://yoursite.com/2019/12/26/scrapy/index.html">
 <meta property="og:site_name" content="陈士方的博客">
-<meta property="og:description" content="scrapy简介Scrapy 使用了 Twisted异步网络库来处理网络通讯。整体架构大致如下  Scrapy主要包括了以下组件：  引擎(Scrapy)用来处理整个系统的数据流处理, 触发事务(框架核心) 调度器(Scheduler)用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址">
+<meta property="og:description" content="scrapy简介Scrapy主要包括了以下组件：  引擎(Scrapy)用来处理整个系统的数据流处理, 触发事务(框架核心) 调度器(Scheduler)用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/425762/201605/425762-20160507220247421-1722096301.png">
 <meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1316789/201807/1316789-20180720161506678-924478578.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1316789/201807/1316789-20180720161930778-1385212956.png">
@@ -39,12 +38,12 @@
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
 <meta property="article:published_time" content="2019-12-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-12-31T06:14:03.688Z">
+<meta property="article:modified_time" content="2019-12-31T06:23:47.728Z">
 <meta property="article:author" content="陈士方">
 <meta property="article:tag" content="spider">
 <meta property="article:tag" content="scrapy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/425762/201605/425762-20160507220247421-1722096301.png">
+<meta name="twitter:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
   
     <link rel="alternative" href="/atom.xml" title="陈士方的博客" type="application/atom+xml">
   
@@ -295,18 +294,16 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="scrapy简介"><a href="#scrapy简介" class="headerlink" title="scrapy简介"></a>scrapy简介</h2><p>Scrapy 使用了 Twisted异步网络库来处理网络通讯。整体架构大致如下</p>
-<p><img src="https://images2015.cnblogs.com/blog/425762/201605/425762-20160507220247421-1722096301.png" alt="img"></p>
-<p>Scrapy主要包括了以下组件：</p>
+    <h2 id="scrapy简介"><a href="#scrapy简介" class="headerlink" title="scrapy简介"></a>scrapy简介</h2><p>Scrapy主要包括了以下组件：</p>
 <ul>
-<li><strong>引擎(Scrapy)</strong><br><em>用来处理整个系统的数据流处理, 触发事务(框架核心)</em></li>
-<li><strong>调度器(Scheduler)</strong><br><em>用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址</em></li>
-<li><strong>下载器(Downloader)</strong><br><em>用于下载网页内容, 并将网页内容返回给蜘蛛(Scrapy下载器是建立在twisted这个高效的异步模型上的)</em></li>
-<li><strong>爬虫(Spiders)</strong><br><em>爬虫是主要干活的, 用于从特定的网页中提取自己需要的信息, 即所谓的实体(Item)。用户也可以从中提取出链接,让Scrapy继续抓取下一个页面</em></li>
-<li><strong>项目管道(Pipeline)</strong><br><em>负责处理爬虫从网页中抽取的实体，主要的功能是持久化实体、验证实体的有效性、清除不需要的信息。当页面被爬虫解析后，将被发送到项目管道，并经过几个特定的次序处理数据。</em></li>
-<li><strong>下载器中间件(Downloader Middlewares)</strong><br><em>位于Scrapy引擎和下载器之间的框架，主要是处理Scrapy引擎与下载器之间的请求及响应。</em></li>
-<li><strong>爬虫中间件(Spider Middlewares)</strong><br><em>介于Scrapy引擎和爬虫之间的框架，主要工作是处理蜘蛛的响应输入和请求输出。</em></li>
-<li><strong>调度中间件(Scheduler Middewares)</strong><br><em>介于Scrapy引擎和调度之间的中间件，从Scrapy引擎发送到调度的请求和响应。</em></li>
+<li><strong>引擎(Scrapy)</strong><br>用来处理整个系统的数据流处理, 触发事务(框架核心)</li>
+<li><strong>调度器(Scheduler)</strong><br>用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址<a id="more"></a>)</li>
+<li><strong>下载器(Downloader)</strong><br>用于下载网页内容, 并将网页内容返回给蜘蛛(Scrapy下载器是建立在twisted这个高效的异步模型上的)</li>
+<li><strong>爬虫(Spiders)</strong><br>爬虫是主要干活的, 用于从特定的网页中提取自己需要的信息, 即所谓的实体(Item)。用户也可以从中提取出链接,让Scrapy继续抓取下一个页面</li>
+<li><strong>项目管道(Pipeline)</strong><br>负责处理爬虫从网页中抽取的实体，主要的功能是持久化实体、验证实体的有效性、清除不需要的信息。当页面被爬虫解析后，将被发送到项目管道，并经过几个特定的次序处理数据。</li>
+<li><strong>下载器中间件(Downloader Middlewares)</strong><br>位于Scrapy引擎和下载器之间的框架，主要是处理Scrapy引擎与下载器之间的请求及响应。</li>
+<li><strong>爬虫中间件(Spider Middlewares)</strong><br>介于Scrapy引擎和爬虫之间的框架，主要工作是处理蜘蛛的响应输入和请求输出。</li>
+<li><strong>调度中间件(Scheduler Middewares)</strong><br>介于Scrapy引擎和调度之间的中间件，从Scrapy引擎发送到调度的请求和响应。</li>
 </ul>
 <p>Scrapy运行流程大概如下：</p>
 <ol>
