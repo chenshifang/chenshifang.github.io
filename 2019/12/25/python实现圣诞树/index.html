@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>圣诞快乐 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">陈士方的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">圣诞快乐</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十二月 25, 2019&nbsp;&nbsp;14:49:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>迷你圣诞树 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">height &#x3D; 5</span><br><span class="line">stars &#x3D; 1</span><br><span class="line">for i in range(height):</span><br><span class="line">    print((&#39; &#39; * (height - i)) + (&#39;*&#39; * stars))</span><br><span class="line">    stars +&#x3D; 2</span><br><span class="line">print((&#39; &#39; * height) + &#39;|&#39;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="再整个花里胡哨的"><a href="#再整个花里胡哨的" class="headerlink" title="再整个花里胡哨的)"></a>再整个花里胡哨的<a id="more"></a>)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">screen = turtle.Screen()</span><br><span class="line">screen.setup(<span class="number">800</span>,<span class="number">600</span>)</span><br><span class="line">circle = turtle.Turtle()</span><br><span class="line">circle.shape(<span class="string">'circle'</span>)</span><br><span class="line">circle.color(<span class="string">'red'</span>)</span><br><span class="line">circle.speed(<span class="string">'fastest'</span>)</span><br><span class="line">circle.up()</span><br><span class="line">square = turtle.Turtle()</span><br><span class="line">square.shape(<span class="string">'square'</span>)</span><br><span class="line">square.color(<span class="string">'green'</span>)</span><br><span class="line">square.speed(<span class="string">'fastest'</span>)</span><br><span class="line">square.up()</span><br><span class="line">circle.goto(<span class="number">0</span>,<span class="number">280</span>)</span><br><span class="line">circle.stamp()</span><br><span class="line">k = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">17</span>):</span><br><span class="line">    y = <span class="number">30</span>*i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i-k):</span><br><span class="line">        x = <span class="number">30</span>*j</span><br><span class="line">        square.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">        square.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">4</span> == <span class="number">0</span>:</span><br><span class="line">        x = <span class="number">30</span>*(j+<span class="number">1</span>)</span><br><span class="line">        circle.color(<span class="string">'red'</span>)</span><br><span class="line">        circle.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">        circle.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">        k += <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">4</span> == <span class="number">3</span>:</span><br><span class="line">        x = <span class="number">30</span>*(j+<span class="number">1</span>)</span><br><span class="line">        circle.color(<span class="string">'yellow'</span>)</span><br><span class="line">        circle.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">        circle.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        circle.stamp()</span><br><span class="line">square.color(<span class="string">'brown'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">17</span>,<span class="number">20</span>):</span><br><span class="line">    y = <span class="number">30</span>*i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        x = <span class="number">30</span>*j</span><br><span class="line">        square.goto(x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">        square.goto(-x,-y+<span class="number">280</span>)</span><br><span class="line">        square.stamp()</span><br><span class="line">turtle.exitonclick()</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>陈士方</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/25/python%E5%AE%9E%E7%8E%B0%E5%9C%A3%E8%AF%9E%E6%A0%91/">http://yoursite.com/2019/12/25/python%E5%AE%9E%E7%8E%B0%E5%9C%A3%E8%AF%9E%E6%A0%91/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%9C%A3%E8%AF%9E%E6%A0%91/"># 圣诞树</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/">多线程爬虫小案例</a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">爬虫简介</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
