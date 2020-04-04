@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>Selenium | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">陈士方的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Selenium</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">三月 12, 2017&nbsp;&nbsp;16:02:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="自动化测试工具：selenium"><a href="#自动化测试工具：selenium" class="headerlink" title="自动化测试工具：selenium"></a>自动化测试工具：selenium</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br></pre></td><td class="code"><pre><span class="line">#导入selenium</span><br><span class="line">from selenium import webdriver</span><br><span class="line"></span><br><span class="line">#创建chrome驱动实例,打开浏览器</span><br><span class="line">driver&#x3D;webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">#浏览器最大化</span><br><span class="line">driver.maximize_window()</span><br><span class="line"></span><br><span class="line">#浏览器最小化</span><br><span class="line">driver.minimize_window()</span><br><span class="line"></span><br><span class="line">#获取浏览器当前窗口大小</span><br><span class="line">size&#x3D;driver.get_window_size()</span><br><span class="line"></span><br><span class="line">#设置浏览器窗口大小</span><br><span class="line">driver.set_window_size(400,400)</span><br><span class="line"></span><br><span class="line">#打开指定网页</span><br><span class="line">driver.get(&quot;http:&#x2F;&#x2F;www.so.com&quot;)</span><br><span class="line"></span><br><span class="line">#获取当前页面的链接地址</span><br><span class="line">url&#x3D;driver.current_url</span><br><span class="line">driver.get(&quot;http:&#x2F;&#x2F;baike.so.com&quot;)</span><br><span class="line"></span><br><span class="line">#后退</span><br><span class="line">driver.back()</span><br><span class="line"></span><br><span class="line">#前进</span><br><span class="line">driver.forward()</span><br><span class="line"></span><br><span class="line">#浏览器退出</span><br><span class="line">driver.close()</span><br><span class="line">driver.quit()</span><br><span class="line">#截图</span><br><span class="line">driver.get_screenshot_as_png()</span><br><span class="line">driver.get_screenshot_as_base64()</span><br><span class="line">driver.get_screenshot_as_file(&quot;filename&quot;)</span><br><span class="line">driver.save_screenshot(&quot;filename&quot;)</span><br><span class="line"></span><br><span class="line">#切换到当前被操作元素</span><br><span class="line">ele&#x3D;driver.switch_to.active_element</span><br><span class="line"></span><br><span class="line">#切换alert、confirm、prompt框</span><br><span class="line">alert &#x3D; driver.switch_to.alert</span><br><span class="line"></span><br><span class="line">#切换到默认页面</span><br><span class="line">driver.switch_to.default_content()</span><br><span class="line"></span><br><span class="line">#切换iframe</span><br><span class="line">driver.switch_to.frame(&#39;frame_name&#39;)</span><br><span class="line">driver.switch_to.frame(1)</span><br><span class="line">driver.switch_to.frame(driver.find_elements_by_tag_name(&quot;iframe&quot;)[0])</span><br><span class="line">driver.switch_to.parent_frame()</span><br><span class="line"></span><br><span class="line">#获取浏览器所有句柄</span><br><span class="line">handles&#x3D;driver.window_handles</span><br><span class="line"></span><br><span class="line">#获取当前句柄</span><br><span class="line">current_handle&#x3D;driver.current_window_handle</span><br><span class="line">driver.switch_to.window()</span><br><span class="line"></span><br><span class="line">#执行js脚本</span><br><span class="line">driver.execute_script(&#39;script&#39;)</span><br><span class="line"></span><br><span class="line">#元素定位</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;q&quot; class&#x3D;&quot;placeholder&quot; id&#x3D;&quot;input&quot; suggestwidth&#x3D;&quot;540px&quot; autocomplete&#x3D;&quot;off&quot;&gt;</span><br><span class="line">driver.find_element_by_id(&quot;input&quot;)（标签的ID属性，而不是标签名）</span><br><span class="line">driver.find_element_by_name(&quot;q&quot;)（标签的name属性，而不是标签名）</span><br><span class="line">driver.find_element_by_class_name(&quot;placeholder&quot;)（标签的class属性）</span><br><span class="line">driver.find_element_by_tag_name(&quot;input&quot;)</span><br><span class="line"></span><br><span class="line">#通过link_text定位</span><br><span class="line">&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.so.com&#x2F;link?m&#x3D;aet4cncwddniEaPk6dHXguMLtzsuEZCshH9NOP1B83PNdna1JVlAE2E5xzKeyB2GUQSR9o8wo4KTK5n7ApE28%2FQ%3D%3D&quot; data-url&#x3D;&quot;http:&#x2F;&#x2F;ly.so.com&#x2F;?src&#x3D;tab_web&quot; data-s&#x3D;&quot;http:&#x2F;&#x2F;ly.so.com&#x2F;s?q&#x3D;%q%&amp;src&#x3D;tab_web&quot; data-linkid&#x3D;&quot;liangyi&quot;&gt;良医&lt;&#x2F;a&gt;</span><br><span class="line">driver.find_element_by_link_text(&quot;良医&quot;)</span><br><span class="line">driver.find_element_by_partial_link_text(&quot;医&quot;)</span><br><span class="line">	</span><br><span class="line">#&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;q&quot; class&#x3D;&quot;placeholder&quot; id&#x3D;&quot;input&quot; suggestwidth&#x3D;&quot;540px&quot; autocomplete&#x3D;&quot;off&quot;&gt;</span><br><span class="line">#通过标签定位</span><br><span class="line">driver.find_element_by_css_selector(&quot;input&quot;)</span><br><span class="line"></span><br><span class="line">#通过id定位</span><br><span class="line">driver.find_element_by_css_selector(&quot;#input&quot;)</span><br><span class="line"></span><br><span class="line">#通过class定位</span><br><span class="line">driver.find_element_by_css_selector(&quot;.placeholder&quot;)</span><br><span class="line"></span><br><span class="line">#通过属性定位</span><br><span class="line">driver.find_element_by_css_selector(&#39;[name&#x3D;&quot;q&quot;]&#39;)</span><br><span class="line"></span><br><span class="line">#以上都是单一形式的定位，上面的所有形式都可以进行组合定位</span><br><span class="line">driver.find_element_by_css_selector(&quot;input#input&quot;)</span><br><span class="line">driver.find_element_by_css_selector(&quot;#input[name&#x3D;&#39;q&#39;]&quot;)</span><br><span class="line"></span><br><span class="line">#xpath中的逻辑运算（与或非）</span><br><span class="line">driver.find_element_by_xpath(&quot;&#x2F;&#x2F;input[@name&#x3D;&#39;q&#39; and @ id&#x3D;&#39;input&#39;]&quot;)</span><br><span class="line"></span><br><span class="line">#包含 contains函数</span><br><span class="line">driver.find_element_by_xpath(&quot;&#x2F;&#x2F;input[contains(@id,&#39;input&#39;)]&quot;)</span><br><span class="line"></span><br><span class="line">#元素文本信息text函数</span><br><span class="line">driver.find_element_by_xpath(&quot;&#x2F;&#x2F;*[contains(text(),&#39;医&#39;)]&quot;)</span><br><span class="line"></span><br><span class="line">#starts-with函数</span><br><span class="line">driver.find_element_by_xpath(&quot;&#x2F;&#x2F;input[starts-with(@id,&#39;inpu&#39;)]&quot;)</span><br><span class="line"></span><br><span class="line">#ends-with函数</span><br><span class="line">driver.find_element_by_xpath(&quot;&#x2F;&#x2F;input[ends-with(@id,&#39;nput&#39;)]&quot;)</span><br><span class="line"></span><br><span class="line">#元素操作</span><br><span class="line">#清除文本框内容</span><br><span class="line">input_element.clear()</span><br><span class="line"></span><br><span class="line">#点击操作</span><br><span class="line">input_element.click()</span><br><span class="line"></span><br><span class="line">#对文本框输入</span><br><span class="line">input_element.send_keys()</span><br><span class="line"></span><br><span class="line">#提交表单</span><br><span class="line">input_element.submit()</span><br><span class="line"></span><br><span class="line">#获取元素指定属性的值</span><br><span class="line">input_element.get_attribute(&quot;name&quot;)</span><br><span class="line">input_element.get_property(&quot;name&quot;)</span><br><span class="line"></span><br><span class="line">#获取元素的大小</span><br><span class="line">ele_size&#x3D;input_element.size</span><br><span class="line"></span><br><span class="line">#获取该元素的子元素</span><br><span class="line">input_element.find_element()</span><br><span class="line"></span><br><span class="line">#判断元素是否显示</span><br><span class="line">input_element.is_displayed()</span><br><span class="line"></span><br><span class="line">#判断元素是否可以使用</span><br><span class="line">input_element.is_enabled()</span><br><span class="line"></span><br><span class="line">#判断元素是否是选中状态</span><br><span class="line">input_element.is_selected()</span><br><span class="line"></span><br><span class="line">#查看元素的标签名</span><br><span class="line">input_tag&#x3D;input_element.tag_name</span><br><span class="line"></span><br><span class="line">#js常用脚本</span><br><span class="line">#页面滑动</span><br><span class="line">js1&#x3D;&quot;window.scrollTo(1000,1000)&quot;</span><br><span class="line">js11&#x3D;&#39;window.scrollTo(0,0)&#39;</span><br><span class="line">js12&#x3D;&#39;window,scrollTo(0,document.body.scrollHeight)&#39;（向下滚动一屏）</span><br><span class="line">driver.execute_script(&quot;arguments[0].scrollIntoView();&quot;, input_element)</span><br><span class="line"></span><br><span class="line">#设置元素属性：例如修改时间控件，设置页面元素是否可见等,可以省去很多selenium的步骤</span><br><span class="line">js2&#x3D;&#39;document.getElementById(&quot;XXX&quot;).setAttribute(&quot;placeholder&quot;,&quot;thisismyplaceholder&quot;)&#39;</span><br><span class="line"></span><br><span class="line">#删除元素属性</span><br><span class="line">js3&#x3D;&#39;document.getElementById(&quot;XXX&quot;).removeAttribute(&quot;placeholder&quot;)&#39;</span><br><span class="line"></span><br><span class="line">#元素操作操作：click,focus，blur等</span><br><span class="line">js4&#x3D;&#39;document.getElementById(&quot;xxx&quot;).click()&#39;</span><br><span class="line"></span><br><span class="line">#元素定位  注意：这里需要有return</span><br><span class="line">js5&#x3D;&#39;return document.getElementById(&quot;xxx&quot;)&#39;</span><br><span class="line"></span><br><span class="line">#停止页面加载</span><br><span class="line">js6&#x3D;window.stop</span><br><span class="line"></span><br><span class="line">#鼠标事件</span><br><span class="line">#导入鼠标事件</span><br><span class="line">from selenium.webdriver.common.action_chains import ActionChains</span><br><span class="line"></span><br><span class="line">#双击</span><br><span class="line">ActionChains(driver).double_click(&#39;target_element&#39;).perform()</span><br><span class="line"></span><br><span class="line">#右击</span><br><span class="line">ActionChains(driver).context_click(&quot;target_element&quot;).perform()</span><br><span class="line"></span><br><span class="line">#拖动</span><br><span class="line">ActionChains(driver).drag_and_drop(&quot;start_element&quot;,&quot;end_element&quot;).perform()</span><br><span class="line"></span><br><span class="line">#鼠标移动到指定元素</span><br><span class="line">ActionChains(driver).move_to_element(&quot;target_element&quot;).perform()</span><br><span class="line"></span><br><span class="line">#弹出一个alert</span><br><span class="line">driver.execute_script(&quot;alert(&#39;helloworld&#39;)&quot;)</span><br><span class="line"></span><br><span class="line">#切换到alert</span><br><span class="line">my_alert&#x3D;driver.switch_to.alert</span><br><span class="line"></span><br><span class="line">#获取alert信息</span><br><span class="line">alert_info&#x3D;my_alert.text</span><br><span class="line"></span><br><span class="line">#点击确定</span><br><span class="line">my_alert.accept()</span><br><span class="line"></span><br><span class="line">#点击X</span><br><span class="line">my_alert.dismiss()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">click(on_element&#x3D;None) ——单击鼠标左键</span><br><span class="line">click_and_hold(on_element&#x3D;None) ——点击鼠标左键，不松开</span><br><span class="line">context_click(on_element&#x3D;None) ——点击鼠标右键</span><br><span class="line">double_click(on_element&#x3D;None) ——双击鼠标左键</span><br><span class="line">drag_and_drop(source, target) ——拖拽到某个元素然后松开</span><br><span class="line">drag_and_drop_by_offset(source, xoffset, yoffset) ——拖拽到某个坐标然后松开</span><br><span class="line">key_down(value, element&#x3D;None) ——按下某个键盘上的键</span><br><span class="line">key_up(value, element&#x3D;None) ——松开某个键</span><br><span class="line">move_by_offset(xoffset, yoffset) ——鼠标从当前位置移动到某个坐标</span><br><span class="line">move_to_element(to_element) ——鼠标移动到某个元素</span><br><span class="line">move_to_element_with_offset(to_element, xoffset, yoffset) ——移动到距某个元素（左上角坐标）多少距离的位置</span><br><span class="line">perform() ——执行链中的所有动作</span><br><span class="line">release(on_element&#x3D;None) ——在某个元素位置松开鼠标左键</span><br><span class="line">send_keys(*keys_to_send) ——发送某个键到当前焦点的元素</span><br><span class="line">send_keys_to_element(element, *keys_to_send) ——发送某个键到指定元素</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/selenium/"># selenium</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2017/03/15/day08/">第三方登录-微博</a>
+            
+            
+            <a class="next" rel="next" href="/2017/03/11/day06/">Docker简介、命令</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

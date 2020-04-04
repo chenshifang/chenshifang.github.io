@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>Docker简介、命令 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">陈士方的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Docker简介、命令</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">三月 11, 2017&nbsp;&nbsp;15:55:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="什么是Docker？"><a href="#什么是Docker？" class="headerlink" title="什么是Docker？"></a>什么是Docker？</h3><p>Docker 是基于Go语言实现的开源容器项目。<br>利用操作系统本身已有的机制和特性，可以实现远超传统虚拟机的轻量级虚拟化。它是内核级的虚拟化。<br>期望达到使项目运行环境“一次封装，到处运行的目的”。</p>
+<p>利用docker创建的运行环境叫做docker容器，容器是通过docker镜像创建的，<br>docker镜像文件可以放在私有仓库中也可以放在共有仓库中。<br>最大的公有仓库是官方Docker Hub。</p>
+<h3 id="Docker的六大优势"><a href="#Docker的六大优势" class="headerlink" title="Docker的六大优势"></a>Docker的六大优势</h3><p>1.更高效的利用系统资源</p>
+<p>docker对系统资源的利用率更高，无论是应用执行速度，内存损耗或者文件存储速度，都要比传统虚拟机技术更高效。因此，相比虚拟机技术，一个相同配置的主机往往可以运行更多数量的应用。</p>
+<p>2.更快速的启动时间</p>
+<p>传统的虚拟机技术启动应用服务往往需要数分钟，而docker容器应用，由于直接运行于宿主内核，无需启动完整的操作系统，因此可以做到秒级，甚至毫秒级的启动时间，大大的节约了开发测试，部署的时间。</p>
+<p>3.一致的运行环境</p>
+<p>开发过程中常见的一个问题是环境一致问题，由于开发环境，测试环境，生产环境不一致，导致有些bug并未在开发过程中发现。而docker的镜像提供了除内核外完整的运行时环境，确保环境一致性，从而不会在出现“这段代码在我机器上没问题”这类问题。</p>
+<p>4.持续支付和部署</p>
+<p>对开发和运维人员来说，最希望就是一次创建和部署，可以在任意的地方运行。（定制应用镜像来实现集成、持续支付、部署。开发人员可以通过dockerfile来进行镜像构建，并结合持续集成系统进行集成测试，而运维人员则可以直接在生产环境中快速部署该镜像，甚至结合持续部署系统进行自动部署）。而且使用dockerfile使镜像构建透明化，不仅仅开发团队可以理解应用运行环境，也方便运维团队理解应用运行所需条件，帮助更好的生产环境中部署该镜像。</p>
+<p>5.更轻松的迁移</p>
+<p>由于docker确保了执行环境的一致性，使得应用的迁移更加的容易。docker可以在很多平台上运行，无论是物理机、虚拟机、公有云、私有云、甚至是笔记本、其运行结果是一致的。因此用户可以很轻易的将在一个平台上运行的应用，迁移到另一个平台上，而不用担心运行环境的变化导致应用无法正常运行的情况。</p>
+<p>6.更轻松的维护和拓展</p>
+<p>docker使用的分层存储以及镜像的技术，使得应用重复部分的复用更为容易，也使得应用的维护更新更加简单，基于基础镜像进一步扩展镜像也变得十分简单。此外，docker团队同各个开源项目团队一起维护了一大批高质量的官网镜像，既可以直接在生产环境使用，又可以作为基础进一步定制，大大的降低了应用服务的镜像制作成本。</p>
+<h3 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line">##查看docker容器版本</span><br><span class="line">docker version</span><br><span class="line"></span><br><span class="line">##查看docker容器信息</span><br><span class="line">docker info</span><br><span class="line"></span><br><span class="line">##查看docker容器帮助</span><br><span class="line">docker --help</span><br><span class="line"></span><br><span class="line">##列出本地images</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line">##含中间映像层</span><br><span class="line">docker images -a</span><br><span class="line"></span><br><span class="line">##只显示镜像ID</span><br><span class="line">docker images -q</span><br><span class="line"></span><br><span class="line">##含中间映像层</span><br><span class="line">docker images -qa  </span><br><span class="line"></span><br><span class="line">##显示镜像摘要信息(DIGEST列)</span><br><span class="line">docker images --digests</span><br><span class="line"></span><br><span class="line">##显示镜像完整信息</span><br><span class="line">docker images --no-trunc</span><br><span class="line"></span><br><span class="line">##显示指定镜像的历史创建；参数：-H 镜像大小和日期，默认为true；--no-trunc  显示完整的提交记录；-q  仅列出提交记录ID</span><br><span class="line">docker history -H redis</span><br><span class="line"></span><br><span class="line">##搜索仓库MySQL镜像</span><br><span class="line">docker search mysql</span><br><span class="line"></span><br><span class="line">## --filter&#x3D;stars&#x3D;600：只显示 starts&gt;&#x3D;600 的镜像</span><br><span class="line">docker search --filter&#x3D;stars&#x3D;600 mysql</span><br><span class="line"></span><br><span class="line">## --no-trunc 显示镜像完整 DESCRIPTION 描述</span><br><span class="line">docker search --no-trunc mysql</span><br><span class="line"></span><br><span class="line">## --automated ：只列出 AUTOMATED&#x3D;OK 的镜像</span><br><span class="line">docker search  --automated mysql</span><br><span class="line"></span><br><span class="line">##下载Redis官方最新镜像，相当于：docker pull redis:latest</span><br><span class="line">docker pull redis</span><br><span class="line"></span><br><span class="line">##下载仓库所有Redis镜像</span><br><span class="line">docker pull -a redis</span><br><span class="line"></span><br><span class="line">##下载私人仓库镜像</span><br><span class="line">docker pull bitnami&#x2F;redis</span><br><span class="line"></span><br><span class="line">##单个镜像删除，相当于：docker rmi redis:latest</span><br><span class="line">docker rmi redis</span><br><span class="line"></span><br><span class="line">##强制删除(针对基于镜像有运行的容器进程)</span><br><span class="line">docker rmi -f redis</span><br><span class="line"></span><br><span class="line">##多个镜像删除，不同镜像间以空格间隔</span><br><span class="line">docker rmi -f redis tomcat nginx</span><br><span class="line"></span><br><span class="line">##删除本地全部镜像</span><br><span class="line">docker rmi -f $(docker images -q)</span><br><span class="line"></span><br><span class="line">##（1）编写dockerfile</span><br><span class="line">cd &#x2F;docker&#x2F;dockerfile</span><br><span class="line">vim mycentos</span><br><span class="line"></span><br><span class="line">##（2）构建docker镜像</span><br><span class="line">docker build -f &#x2F;docker&#x2F;dockerfile&#x2F;mycentos -t mycentos:1.1</span><br><span class="line"></span><br><span class="line">##新建并启动容器，参数：-i  以交互模式运行容器；-t  为容器重新分配一个伪输入终端；--name  为容器指定一个名称</span><br><span class="line">docker run -i -t --name mycentos</span><br><span class="line"></span><br><span class="line">##后台启动容器，参数：-d  已守护方式启动容器</span><br><span class="line">docker run -d mycentos</span><br><span class="line"></span><br><span class="line">##启动一个或多个已经被停止的容器</span><br><span class="line">docker start redis</span><br><span class="line"></span><br><span class="line">##重启容器</span><br><span class="line">docker restart redis</span><br><span class="line"></span><br><span class="line">##top支持 ps 命令参数，格式：docker top [OPTIONS] CONTAINER [ps OPTIONS]</span><br><span class="line">##列出redis容器中运行进程</span><br><span class="line">docker top redis</span><br><span class="line"></span><br><span class="line">##查看所有运行容器的进程信息</span><br><span class="line">for i in  &#96;docker ps |grep Up|awk &#39;&#123;print $1&#125;&#39;&#96;;do echo \ &amp;&amp;docker top $i; done</span><br><span class="line"></span><br><span class="line">##查看redis容器日志，默认参数</span><br><span class="line">docker logs rabbitmq</span><br><span class="line"></span><br><span class="line">##查看redis容器日志，参数：-f  跟踪日志输出；-t   显示时间戳；--tail  仅列出最新N条容器日志；</span><br><span class="line">docker logs -f -t --tail&#x3D;20 redis</span><br><span class="line"></span><br><span class="line">##查看容器redis从2019年05月21日后的最新10条日志。</span><br><span class="line">docker logs --since&#x3D;&quot;2019-05-21&quot; --tail&#x3D;10 redis</span><br><span class="line"></span><br><span class="line">##使用run方式在创建时进入</span><br><span class="line">docker run -it centos &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">##关闭容器并退出</span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">##仅退出容器，不关闭</span><br><span class="line">快捷键：Ctrl + P + Q</span><br><span class="line"></span><br><span class="line">##直接进入centos 容器启动命令的终端，不会启动新进程，多个attach连接共享容器屏幕，参数：--sig-proxy&#x3D;false  确保CTRL-D或CTRL-C不会关闭容器</span><br><span class="line">docker attach --sig-proxy&#x3D;false centos </span><br><span class="line"></span><br><span class="line">##在 centos 容器中打开新的交互模式终端，可以启动新进程，参数：-i  即使没有附加也保持STDIN 打开；-t  分配一个伪终端</span><br><span class="line">docker exec -i -t  centos &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">##以交互模式在容器中执行命令，结果返回到当前终端屏幕</span><br><span class="line">docker exec -i -t centos ls -l &#x2F;tmp</span><br><span class="line"></span><br><span class="line">##以分离模式在容器中执行命令，程序后台运行，结果不会反馈到当前终端</span><br><span class="line">docker exec -d centos  touch cache.txt </span><br><span class="line"></span><br><span class="line">##查看正在运行的容器</span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line">##查看正在运行的容器的ID</span><br><span class="line">docker ps -q</span><br><span class="line"></span><br><span class="line">##查看正在运行+历史运行过的容器</span><br><span class="line">docker ps -a</span><br><span class="line"></span><br><span class="line">##显示运行容器总文件大小</span><br><span class="line">docker ps -s</span><br><span class="line"></span><br><span class="line">##显示最近创建容器</span><br><span class="line">docker ps -l</span><br><span class="line"></span><br><span class="line">##显示最近创建的3个容器</span><br><span class="line">docker ps -n 3</span><br><span class="line"></span><br><span class="line">##不截断输出</span><br><span class="line">docker ps --no-trunc </span><br><span class="line"></span><br><span class="line">##停止一个运行中的容器</span><br><span class="line">docker stop redis</span><br><span class="line"></span><br><span class="line">##杀掉一个运行中的容器</span><br><span class="line">docker kill redis</span><br><span class="line"></span><br><span class="line">##删除一个已停止的容器</span><br><span class="line">docker rm redis</span><br><span class="line"></span><br><span class="line">##删除一个运行中的容器</span><br><span class="line">docker rm -f redis</span><br><span class="line"></span><br><span class="line">##删除多个容器</span><br><span class="line">docker rm -f $(docker ps -a -q)</span><br><span class="line">docker ps -a -q | xargs docker rm</span><br><span class="line"></span><br><span class="line">## -l 移除容器间的网络连接，连接名为 db</span><br><span class="line">docker rm -l db </span><br><span class="line"></span><br><span class="line">## -v 删除容器，并删除容器挂载的数据卷</span><br><span class="line">docker rm -v redis</span><br><span class="line"></span><br><span class="line">##基于当前redis容器创建一个新的镜像；参数：-a 提交的镜像作者；-c 使用Dockerfile指令来创建镜像；-m :提交时的说明文字；-p :在commit时，将容器暂停</span><br><span class="line">docker commit -a&#x3D;&quot;DeepInThought&quot; -m&#x3D;&quot;my redis&quot; [redis容器ID]  myredis:v1.1</span><br><span class="line"></span><br><span class="line">##将rabbitmq容器中的文件copy至本地路径</span><br><span class="line">docker cp rabbitmq:&#x2F;[container_path] [local_path]</span><br><span class="line"></span><br><span class="line">##将主机文件copy至rabbitmq容器</span><br><span class="line">docker cp [local_path] rabbitmq:&#x2F;[container_path]&#x2F;</span><br><span class="line"></span><br><span class="line">##将主机文件copy至rabbitmq容器，目录重命名为[container_path]（注意与非重命名copy的区别）</span><br><span class="line">docker cp [local_path] rabbitmq:&#x2F;[container_path]</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Docker/"># Docker</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2017/03/12/day07/">Selenium</a>
+            
+            
+            <a class="next" rel="next" href="/2017/03/08/day05/">python实现图形验证码</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

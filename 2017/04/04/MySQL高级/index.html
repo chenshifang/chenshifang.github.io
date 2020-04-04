@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>数据库-MySql高级 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">陈士方的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">数据库-MySql高级</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">四月 4, 2017&nbsp;&nbsp;0:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>视图：就是将查询结果作为一个虚拟的表展示。</p>
+<p>视图的作用<br>1，提高了重要性，就像一个函数。<br>2，对数据库重构，缺不影响程序运行。<br>3，提高了安全性能，可以对不同的客户。<br>4，让数据更加清晰。</p>
+<p>视图语法</p>
+<ol>
+<li><p>定义视图<br>建议以v_开头<br>create view 视图名称 as select语句;</p>
+</li>
+<li><p>查看视图<br>查看表会将所有的视图也列出来<br>show tables;</p>
+</li>
+<li><p>使用视图<br>视图的用途就是查询<br>select * from v_stu_score;</p>
+</li>
+<li><p>删除视图<br>drop view 视图名称;<br>例：<br>drop view v_stu_sco;</p>
+</li>
+</ol>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务四大特性：<br>• 原子性（atomicity）<br>一个事务必须被视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性</p>
+<p>• 一致性（consistency）<br>数据库总是从一个一致性的状态转换到另一个一致性的状态。（在前面的例子中，一致性确保了，即使在执行第三、四条语句之间时系统崩溃，支票账户中也不会损失200美元，因为事务最终没有提交，所以事务中所做的修改也不会保存到数据库中。）</p>
+<p>• 隔离性（isolation）<br>通常来说，一个事务所做的修改在最终提交以前，对其他事务是不可见的。（在前面的例子中，当执行完第三条语句、第四条语句还未开始时，此时有另外的一个账户汇总程序开始运行，则其看到支票帐户的余额并没有被减去200美元。）</p>
+<p>• 持久性（durability）<br>一旦事务提交，则其所做的修改会永久保存到数据库。（此时即使系统崩溃，修改的数据也不会丢失。）</p>
+<p>事务命令：</p>
+<p>开启事务，命令如下：<br>• 开启事务后执行修改命令，变更会维护到本地缓存中，而不维护到物理表中<br>begin;<br>或者<br>start transaction;</p>
+<p>提交事务，命令如下<br>• 将缓存中的数据变更维护到物理表中<br>commit;</p>
+<p>回滚事务，命令如下：<br>• 放弃缓存中变更的数据<br>rollback;</p>
+<p>注意<br>    1. 修改数据的命令会自动的触发事务，包括insert、update、delete<br>    2. 而在SQL语句中有手动开启事务的原因是：可以进行多次数据的修改，如果成功一起成功，否则一起会滚到之前的数据。</p>
+<p>step1：连接<br>• 终端1<br>select * from goods_cates;<br>step2：增加数据<br>• 终端2：开启事务，插入数据<br>begin;<br>insert into goods_cates(name) values(‘小霸王游戏机’);<br>• 终端2：查询数据，此时有新增的数据<br>select * from goods_cates;<br>step3：查询<br>• 终端1：查询数据，发现并没有新增的数据<br>select * from goods_cates;<br>step4：回滚<br>• 终端2：完成回滚<br>rollback;<br>step5：查询<br>• 终端1：查询数据，发现没有新增的数据<br>select * from goods_cates;</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>索引的作用：优化查询。<br>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它们包含着对数据表里所有记录的引用指针。</p>
+<p>缺点：<br>过多的创建索引会影响更新和插入数据的速度，还会过多的占用磁盘空间。</p>
+<p>索引的使用<br>• 查看索引<br>show index from 表名;</p>
+<p>• 创建索引<br>• 如果指定字段是字符串，需要指定长度，建议长度与定义字段时的长度一致<br>• 字段类型如果不是字符串，可以不填写长度部分<br>create index 索引名称 on 表名(字段名称(长度))</p>
+<p>• 删除索引：<br>drop index 索引名称 on 表名;</p>
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><p>可以起到两个表相互约束的作用。<br>可以保证数据的一致性和完整性。</p>
+<p>1.主键约束（PRIMARY KEY）</p>
+<p>1) 主键用于唯一地标识表中的每一条记录，可以定义一列或多列为主键。<br>2) 是不可能（或很难）更新．<br>3) 主键列上没有任何两行具有相同值（即重复值），不允许空（NULL）．<br>4) 主健可作外健，唯一索引不可；</p>
+<p>2.唯一性约束（UNIQUE）</p>
+<p>1) 唯一性约束用来限制不受主键约束的列上的数据的唯一性，用于作为访问某行的可选手段，一个表上可以放置多个唯一性约束．<br>2) 只要唯一就可以更新．<br>3) 即表中任意两行在  指定列上都不允许有相同的值，允许空（NULL）．<br>4) 一个表上可以放置多个唯一性约束</p>
+<p>3.唯一索引（INDEX）<br>创建唯一索引可以确保任何生成重复键值的尝试都会失败。</p>
+<p>唯一性约束和主键约束的区别：<br>    （1）.唯一性约束允许在该列上存在NULL值，而主键约束的限制更为严格，不但不允许有重复，而且也不允许有空值。<br>    （2）.在创建唯一性约束和主键约束时可以创建聚集索引和非聚集索引，但在 默认情况下主键约束产生聚集索引，而唯一性约束产生非聚集索引</p>
+<p>外键语法：<br>1，创建表时设置外键语法：foreign  key(字段名)  references  表名(主键名)<br>2，创建表后添加外键语法：alter table 表名 add foreign key(字段名) references 表名（主键名）</p>
+<p>删除外键：<br>alter table 表名 drop foreign key 外键；</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/MySql/"># MySql</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/03/02/day01/">Git命令</a>
+            
+            
+            <a class="next" rel="next" href="/2017/03/31/MySql/">数据库-MySql</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
