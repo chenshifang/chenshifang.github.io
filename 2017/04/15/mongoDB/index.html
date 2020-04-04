@@ -12,7 +12,7 @@
 
 
 
-<title>第三方登录-微博 | 陈士方的博客</title>
+<title>MongoDB | 陈士方的博客</title>
 
 
 
@@ -183,7 +183,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">第三方登录-微博</h1>
+            <h1 class="post-title">MongoDB</h1>
             
                 <div class="post-meta">
                     
@@ -192,14 +192,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">三月 15, 2017&nbsp;&nbsp;16:21:18</a>
+                        Date: <a href="#">四月 15, 2017&nbsp;&nbsp;0:00:00</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                             
                         </span>
                     
@@ -208,7 +208,14 @@
         </header>
 
         <div class="post-content">
-            <h3 id="三方登录花里胡哨的搞不懂啊。。。"><a href="#三方登录花里胡哨的搞不懂啊。。。" class="headerlink" title="三方登录花里胡哨的搞不懂啊。。。"></a>三方登录花里胡哨的搞不懂啊。。。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def wb_back(request):</span><br><span class="line"></span><br><span class="line">    # 获取code</span><br><span class="line">    code &#x3D; request.GET.get(&#39;code&#39;)</span><br><span class="line">	</span><br><span class="line">    # 定义微博认证地址</span><br><span class="line">    access_token_url &#x3D; &quot;https:&#x2F;&#x2F;api.weibo.com&#x2F;oauth2&#x2F;access_token&quot;</span><br><span class="line"></span><br><span class="line">    # 参数</span><br><span class="line">    res &#x3D; requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data&#x3D;&#123;</span><br><span class="line"></span><br><span class="line">            &quot;client_id&quot;: &quot;247032599&quot;,</span><br><span class="line">            &quot;client_secret&quot;: &quot;ba943c1be38fa9b097e23cfa6fbddaec&quot;,</span><br><span class="line">            &quot;grant_type&quot;: &quot;authorization_code&quot;,</span><br><span class="line">            &quot;code&quot;: code,</span><br><span class="line">            &quot;redirect_uri&quot;: &quot;http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;md_admin&#x2F;weibo&quot;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    # 转换类型</span><br><span class="line">    res &#x3D; json.loads(res.text)</span><br><span class="line"></span><br><span class="line">    # print(res[&#39;uid&#39;])</span><br><span class="line">	</span><br><span class="line">    # 换取新浪微博昵称</span><br><span class="line">    result &#x3D; requests.get(&#39;https:&#x2F;&#x2F;api.weibo.com&#x2F;2&#x2F;users&#x2F;show.json&#39;, </span><br><span class="line">                          params&#x3D;&#123;</span><br><span class="line">                                    &#39;access_token&#39;:res[&#39;access_token&#39;],</span><br><span class="line">                                    &#39;uid&#39;: res[&#39;uid&#39;]</span><br><span class="line">                        &#125;)</span><br><span class="line"></span><br><span class="line">    result &#x3D; json.loads(result.text)</span><br><span class="line">    user &#x3D; models.User.objects.filter(username&#x3D;str(result[&#39;name&#39;])).first()</span><br><span class="line">	</span><br><span class="line">    sina_id &#x3D; &#39;&#39;</span><br><span class="line">    user_id &#x3D; &#39;&#39;</span><br><span class="line">	</span><br><span class="line">    if user:</span><br><span class="line">        sina_id &#x3D; user.username</span><br><span class="line">        user_id &#x3D; user.id</span><br><span class="line">    else:</span><br><span class="line">        user &#x3D; models.User(username&#x3D;str(result[&#39;name&#39;]), password&#x3D;&#39;&#39;)</span><br><span class="line">        user.save()</span><br><span class="line">        sina_id &#x3D; result[&#39;name&#39;]</span><br><span class="line"></span><br><span class="line">        user &#x3D; models.User.objects.filter(username&#x3D;str(result[&#39;name&#39;])).first()</span><br><span class="line">        user_id &#x3D; user.id</span><br><span class="line"></span><br><span class="line">    return redirect(&quot;http:&#x2F;&#x2F;localhost:8080?sina_id&#x3D;&quot; + sina_id + &quot;&amp;uid&#x3D;&quot; + str(user_id))</span><br></pre></td></tr></table></figure>
+            <h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><p>MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。它可以从单服务器部署扩展到大型、复杂的多数据中心架构。利用内存计算的优势，MongoDB能够提供高性能的数据读写操作。 MongoDB的本地复制和自动故障转移功能使您的应用程序具有企业级的可靠性和操作灵活性</p>
+<h3 id="MongoDB数据库基本用法"><a href="#MongoDB数据库基本用法" class="headerlink" title="MongoDB数据库基本用法"></a>MongoDB数据库基本用法</h3><p>show dbs:显示数据库列表<br>show collections：显示当前数据库中的集合（类似关系数据库中的表）<br>show users：显示用户<br>use <db name>：切换当前数据库，这和MS-SQL里面的意思一样<br>db.help()：显示数据库操作命令，里面有很多的命令<br>db.foo.help()：显示集合操作命令，同样有很多的命令，foo指的是当前数据库下，一个叫foo的集合，并非真正意义上的命令<br>db.foo.find()：对于当前数据库中的foo集合进行数据查找（由于没有条件，会列出所有数据）<br>db.foo.find( { a : 1 } )：对于当前数据库中的foo集合进行查找，条件是数据中有一个属性叫a，且a的值为1<br>MongoDB没有创建数据库的命令，但有类似的命令。<br>如：如果你想创建一个“myTest”的数据库，先运行use myTest命令，之后就做一些操作（如：db.createCollection(‘user’)）,这样就可以创建一个名叫“myTest”的数据库。</p>
+<h3 id="数据库常用命令"><a href="#数据库常用命令" class="headerlink" title="数据库常用命令"></a>数据库常用命令</h3><p>1、Help查看命令提示<br>help<br>db.help();<br>db.yourColl.help();<br>db.youColl.find().help();<br>rs.help();<br>2、切换/创建数据库<br>use yourDB; 当创建一个集合(table)的时候会自动创建当前数据库<br>3、查询所有数据库<br>show dbs;<br>4、删除当前使用数据库<br>db.dropDatabase();<br>5、从指定主机上克隆数据库<br>db.cloneDatabase(“127.0.0.1”); 将指定机器上的数据库的数据克隆到当前数据库<br>6、从指定的机器上复制指定数据库数据到某个数据库<br>db.copyDatabase(“mydb”, “temp”, “127.0.0.1”);将本机的mydb的数据复制到temp数据库中<br>7、修复当前数据库<br>db.repairDatabase();<br>8、查看当前使用的数据库<br>db.getName();<br>db; db和getName方法是一样的效果，都可以查询当前使用的数据库<br>9、显示当前db状态<br>db.stats();<br>10、当前db版本<br>db.version();<br>11、查看当前db的链接机器地址<br>db.getMongo();</p>
+<h3 id="Collection聚集集合"><a href="#Collection聚集集合" class="headerlink" title="Collection聚集集合"></a>Collection聚集集合</h3><p>1、创建一个聚集集合（table）<br>db.createCollection(“collName”, {size: 20, capped: 5, max: 100});<br>2、得到指定名称的聚集集合（table）<br>db.getCollection(“account”);<br>3、得到当前db的所有聚集集合<br>db.getCollectionNames();<br>4、显示当前db所有聚集索引的状态<br>db.printCollectionStats();</p>
+<h3 id="用户相关"><a href="#用户相关" class="headerlink" title="用户相关"></a>用户相关</h3><p>1、添加一个用户<br>db.addUser(“name”);<br>db.addUser(“userName”, “pwd123”, true); 添加用户、设置密码、是否只读<br>2、数据库认证、安全模式<br>db.auth(“userName”, “123123”);<br>3、显示当前所有用户<br>show users;<br>4、删除用户<br>db.removeUser(“userName”);</p>
+<h3 id="查看聚集集合基本信息"><a href="#查看聚集集合基本信息" class="headerlink" title="查看聚集集合基本信息"></a>查看聚集集合基本信息</h3><p>1、查看帮助 db.yourColl.help();<br>2、查询当前集合的数据条数 db.yourColl.count();<br>3、查看数据空间大小 db.userInfo.dataSize();<br>4、得到当前聚集集合所在的db db.userInfo.getDB();<br>5、得到当前聚集的状态 db.userInfo.stats();<br>6、得到聚集集合总大小 db.userInfo.totalSize();<br>7、聚集集合储存空间大小 db.userInfo.storageSize();<br>8、Shard版本信息 db.userInfo.getShardVersion()<br>9、聚集集合重命名 db.userInfo.renameCollection(“users”); 将userInfo重命名为users<br>10、删除当前聚集集合 db.userInfo.drop();</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>1、创建索引<br>db.userInfo.ensureIndex({name: 1});<br>db.userInfo.ensureIndex({name: 1, ts: -1});<br>2、查询当前聚集集合所有索引<br>db.userInfo.getIndexes();<br>3、查看总索引记录大小<br>db.userInfo.totalIndexSize();<br>4、读取当前集合的所有index信息<br>db.users.reIndex();<br>5、删除指定索引<br>db.users.dropIndex(“name_1”);<br>6、删除所有索引索引<br>db.users.dropIndexes();</p>
+
         </div>
 
         
@@ -218,7 +225,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"># 第三方登录</a>
+                        <a href="/tags/MongoDB/"># MongoDB</a>
                     
                         
                 </span>
@@ -231,10 +238,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2017/03/18/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95-%E9%92%89%E9%92%89/">第三方登录-钉钉</a>
             
-            
-            <a class="next" rel="next" href="/2017/03/12/day07/">Selenium</a>
+            <a class="next" rel="next" href="/2017/04/09/redis/">Redis</a>
             
         </section>
 

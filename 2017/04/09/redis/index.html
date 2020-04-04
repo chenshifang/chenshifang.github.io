@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>Redis | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Redis</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">四月 9, 2017&nbsp;&nbsp;0:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>redis是key-value的数据结构，每条数据都是一个键值对键的类型是字符串<br>注意：键不能重复</p>
+<p>值的类型分为五种：<br>字符串string<br>哈希hash<br>列表list<br>集合set<br>有序集合zset<br>string类型<br>字符串类型是 Redis 中最为基础的数据存储类型，它在 Redis 中是二进制安全的，这便意味着该类型可以接受任何格式的数据，如JPEG图像数据或Json对象描述信息等。在Redis中字符串类型的Value最多可以容纳的数据长度是512M。</p>
+<p>基本操作<br>设置键值<br>set key value</p>
+<p>例1：设置键为name值为itcast的数据<br>set name itcast</p>
+<p>设置键值及过期时间，以秒为单位<br>setex key seconds value</p>
+<p>例2：设置键为aa值为aa过期时间为3秒的数据<br>setex aa 3 aa</p>
+<p>设置多个键值<br>mset key1 value1 key2 value2 …</p>
+<p>例3：设置键为’a1’值为’python’、键为’a2’值为’java’、键为’a3’值为’c’<br>mset a1 python a2 java a3 c</p>
+<p>追加值<br>append key value</p>
+<p>例4：向键为a1中追加值’ haha’<br>append ‘a1’ ‘haha’</p>
+<p>获取<br>获取：根据键获取值，如果不存在此键则返回null<br>get key</p>
+<p>例5：获取键’name’的值<br>get ‘name’</p>
+<p>根据多个键获取多个值<br>mget key1 key2 …</p>
+<p>例6：获取键a1、a2、a3’的值<br>mget a1 a2 a3</p>
+<p>查看键对应的value的类型<br>type key</p>
+<p>例4：查看键a1的值类型，为redis⽀持的五种类型中的⼀种<br>type a1</p>
+<p>删除键及对应的值<br>del key1 key2 …</p>
+<p>例5：删除键a2、a3<br>del a2 a3</p>
+<p>设置过期时间，以秒为单位<br>如果没有指定过期时间则⼀直存在，直到使⽤DEL移除<br>expire key seconds</p>
+<p>例6：设置键’a1’的过期时间为3秒<br>expire ‘a1’ 3</p>
+<p>查看有效时间，以秒为单位</p>
+<p>ttl key</p>
+<p>hash类型<br>hash⽤于存储对象，对象的结构为属性、值<br>值的类型为string<br>设置单个属性<br>增加、修改<br>hset key field value</p>
+<p>例1：设置键 user的属性name为itheima<br>hset user name itheima</p>
+<p>MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.</p>
+<p>Redis被配置为保存数据库快照，但它目前不能持久化到硬盘。用来修改集合数据的命令不能用</p>
+<p>原因：</p>
+<p>强制关闭Redis快照导致不能持久化。 解决方案：<br>运行config set stop-writes-on-bgsave-error no　命令后，关闭配置项stop-writes-on-bgsave-error解决该问题。<br>设置多个属性<br>hmset key field1 value1 field2 value2 …</p>
+<p>例2：设置键u2的属性name为itcast、属性age为11<br>hmset u2 name itcast age 11</p>
+<p>获取<br>获取指定键所有的属性<br>hkeys key</p>
+<p>例3：获取键u2的所有属性<br>hkeys u2</p>
+<p>获取⼀个属性的值<br>hget key field</p>
+<p>例4：获取键u2属性’name’的值<br>hget u2 ‘name’</p>
+<p>获取多个属性的值<br>hmget key field1 field2 …</p>
+<p>例5：获取键u2属性’name’、’age的值<br>hmget u2 name age</p>
+<p>获取所有属性的值<br>hvals key</p>
+<p>例6：获取键’u2’所有属性的值<br>hvals u2</p>
+<p>删除<br>删除整个hash键及值，使⽤del命令<br>删除属性，属性对应的值会被⼀起删除<br>hdel key field1 field2 …</p>
+<p>例7：删除键’u2’的属性’age’<br>hdel u2 age</p>
+<p>list类型<br>列表的元素类型为string<br>按照插⼊顺序排序<br>在左侧插⼊数据<br>增加<br>lpush key value1 value2 …</p>
+<p>例1：从键为’a1’的列表左侧加⼊数据a 、 b 、c<br>lpush a1 a b c</p>
+<p>在右侧插⼊数据<br>rpush key value1 value2 …</p>
+<p>例2：从键为’a1’的列表右侧加⼊数据0 1<br>rpush a1 0 1</p>
+<p>在指定元素的前或后插⼊新元素<br>linsert key before或after 现有元素 新元素</p>
+<p>例3：在键为’a1’的列表中元素’b’前加⼊’3’<br>linsert a1 before b 3</p>
+<p>获取<br>返回列表⾥指定范围内的元素<br>start、stop为元素的下标索引<br>索引从左侧开始，第⼀个元素为0<br>索引可以是负数，表示从尾部开始计数，如-1表示最后⼀个元素<br>lrange key start stop</p>
+<p>例4：获取键为’a1’的列表所有元素<br>lrange a1 0 -1</p>
+<p>设置指定索引位置的元素值<br>索引从左侧开始，第⼀个元素为0<br>索引可以是负数，表示尾部开始计数，如-1表示最后⼀个元素<br>lset key index value</p>
+<p>例5：修改键为’a1’的列表中下标为1的元素值为’z’<br>lset a 1 z</p>
+<p>删除<br>删除指定元素<br>将列表中前count次出现的值为value的元素移除<br>count &gt; 0: 从头往尾移除<br>count &lt; 0: 从尾往头移除<br>count = 0: 移除所有<br>lrem key count value</p>
+<p>例6.1：向列表’a2’中加⼊元素’a’、’b’、’a’、’b’、’a’、’b’<br>lpush a2 a b a b a b</p>
+<p>例6.2：从’a2’列表右侧开始删除2个’b’<br>lrem a2 -2 b</p>
+<p>例6.3：查看列表’py12’的所有元素<br>lrange a2 0 -1</p>
+<p>set类型<br>⽆序集合<br>元素为string类型<br>元素具有唯⼀性，不重复<br>说明：对于集合没有修改操作<br>添加元素<br>增加<br>sadd key member1 member2 …</p>
+<p>例1：向键’a3’的集合中添加元素’zhangsan’、’lisi’、’wangwu’<br>sadd a3 zhangsan sili wangwu</p>
+<p>获取<br>返回所有的元素<br>smembers key</p>
+<p>例2：获取键’a3’的集合中所有元素<br>smembers a3</p>
+<p>删除<br>删除指定元素<br>srem key</p>
+<p>例3：删除键’a3’的集合中元素’wangwu’<br>srem a3 wangwu</p>
+<p>zset类型<br>sorted set，有序集合<br>元素为string类型<br>元素具有唯⼀性，不重复<br>每个元素都会关联⼀个double类型的score，表示权重，通过权重将元素从⼩到⼤排序<br>说明：没有修改操作<br>添加<br>增加<br>zadd key score1 member1 score2 member2 …</p>
+<p>例1：向键’a4’的集合中添加元素’lisi’、’wangwu’、’zhaoliu’、’zhangsan’，权重分别为4、5、6、3<br>zadd a4 4 lisi 5 wangwu 6 zhaoliu 3 zhangsan</p>
+<p>获取<br>返回指定范围内的元素<br>start、stop为元素的下标索引<br>索引从左侧开始，第⼀个元素为0<br>索引可以是负数，表示从尾部开始计数，如-1表示最后⼀个元素<br>zrange key start stop</p>
+<p>例2：获取键’a4’的集合中所有元素<br>zrange a4 0 -1</p>
+<p>返回score值在min和max之间的成员<br>zrangebyscore key min max</p>
+<p>例3：获取键’a4’的集合中权限值在5和6之间的成员<br>zrangebyscore a4 5 6</p>
+<p>返回成员member的score值<br>zscore key member</p>
+<p>例4：获取键’a4’的集合中元素’zhangsan’的权重<br>zscore a4 zhangsan</p>
+<p>删除<br>删除指定元素<br>zrem key member1 member2 …</p>
+<p>例5：删除集合’a4’中元素’zhangsan’<br>zrem a4 zhangsan</p>
+<p>删除权重在指定范围的元素<br>zremrangebyscore key min max</p>
+<p>例6：删除集合’a4’中权限在5、6之间的元素<br>zremrangebyscore a4 5 6</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Redis/"># Redis</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2017/04/15/mongoDB/">MongoDB</a>
+            
+            
+            <a class="next" rel="next" href="/2017/04/04/MySQL%E9%AB%98%E7%BA%A7/">数据库-MySql高级</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
