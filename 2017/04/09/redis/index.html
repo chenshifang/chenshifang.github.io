@@ -117,6 +117,68 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
@@ -147,7 +209,8 @@
 
         <div class="post-content">
             <p>redis是key-value的数据结构，每条数据都是一个键值对键的类型是字符串<br>注意：键不能重复</p>
-<p>值的类型分为五种：<br>字符串string<br>哈希hash<br>列表list<br>集合set<br>有序集合zset<br>string类型<br>字符串类型是 Redis 中最为基础的数据存储类型，它在 Redis 中是二进制安全的，这便意味着该类型可以接受任何格式的数据，如JPEG图像数据或Json对象描述信息等。在Redis中字符串类型的Value最多可以容纳的数据长度是512M。</p>
+<p>值的类型分为五种：<br>字符串string<br>哈希hash<br>列表list<br>集合set<br>有序集合zset</p>
+<h3 id="1-string类型"><a href="#1-string类型" class="headerlink" title="1,string类型"></a>1,string类型</h3><p>字符串类型是 Redis 中最为基础的数据存储类型，它在 Redis 中是二进制安全的，这便意味着该类型可以接受任何格式的数据，如JPEG图像数据或Json对象描述信息等。在Redis中字符串类型的Value最多可以容纳的数据长度是512M。</p>
 <p>基本操作<br>设置键值<br>set key value</p>
 <p>例1：设置键为name值为itcast的数据<br>set name itcast</p>
 <p>设置键值及过期时间，以秒为单位<br>setex key seconds value</p>
@@ -168,7 +231,7 @@
 <p>例6：设置键’a1’的过期时间为3秒<br>expire ‘a1’ 3</p>
 <p>查看有效时间，以秒为单位</p>
 <p>ttl key</p>
-<p>hash类型<br>hash⽤于存储对象，对象的结构为属性、值<br>值的类型为string<br>设置单个属性<br>增加、修改<br>hset key field value</p>
+<h3 id="2-hash类型"><a href="#2-hash类型" class="headerlink" title="2,hash类型"></a>2,hash类型</h3><p>hash⽤于存储对象，对象的结构为属性、值<br>值的类型为string<br>设置单个属性<br>增加、修改<br>hset key field value</p>
 <p>例1：设置键 user的属性name为itheima<br>hset user name itheima</p>
 <p>MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.</p>
 <p>Redis被配置为保存数据库快照，但它目前不能持久化到硬盘。用来修改集合数据的命令不能用</p>
@@ -185,7 +248,7 @@
 <p>例6：获取键’u2’所有属性的值<br>hvals u2</p>
 <p>删除<br>删除整个hash键及值，使⽤del命令<br>删除属性，属性对应的值会被⼀起删除<br>hdel key field1 field2 …</p>
 <p>例7：删除键’u2’的属性’age’<br>hdel u2 age</p>
-<p>list类型<br>列表的元素类型为string<br>按照插⼊顺序排序<br>在左侧插⼊数据<br>增加<br>lpush key value1 value2 …</p>
+<h3 id="3-list类型"><a href="#3-list类型" class="headerlink" title="3,list类型"></a>3,list类型</h3><p>列表的元素类型为string<br>按照插⼊顺序排序<br>在左侧插⼊数据<br>增加<br>lpush key value1 value2 …</p>
 <p>例1：从键为’a1’的列表左侧加⼊数据a 、 b 、c<br>lpush a1 a b c</p>
 <p>在右侧插⼊数据<br>rpush key value1 value2 …</p>
 <p>例2：从键为’a1’的列表右侧加⼊数据0 1<br>rpush a1 0 1</p>
@@ -199,13 +262,13 @@
 <p>例6.1：向列表’a2’中加⼊元素’a’、’b’、’a’、’b’、’a’、’b’<br>lpush a2 a b a b a b</p>
 <p>例6.2：从’a2’列表右侧开始删除2个’b’<br>lrem a2 -2 b</p>
 <p>例6.3：查看列表’py12’的所有元素<br>lrange a2 0 -1</p>
-<p>set类型<br>⽆序集合<br>元素为string类型<br>元素具有唯⼀性，不重复<br>说明：对于集合没有修改操作<br>添加元素<br>增加<br>sadd key member1 member2 …</p>
+<h3 id="4-set类型"><a href="#4-set类型" class="headerlink" title="4,set类型"></a>4,set类型</h3><p>⽆序集合<br>元素为string类型<br>元素具有唯⼀性，不重复<br>说明：对于集合没有修改操作<br>添加元素<br>增加<br>sadd key member1 member2 …</p>
 <p>例1：向键’a3’的集合中添加元素’zhangsan’、’lisi’、’wangwu’<br>sadd a3 zhangsan sili wangwu</p>
 <p>获取<br>返回所有的元素<br>smembers key</p>
 <p>例2：获取键’a3’的集合中所有元素<br>smembers a3</p>
 <p>删除<br>删除指定元素<br>srem key</p>
 <p>例3：删除键’a3’的集合中元素’wangwu’<br>srem a3 wangwu</p>
-<p>zset类型<br>sorted set，有序集合<br>元素为string类型<br>元素具有唯⼀性，不重复<br>每个元素都会关联⼀个double类型的score，表示权重，通过权重将元素从⼩到⼤排序<br>说明：没有修改操作<br>添加<br>增加<br>zadd key score1 member1 score2 member2 …</p>
+<h3 id="5-zset类型"><a href="#5-zset类型" class="headerlink" title="5,zset类型"></a>5,zset类型</h3><p>sorted set，有序集合<br>元素为string类型<br>元素具有唯⼀性，不重复<br>每个元素都会关联⼀个double类型的score，表示权重，通过权重将元素从⼩到⼤排序<br>说明：没有修改操作<br>添加<br>增加<br>zadd key score1 member1 score2 member2 …</p>
 <p>例1：向键’a4’的集合中添加元素’lisi’、’wangwu’、’zhaoliu’、’zhangsan’，权重分别为4、5、6、3<br>zadd a4 4 lisi 5 wangwu 6 zhaoliu 3 zhangsan</p>
 <p>获取<br>返回指定范围内的元素<br>start、stop为元素的下标索引<br>索引从左侧开始，第⼀个元素为0<br>索引可以是负数，表示从尾部开始计数，如-1表示最后⼀个元素<br>zrange key start stop</p>
 <p>例2：获取键’a4’的集合中所有元素<br>zrange a4 0 -1</p>
