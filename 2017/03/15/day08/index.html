@@ -117,68 +117,6 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
@@ -208,7 +146,7 @@
         </header>
 
         <div class="post-content">
-            <h3 id="三方登录花里胡哨的搞不懂啊。。。"><a href="#三方登录花里胡哨的搞不懂啊。。。" class="headerlink" title="三方登录花里胡哨的搞不懂啊。。。"></a>三方登录花里胡哨的搞不懂啊。。。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def wb_back(request):</span><br><span class="line"></span><br><span class="line">    # 获取code</span><br><span class="line">    code &#x3D; request.GET.get(&#39;code&#39;)</span><br><span class="line">	</span><br><span class="line">    # 定义微博认证地址</span><br><span class="line">    access_token_url &#x3D; &quot;https:&#x2F;&#x2F;api.weibo.com&#x2F;oauth2&#x2F;access_token&quot;</span><br><span class="line"></span><br><span class="line">    # 参数</span><br><span class="line">    res &#x3D; requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data&#x3D;&#123;</span><br><span class="line"></span><br><span class="line">            &quot;client_id&quot;: &quot;247032599&quot;,</span><br><span class="line">            &quot;client_secret&quot;: &quot;ba943c1be38fa9b097e23cfa6fbddaec&quot;,</span><br><span class="line">            &quot;grant_type&quot;: &quot;authorization_code&quot;,</span><br><span class="line">            &quot;code&quot;: code,</span><br><span class="line">            &quot;redirect_uri&quot;: &quot;http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;md_admin&#x2F;weibo&quot;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    # 转换类型</span><br><span class="line">    res &#x3D; json.loads(res.text)</span><br><span class="line"></span><br><span class="line">    # print(res[&#39;uid&#39;])</span><br><span class="line">	</span><br><span class="line">    # 换取新浪微博昵称</span><br><span class="line">    result &#x3D; requests.get(&#39;https:&#x2F;&#x2F;api.weibo.com&#x2F;2&#x2F;users&#x2F;show.json&#39;, </span><br><span class="line">                          params&#x3D;&#123;</span><br><span class="line">                                    &#39;access_token&#39;:res[&#39;access_token&#39;],</span><br><span class="line">                                    &#39;uid&#39;: res[&#39;uid&#39;]</span><br><span class="line">                        &#125;)</span><br><span class="line"></span><br><span class="line">    result &#x3D; json.loads(result.text)</span><br><span class="line">    user &#x3D; models.User.objects.filter(username&#x3D;str(result[&#39;name&#39;])).first()</span><br><span class="line">	</span><br><span class="line">    sina_id &#x3D; &#39;&#39;</span><br><span class="line">    user_id &#x3D; &#39;&#39;</span><br><span class="line">	</span><br><span class="line">    if user:</span><br><span class="line">        sina_id &#x3D; user.username</span><br><span class="line">        user_id &#x3D; user.id</span><br><span class="line">    else:</span><br><span class="line">        user &#x3D; models.User(username&#x3D;str(result[&#39;name&#39;]), password&#x3D;&#39;&#39;)</span><br><span class="line">        user.save()</span><br><span class="line">        sina_id &#x3D; result[&#39;name&#39;]</span><br><span class="line"></span><br><span class="line">        user &#x3D; models.User.objects.filter(username&#x3D;str(result[&#39;name&#39;])).first()</span><br><span class="line">        user_id &#x3D; user.id</span><br><span class="line"></span><br><span class="line">    return redirect(&quot;http:&#x2F;&#x2F;localhost:8080?sina_id&#x3D;&quot; + sina_id + &quot;&amp;uid&#x3D;&quot; + str(user_id))</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def wb_back(request):</span><br><span class="line"></span><br><span class="line">    # 获取code</span><br><span class="line">    code &#x3D; request.GET.get(&#39;code&#39;)</span><br><span class="line">	</span><br><span class="line">    # 定义微博认证地址</span><br><span class="line">    access_token_url &#x3D; &quot;https:&#x2F;&#x2F;api.weibo.com&#x2F;oauth2&#x2F;access_token&quot;</span><br><span class="line"></span><br><span class="line">    # 参数</span><br><span class="line">    res &#x3D; requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data&#x3D;&#123;</span><br><span class="line"></span><br><span class="line">            &quot;client_id&quot;: &quot;247032599&quot;,</span><br><span class="line">            &quot;client_secret&quot;: &quot;ba943c1be38fa9b097e23cfa6fbddaec&quot;,</span><br><span class="line">            &quot;grant_type&quot;: &quot;authorization_code&quot;,</span><br><span class="line">            &quot;code&quot;: code,</span><br><span class="line">            &quot;redirect_uri&quot;: &quot;http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;md_admin&#x2F;weibo&quot;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    # 转换类型</span><br><span class="line">    res &#x3D; json.loads(res.text)</span><br><span class="line"></span><br><span class="line">    # print(res[&#39;uid&#39;])</span><br><span class="line">	</span><br><span class="line">    # 换取新浪微博昵称</span><br><span class="line">    result &#x3D; requests.get(&#39;https:&#x2F;&#x2F;api.weibo.com&#x2F;2&#x2F;users&#x2F;show.json&#39;, </span><br><span class="line">                          params&#x3D;&#123;</span><br><span class="line">                                    &#39;access_token&#39;:res[&#39;access_token&#39;],</span><br><span class="line">                                    &#39;uid&#39;: res[&#39;uid&#39;]</span><br><span class="line">                        &#125;)</span><br><span class="line"></span><br><span class="line">    result &#x3D; json.loads(result.text)</span><br><span class="line">    user &#x3D; models.User.objects.filter(username&#x3D;str(result[&#39;name&#39;])).first()</span><br><span class="line">	</span><br><span class="line">    sina_id &#x3D; &#39;&#39;</span><br><span class="line">    user_id &#x3D; &#39;&#39;</span><br><span class="line">	</span><br><span class="line">    if user:</span><br><span class="line">        sina_id &#x3D; user.username</span><br><span class="line">        user_id &#x3D; user.id</span><br><span class="line">    else:</span><br><span class="line">        user &#x3D; models.User(username&#x3D;str(result[&#39;name&#39;]), password&#x3D;&#39;&#39;)</span><br><span class="line">        user.save()</span><br><span class="line">        sina_id &#x3D; result[&#39;name&#39;]</span><br><span class="line"></span><br><span class="line">        user &#x3D; models.User.objects.filter(username&#x3D;str(result[&#39;name&#39;])).first()</span><br><span class="line">        user_id &#x3D; user.id</span><br><span class="line"></span><br><span class="line">    return redirect(&quot;http:&#x2F;&#x2F;localhost:8080?sina_id&#x3D;&quot; + sina_id + &quot;&amp;uid&#x3D;&quot; + str(user_id))</span><br></pre></td></tr></table></figure>
         </div>
 
         
