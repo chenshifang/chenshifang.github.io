@@ -231,7 +231,9 @@
 <p>例6：设置键’a1’的过期时间为3秒<br>expire ‘a1’ 3</p>
 <p>查看有效时间，以秒为单位</p>
 <p>ttl key</p>
-<h3 id="2-hash类型"><a href="#2-hash类型" class="headerlink" title="2,hash类型"></a>2,hash类型</h3><p>hash⽤于存储对象，对象的结构为属性、值<br>值的类型为string<br>设置单个属性<br>增加、修改<br>hset key field value</p>
+<h3 id="2-hash类型"><a href="#2-hash类型" class="headerlink" title="2,hash类型"></a>2,hash类型</h3><p>hash⽤于存储对象，对象的结构为属性、值<br>值的类型为string</p>
+<p>1）value的数据结构（HashMap）<br>    1. redis中的字典也是HashMap（数组+列表）的二维结构<br>    2. 不同的是redis的字典的值只能是字符串<br>2）hash的使用场景（缓存）<br>    1. hash可以用来缓存用户信息，与字符串一次性全部序列化整个对象不同，hash可以对每个字段进行单独存储<br>    2. 这样可以部分获取用户信息，节约网络流量<br>    3. hash也有缺点，hash结构的存储消耗要高于单个字符串</p>
+<p>设置单个属性<br>增加、修改<br>hset key field value</p>
 <p>例1：设置键 user的属性name为itheima<br>hset user name itheima</p>
 <p>MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.</p>
 <p>Redis被配置为保存数据库快照，但它目前不能持久化到硬盘。用来修改集合数据的命令不能用</p>
@@ -248,7 +250,13 @@
 <p>例6：获取键’u2’所有属性的值<br>hvals u2</p>
 <p>删除<br>删除整个hash键及值，使⽤del命令<br>删除属性，属性对应的值会被⼀起删除<br>hdel key field1 field2 …</p>
 <p>例7：删除键’u2’的属性’age’<br>hdel u2 age</p>
-<h3 id="3-list类型"><a href="#3-list类型" class="headerlink" title="3,list类型"></a>3,list类型</h3><p>列表的元素类型为string<br>按照插⼊顺序排序<br>在左侧插⼊数据<br>增加<br>lpush key value1 value2 …</p>
+<h3 id="3-list类型"><a href="#3-list类型" class="headerlink" title="3,list类型"></a>3,list类型</h3><p>列表的元素类型为string<br>1）value的数据结构（双向链表）</p>
+<ol>
+<li>列表的数据结构是双向链表，这意味着插入和删除的时间复杂度是0(1)，索引的时间复杂度位0(n)</li>
+<li>当列表弹出最后一个元素后，该数据结构会被自动删除，内存被回手</li>
+</ol>
+<p>2）列表的使用场景（队列、栈）</p>
+<p>按照插入顺序排序<br>在左侧插入数据<br>增加<br>lpush key value1 value2 …</p>
 <p>例1：从键为’a1’的列表左侧加⼊数据a 、 b 、c<br>lpush a1 a b c</p>
 <p>在右侧插⼊数据<br>rpush key value1 value2 …</p>
 <p>例2：从键为’a1’的列表右侧加⼊数据0 1<br>rpush a1 0 1</p>
