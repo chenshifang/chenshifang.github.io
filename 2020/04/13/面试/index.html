@@ -252,7 +252,7 @@
 <h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><ul>
 <li><p>定义<br>在不修改函数源代码和原功能的基础上，添加新的功能</p>
 </li>
-<li><p>使用场景<br>1，授权：装饰器能有助于检查某人是否被授权去使用一个web应用的断点，它们被大量应用在flask额django框架<br>2，日志：在记录日志的地方添加装饰器<br>3，缓存：通过装饰器获取缓存中的值</p>
+<li><p>使用场景<br>1，授权：装饰器能有助于检查某人是否被授权去使用一个web应用的端点，它们被大量应用在flask额django框架<br>2，日志：在记录日志的地方添加装饰器<br>3，缓存：通过装饰器获取缓存中的值<br>4，计算程序的运行时间</p>
 </li>
 </ul>
 <h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><ul>
@@ -292,7 +292,7 @@
 </ul>
 <h3 id="魔法方法"><a href="#魔法方法" class="headerlink" title="魔法方法"></a>魔法方法</h3><p><strong>new</strong>  :  先于<strong>init</strong>方法，每生成一个实例执行一次，<strong>new</strong> 类方法创建实例对象<br><strong>init</strong> :  <strong>init</strong>方法每生成一个实例就会执行一次，初始化实例对象<br><strong>call</strong> :   后与<strong>init</strong>方法，C()() 使用类再加一个括号调用， C为类名称<br><strong>del</strong>  :   析构方法，删除无用的内存对象（当程序结束会自动自行析构方法）</p>
 <h3 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h3><ul>
-<li>浅拷贝<br>1，实现：copy.copy<br>2，不管多么复杂的数据结构，浅拷贝都只拷贝第一层</li>
+<li>浅拷贝<br>1，实现：copy.copy<br>2，不管多么复杂的数据结构，浅拷贝都只拷贝第一层<br>3，拷贝不可变：只是增加一个指向原对象的引用，改变会互相影响<br>4，拷贝可变（多层结构）：改变会互相影响</li>
 </ul>
 <ul>
 <li>深拷贝<br>1，实现：copy.deepcopy<br>2，深拷贝会完全复制原变量的所有内容，在内存中生成一套完全一样的内容，如果修改其中一个，另一个不会受到影响</li>
@@ -463,6 +463,9 @@
 <li>如果服务器宕机或需要重启，我们则还是需要连入shell进行启动。</li>
 </ol>
 <h3 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h3><p>pwd                   ：查看你当前所在的目录<br>cd                    ：切换目录<br>ls                    ：查看显示目录的内容<br>du                    ：统计目录和文件空间的占用情况<br>mkdir                 ：创建新目录<br>rmdir                 ：删除空目录<br>touch                 ：创建文件<br>rm                    ：删除文件<br>ln                    ：创建硬链接<br>ln -s                 ：创建软链接<br>cp                    ：复制文件或目录<br>mv                    ：动文件或目录<br>which                 ：查看linux命令所在的目录</p>
+<h3 id="三元运算"><a href="#三元运算" class="headerlink" title="三元运算"></a>三元运算</h3><p>一种语法糖<br>只是把if、for那些东西横过来写，列表推导式<br>只能加一些简单的逻辑</p>
+<h3 id="GIl全局解释器锁"><a href="#GIl全局解释器锁" class="headerlink" title="GIl全局解释器锁"></a>GIl全局解释器锁</h3><p>解决方法：换解释器，语法还是python</p>
+<h3 id="b-tree、b-tree"><a href="#b-tree、b-tree" class="headerlink" title="b-tree、b+tree"></a>b-tree、b+tree</h3><p>非叶子节点不存数据，只存储键值信息<br>叶子节点存储data，所有叶子节点都有一个链指针<br>由于B+Tree内节点去掉了data域，因此可以拥有更大的出度<br>还有顺序访问指针，拥有更好的性能。</p>
 
         </div>
 
@@ -485,6 +488,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/21/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客搭建-hugo</a>
             
             
             <a class="next" rel="next" href="/2020/04/12/Linux/">Linux常用命令</a>

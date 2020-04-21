@@ -12,7 +12,7 @@
 
 
 
-<title>三次握手和四次挥手 | 陈士方的博客</title>
+<title>个人博客搭建-hugo | 陈士方的博客</title>
 
 
 
@@ -117,73 +117,11 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">三次握手和四次挥手</h1>
+            <h1 class="post-title">个人博客搭建-hugo</h1>
             
                 <div class="post-meta">
                     
@@ -192,7 +130,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 8, 2020&nbsp;&nbsp;0:00:00</a>
+                        Date: <a href="#">四月 21, 2020&nbsp;&nbsp;0:00:00</a>
                         </span>
                     
                     
@@ -208,28 +146,28 @@
         </header>
 
         <div class="post-content">
-            <h3 id="关于面试"><a href="#关于面试" class="headerlink" title="关于面试"></a>关于面试</h3><p><img src="/image/python%E5%9F%BA%E7%A1%80.png" alt="python基础"></p>
-<ul>
-<li><p>python2和python3的区别<br>  1、Python2 既可以使用带小括号的方式，度也可以使用一个空格来分隔打印内容，比如 print ‘hi’。。。。。Python3 使用 print 必须要以小括号包括打印内容，比如 print(‘hi’)</p>
-<p>  2、python2 range(1,10)返回列表；python3中返回迭代器，节约内存</p>
-<p>  3、python2中使用ascii编码；python3中使用utf-8编码</p>
-<p>  4、python2中unicode表示字符串序列问，str表示字节序列；python3中str表示字符串序列，byte表示字节序列</p>
-<p>  5、python2中为正常显示中文，引入coding声明；python3中不需答要</p>
-<p>  6、python2中是raw_input()函数；python3中是input()函数</p>
-</li>
-</ul>
-<ul>
-<li><p>三次握手和四次挥手<br>  三次握手<br>  1）客户端向服务端发送连接请求（发送SYN包，进入SYN-SEND状态）（第一次握手）；</p>
-<p>  2）服务端接收到连接请求后，同意向客户端建立连接（发送ACK-SYN包，进入SYN-RCVD状态）（第二次握手）；</p>
-<p>  3）客户端接收到服务端的同意后，与服务端确认建立连接（第三次握手）。</p>
-<p>  客户端和服务端就建立起了连接，可以传输数据了。<br>  <img src="/image/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png" alt="三次握手"></p>
-<p>  四次挥手<br>  1）客户端向服务端发送断开连接请求（FIN=1，进入FIN-WAIT-1状态）（第一次挥手）；</p>
-<p>  2）服务端接收到断开请求后，同意向客户端断开连接，但是还有数据在传输，要等数据先传输完，所以先告知客户端收到断开请求了（进入CLOSE-WAIT状态）（第二次挥手）；</p>
-<p>  3）服务端数据传输完成后，告知客户端，要关闭连接了（第三次挥手）；</p>
-<p>  4）客户端接收到服务端的断开连接消息后，告知服务端已收到断开连接的消息（第四次挥手）；</p>
-<p>  客户端和服务端就关闭了连接。<br>  <img src="/image/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png" alt="四次挥手"></p>
-</li>
-</ul>
+            <p>首先hugo是基于go语言的，所以我们的电脑必须要有golang和hugo</p>
+<p>golang：<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a><br>注：别忘记配虚拟环境哦…</p>
+<p>安装后输出命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
+<p>显示版本号即安装成功<br><img src="/image/hugo1.png" alt=""></p>
+<p>hugo的安装，继续命令行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go get -u -v github.com&#x2F;spf13&#x2F;hugo</span><br><span class="line">go build -o hugo main.go</span><br><span class="line">mv hugo $GOPATH&#x2F;bin</span><br></pre></td></tr></table></figure>
+<p>安装后输出命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo version</span><br></pre></td></tr></table></figure>
+<p>显示版本号即安装成功<br><img src="/image/hugo2.png" alt=""></p>
+<p>ok，准备工作做好后，就开始搭建我们的个人博客</p>
+<p>超级简单，一个命令搞定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new site hugo_blog</span><br></pre></td></tr></table></figure>
+<p>注：hugo_blog为博客文件夹名，可自定义</p>
+<p>创建我们的第一篇文章</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new new.md</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以写博客啦<br>hugo博客书写的格式同Markdown格式</p>
+<p>最后启动本地服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo server</span><br></pre></td></tr></table></figure>
+<p><img src="/image/hugo3.png" alt=""></p>
+<p>搞定！！！</p>
 
         </div>
 
@@ -253,10 +191,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/11/day30/">算法</a>
             
-            
-            <a class="next" rel="next" href="/2017/04/15/mongoDB/">MongoDB</a>
+            <a class="next" rel="next" href="/2020/04/13/%E9%9D%A2%E8%AF%95/">面试</a>
             
         </section>
 
