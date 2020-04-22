@@ -12,7 +12,7 @@
 
 
 
-<title>算法 | 陈士方的博客</title>
+<title>md5加密 | 陈士方的博客</title>
 
 
 
@@ -183,7 +183,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">算法</h1>
+            <h1 class="post-title">md5加密</h1>
             
                 <div class="post-meta">
                     
@@ -192,7 +192,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 11, 2020&nbsp;&nbsp;0:00:00</a>
+                        Date: <a href="#">三月 5, 2017&nbsp;&nbsp;15:10:18</a>
                         </span>
                     
                     
@@ -208,21 +208,7 @@
         </header>
 
         <div class="post-content">
-            <h3 id="二分法查找"><a href="#二分法查找" class="headerlink" title="二分法查找"></a>二分法查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">l &#x3D; list(range(1,101))</span><br><span class="line">def bin_search(data_set,val):</span><br><span class="line">   low &#x3D; 0</span><br><span class="line">   high &#x3D; len(data_set) - 1</span><br><span class="line">   while low &lt;&#x3D; high:</span><br><span class="line">      mid &#x3D; (low+high)&#x2F;&#x2F;2</span><br><span class="line">      if data_set[mid] &#x3D;&#x3D; val:</span><br><span class="line">         return mid</span><br><span class="line">      elif data_set[mid] &lt; val:</span><br><span class="line">         low &#x3D; mid + 1</span><br><span class="line">      else:</span><br><span class="line">         high &#x3D; mid - 1</span><br><span class="line">   return</span><br><span class="line">n &#x3D; bin_search(l,11)</span><br><span class="line">print(n)            # 返回结果是： 10</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="二分法查找-1"><a href="#二分法查找-1" class="headerlink" title="二分法查找"></a>二分法查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="冒泡法排序"><a href="#冒泡法排序" class="headerlink" title="冒泡法排序"></a>冒泡法排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def bubble_sort(li):</span><br><span class="line">    for i in range(len(li)-1):</span><br><span class="line">        for j in range(len(li)-i-1):</span><br><span class="line">            if li[j] &gt; li[j+1]:</span><br><span class="line">                li[j],li[j+1]&#x3D;li[j+1],li[j]</span><br><span class="line"></span><br><span class="line">li &#x3D; [1,5,2,6,3,7,4,8,9,0]</span><br><span class="line">bubble_sort(li)</span><br><span class="line">print(li)               # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def quick(list):</span><br><span class="line">    if len(list) &lt; 2:</span><br><span class="line">        return list</span><br><span class="line"></span><br><span class="line">    tmp &#x3D; list[0]  # 临时变量 可以取随机值</span><br><span class="line">    left &#x3D; [x for x in list[1:] if x &lt;&#x3D; tmp]  # 左列表</span><br><span class="line">    right &#x3D; [x for x in list[1:] if x &gt; tmp]  # 右列表</span><br><span class="line">    return quick(left) + [tmp] + quick(right)</span><br><span class="line"></span><br><span class="line">li &#x3D; [4,3,7,5,8,2]</span><br><span class="line">print quick(li)  # [2, 3, 4, 5, 7, 8]</span><br><span class="line"></span><br><span class="line">#### 对[4,3,7,5,8,2]排序</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">[3, 2] + [4] + [7, 5, 8]                 # tmp &#x3D; [4]</span><br><span class="line">[2] + [3] + [4] + [7, 5, 8]              # tmp &#x3D; [3] 此时对[3, 2]这个列表进行排序</span><br><span class="line">[2] + [3] + [4] + [5] + [7] + [8]        # tmp &#x3D; [7] 此时对[7, 5, 8]这个列表进行排序</span><br></pre></td></tr></table></figure>
-<p><img src="/image/%E5%BF%AB%E6%8E%92.png" alt="快排思路图"></p>
-<h3 id="递归斐波那契"><a href="#递归斐波那契" class="headerlink" title="递归斐波那契"></a>递归斐波那契</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def fun(i):</span><br><span class="line">    if i &#x3D;&#x3D; 0:</span><br><span class="line">        return 0</span><br><span class="line">    elif i &#x3D;&#x3D; 1:</span><br><span class="line">        return 1</span><br><span class="line">    else:</span><br><span class="line">        return fun(i-2) + fei(i-1)</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    for i in range(10):</span><br><span class="line">        print(fun(i),end&#x3D;&quot; &quot;)</span><br></pre></td></tr></table></figure>
-
-
-
+            <h3 id="md5加密"><a href="#md5加密" class="headerlink" title="md5加密"></a>md5加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def make_password(mypass):</span><br><span class="line"></span><br><span class="line">    #生成md5对象</span><br><span class="line">    md5 &#x3D; hashlib.md5()</span><br><span class="line">    #定义加密对象</span><br><span class="line">    sign_str &#x3D; str(mypass)</span><br><span class="line">    #转码</span><br><span class="line">    sign_utf8 &#x3D; sign_str.encode(encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line">    #加密</span><br><span class="line">    md5.update(sign_utf8)</span><br><span class="line">    #生成密钥串</span><br><span class="line">    md5_server &#x3D; md5.hexdigest()</span><br><span class="line">    return md5_server</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -232,7 +218,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E7%AE%97%E6%B3%95/"># 算法</a>
+                        <a href="/tags/md5%E5%8A%A0%E5%AF%86/"># md5加密</a>
                     
                         
                 </span>
@@ -245,10 +231,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/12/Linux/">Linux常用命令</a>
+                <a class="prev" rel="prev" href="/2017/03/08/%E5%9B%BE%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81/">python实现图形验证码</a>
             
             
-            <a class="next" rel="next" href="/2020/04/08/day27/">三次握手和四次挥手</a>
+            <a class="next" rel="next" href="/2017/03/02/git%E5%91%BD%E4%BB%A4/">Git命令</a>
             
         </section>
 
