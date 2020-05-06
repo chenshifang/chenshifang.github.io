@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>又拍云文件上传 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">又拍云文件上传</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">五月 6, 2020&nbsp;&nbsp;16:21:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 又拍云</span><br><span class="line">class Upyun(APIView):</span><br><span class="line">    </span><br><span class="line">    def post(self,request):</span><br><span class="line"></span><br><span class="line">		# 接收文件</span><br><span class="line">        img &#x3D; request.FILES.get(&#39;file&#39;)</span><br><span class="line"></span><br><span class="line">		# 新建又拍云实例 (空间名，操作员账号，操作员密码)</span><br><span class="line">        up &#x3D; upyun.UpYun(&#39;chenshifang&#39;, username&#x3D;&#39;chenshifang&#39;, password&#x3D;&#39;uCbEbmx8CyDO7viaXSp2gciNsnpF6HYs&#39;)</span><br><span class="line"></span><br><span class="line">		# 声明头部信息</span><br><span class="line">        headers &#x3D; &#123; &#39;x-gmkerl-rotate&#39;: &#39;auto&#39; &#125;</span><br><span class="line">        </span><br><span class="line">        for chunk in img.chunks():</span><br><span class="line">            res &#x3D; up.put(&#39;&#x2F;test2.jpg&#39;, chunk, checksum&#x3D;True, headers&#x3D;headers)</span><br><span class="line"></span><br><span class="line">        #返回结果</span><br><span class="line">        return HttpResponse(json.dumps(&#123;&#39;filename&#39;:img.name&#125;),content_type&#x3D;&#39;application&#x2F;json&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>** 拖拽上传</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;tr&gt;</span><br><span class="line">						&lt;td&gt;又拍云上传：&lt;&#x2F;td&gt;</span><br><span class="line">						&lt;td&gt;&lt;input type&#x3D;&quot;file&quot; @change&#x3D;&quot;upload_upyun&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">					&lt;&#x2F;tr&gt;</span><br><span class="line">					&lt;tr&gt;</span><br><span class="line">						&lt;td&gt;拖拽上传：&lt;&#x2F;td&gt;</span><br><span class="line">						&lt;td&gt;</span><br><span class="line">							&lt;div id&#x3D;&quot;upload&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">						&lt;&#x2F;td&gt;</span><br><span class="line">					&lt;&#x2F;tr&gt;</span><br><span class="line">&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+<p>mounted:function(){</p>
+<pre><code>// 又拍云拖拽上传
+let upload = document.querySelector(&apos;#upload&apos;);
+upload.addEventListener(&apos;dragenter&apos;, this.onDrag, false);
+upload.addEventListener(&apos;dragover&apos;, this.onDrag, false);
+upload.addEventListener(&apos;drop&apos;, this.onDrop, false);</code></pre><p>},</p>
+<p>methods:{</p>
+<pre><code>    // 监听用户鼠标
+    onDrag (e) {
+  e.stopPropagation();
+  e.preventDefault();
+},
+    onDrop (e) {
+  e.stopPropagation();
+  e.preventDefault();
+  this.upload_upyun(e.dataTransfer.files);
+},
+
+    //上传又拍云
+    upload_upyun:function(files){
+
+        //获取文件对象
+        let file = files[0];
+
+        //声明参数
+        let param = new FormData();
+        param.append(&apos;file&apos;,file);
+
+        const config = {
+
+        headers: { &apos;Content-Type&apos;: &apos;multipart/form-data&apos; }
+
+        } 
+
+        this.axios.post(&apos;http://localhost:8000/upyun/&apos;, param, config)// 上传图片
+
+        .then((result) =&gt;{
+
+            console.log(result);
+            this.src = &quot;http://chenshifang.test.upcdn.net/test1.jpg&quot;
+
+        });
+    },
+},</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#96;&#96;&#96;	</span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">#upload &#123;</span><br><span class="line">  margin: 100px auto;</span><br><span class="line">  width: 300px;</span><br><span class="line">  height: 150px;</span><br><span class="line">  border: 2px dashed #f00;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"># 文件上传</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/04/30/%E4%B8%83%E7%89%9B%E4%BA%91/">七牛云文件上传</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
