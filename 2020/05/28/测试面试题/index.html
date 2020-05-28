@@ -12,7 +12,7 @@
 
 
 
-<title>病毒 | 陈士方的博客</title>
+<title>测试面试题 | 陈士方的博客</title>
 
 
 
@@ -117,11 +117,73 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">病毒</h1>
+            <h1 class="post-title">测试面试题</h1>
             
                 <div class="post-meta">
                     
@@ -130,14 +192,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">五月 19, 2020&nbsp;&nbsp;22:21:18</a>
+                        Date: <a href="#">五月 28, 2020&nbsp;&nbsp;22:21:18</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                                <a href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
                             
                         </span>
                     
@@ -146,17 +208,23 @@
         </header>
 
         <div class="post-content">
-            <p>在这个世界上，杀死人类最多的不是战争，也不是自然灾害，而是病毒；上世纪有一种叫做<br>天花的病毒杀死了五亿地球人，所以说病毒也是灭绝人类的一种可能。</p>
-<p>1，天花：也是目前人类唯一一次战胜过的瘟疫，1980年世界卫生大会宣称世界上已经没有了<br>天花。但是在此之前，人类与这种疾病对抗了数千年，约有三分之一的感染者丧命。天花会给人留<br>下永久性的痕迹，而且常常导致失明。仅在20世纪，天花就杀死了约3亿人。清朝顺治皇帝就是死于<br>这种病毒。</p>
-<p>2，埃博拉病毒：1976年同时在苏丹和刚果共和国爆发的埃博拉病毒是已知人类中最早的。埃博拉病<br>毒通过血液、其它体液或者受感染人类和动物的组织传播。据WHO称，有的埃博拉病毒菌株甚至不会<br>使人生病，但是部分种类的致死率达到50%，苏丹爆发的埃博拉病毒致死率高达71%。2014年年初西<br>非爆发的埃博拉病毒是史上规模最大也是最复杂的。</p>
-<p>3，黑死病：14世纪细菌性瘟疫，由老鼠身上的跳蚤传染；这种病死亡率极高，从感染到死亡通常不到<br>一周时间。14世纪整个欧洲也才大概7500万人，因为黑死病就死了2500万人；也就是说每三个人中就死一个。<br>最为严重的就是冰岛，几乎被天花给团灭了；后来冰岛也是用了好几个世纪才恢复到原来的人口。</p>
-<p>4，流行性感冒：据世界卫生组织称，在流感季节，全世界高达50万人会死于这种疾病。偶尔出现一<br>种新的流感病毒时，这种疾病会快速传播，而且通常有着更高的死亡率。最致命的流感病毒有时被称作西<br>班牙流感，1918年出现时令全世界40%的人口患病，导致约5千万人死亡。</p>
-<p>5，狂犬病：20世纪20年代已经有狂犬疫苗问世，这就使发达国家很难见到这种疾病。但这一疾病在<br>印度和非洲部分地区仍然是非常严重的一个问题。</p>
-<p>6，艾滋病毒：现代社会中最致命的病毒或许就是艾滋病毒。从20世纪80年代这种疾病被确认以来，<br>大约3600万人已经死于艾滋病。据世界卫生组织称，在撒哈拉沙漠以南非洲每20个成年人中大约就有一个<br>人的艾滋病测试呈阳性。</p>
-<p>首先，病毒是不是生物就不知道。目前按照定义，生物的最小单位叫做细胞，所有的生物都<br>是由细胞组成的，但是病毒比细胞还要小；所以病毒就是一种活着的非生物。</p>
-<p>病毒的结构非常的简单，外面有一层蛋白质的壳，里面有一些DNA或者RNA，也就是遗传物质。<br>DNA和RNA的区别，DNA是双螺旋结构的，而rna是一个长链。由于DNA是双螺旋的上面的基因都是一<br>对一对的，所以就能保证他的完整性，不太容易变异。RNA他是一个长链没人跟他配对，所以他经<br>常会发生变异，这就是为什么很多病毒会发生变异的原因。非典和这次的新冠病毒都是RNA病毒。</p>
-<p>病毒属于寄生，它必须生活在宿主体内，不同的病毒生活在不同的动物身上，这些动物就是它<br>们的自然宿主，病毒在自然宿主的体内是不会有危害的，比如SARS在果子狸体内、艾滋病在大猩猩<br>体内就不会闹事，但是到人身上就不行。其实我们体内也有很多病毒和我们和平相处，因为如果它<br>们不和宿主和平相处，它自己也会死掉。但是当病毒进入非自然宿主体内，就会面临几个结果：<br>1、病毒无法适应人体的温度和环境，自己死掉了；<br>2、免疫系统发现它，把它干掉了；<br>3、病毒通过变异躲过免疫系统。由此也会产生两个可能：<br>a、病毒悄悄的躲在生物体内，仅仅是潜伏起来，没有任何危害<br>b、病毒开始攻击生物的一些组织，让生物开始得病，因此，病毒并不是想传染到人身上，只是通过<br>错误的方法进入到了错误的地方。</p>
-<pre><code>所以，再次呼吁大家拒绝使用野生动物和不明来源的动物！！！</code></pre>
+            <h1 id="每天二道面试题持续更新中…"><a href="#每天二道面试题持续更新中…" class="headerlink" title="每天二道面试题持续更新中…"></a>每天二道面试题持续更新中…</h1><p><strong>1，软件测试的原则和目的是什么？</strong></p>
+<blockquote>
+<p><strong>目的：</strong><br>1，通过测试工作可以发现并修复软件当中存在的缺陷<br>2，可以降低同产品开发遇到的风险<br>3，记录软件运行过程中的一些数据，从而为决策者提供技术支持<br><strong>原则：</strong><br>1，2/8定律，核心功能占20%，非核心占80%，我们会集中测试20%的核心功能，发现缺陷的几率会高于80%，因此，遇到的缺陷都会集中20%功能模块里。<br>2，不能进行穷尽测试，有些功能是无法将所有测试情况逻辑出来的，任何的测试都有结束的时间。<br>3，为了更好地发现和解决软件中的缺陷</p>
+</blockquote>
+<hr>
+<p><strong>2，测试人员在测试中的任务是什么？</strong></p>
+<blockquote>
+<p>1，尽早的找出系统中的Bug<br>2，避免软件开发过程中缺陷的出现<br>3，确保缺件的质量<br>4，关注用户的需求，并保证系统符合用户需求</p>
+</blockquote>
+<hr>
+<h3 id="高频面试题"><a href="#高频面试题" class="headerlink" title="高频面试题"></a>高频面试题</h3><ul>
+<li>对任意物品的测试<br>  1，从功能上考虑，包括体积、形状、用途、材质<br>  2，从外观上考虑，包括颜色、图案<br>  3，从性能上考虑<br>  4，从安全性考虑<br>  5，从易用性考虑</li>
+</ul>
+<ul>
+<li>如果在测试过程中出现的bug，而开发人员不认为是bug的时候你怎么办？<br>  1，首先我会从自身去经过多次的测试发现bug的出现次数和频率，记录复现bug的方式，然后发送给开发人员<br>  2，再根据需求文档来确认是否为bug<br>  3，如果开发不认为是bug，将复现bug的记录和需求文档找产品经理进行商议，由产品和项目经理来确认是否bug<br>  4，如果项目经理和产品经理都不认为是bug，我会将bug记录在测试文档中，方便在下次评审会上将问题再次抛出</li>
+</ul>
+
         </div>
 
         
@@ -166,7 +234,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E7%97%85%E6%AF%92/"># 病毒</a>
+                        <a href="/tags/%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"># 测试面试题</a>
                     
                         
                 </span>
@@ -179,10 +247,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/05/28/day01/">day01</a>
             
-            
-            <a class="next" rel="next" href="/2020/05/15/%E5%9B%BD%E9%99%85%E5%8C%96/">国际化</a>
+            <a class="next" rel="next" href="/2020/05/28/day01/">day01</a>
             
         </section>
 
