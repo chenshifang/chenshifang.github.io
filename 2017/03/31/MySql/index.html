@@ -276,6 +276,9 @@
 <li>找出学生表中所有的班级 id</li>
 <li>找出班级表中对应的名字<br>select name from classes where id in (select cls_id from students);<br>行级子查询<br>• 需求: 查找班级年龄最大,身高最高的学生<br>• 行元素: 将多个字段合成一个行元素,在行级子查询中会使用到行元素<br>select * from students where (height,age) = (select max(height),max(age) from students);<br>子查询中特定关键字使用<br> • in 范围<br> • 格式: 主查询 where 条件 in (列子查询)</li>
 </ol>
+<h3 id="对表内值的加减"><a href="#对表内值的加减" class="headerlink" title="对表内值的加减"></a>对表内值的加减</h3><ul>
+<li>对书籍表中价格的加减<br>update books set price=prcie+2<br>update books set price=prcie-2<br>update books set price=prcie*2</li>
+</ul>
 <h3 id="查询总结"><a href="#查询总结" class="headerlink" title="查询总结"></a>查询总结</h3><p>• 完整的select语句<br>select distinct *<br>from 表名<br>where ….<br>group by … having …<br>order by …<br>limit start,count<br>• 执行顺序为：<br>• from 表名<br>• where ….<br>• group by …<br>• select distinct *<br>• having …<br>• order by …<br>• limit start,count<br>实际使用中，只是语句中某些部分的组合，而不是全部</p>
 
         </div>
