@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>day06 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">day06</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 4, 2020&nbsp;&nbsp;19:21:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="移动端测试"><a href="#移动端测试" class="headerlink" title="移动端测试"></a>移动端测试</h2><h3 id="Android、IOS"><a href="#Android、IOS" class="headerlink" title="Android、IOS"></a>Android、IOS</h3><p>Android开源导致碎片化比较严重，以为手机品牌众多，系统版本各异，无法保证应用兼容所有手机，BUG比较多<br>IOS机型统一、系统稳定，BUG会少一些</p>
+<h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><p>根据相应需求文档和UI所设计的产品效果图来对其功能进行逐一测试。比如添加、删除、上一页、下一页等按钮是否实现其功能</p>
+<h3 id="安装、卸载的测试"><a href="#安装、卸载的测试" class="headerlink" title="安装、卸载的测试"></a>安装、卸载的测试</h3><h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><p>1，软件安装后是否可以正常运行<br>2，安装过程中是否可以取消，取消后安装未完成的文件是否清理<br>3，安装空间不足时是否有相应的提示<br>4，从不同的应用市场下载进行安装测试。比如应用宝、安卓市场、华为市场等</p>
+<h4 id="卸载："><a href="#卸载：" class="headerlink" title="卸载："></a>卸载：</h4><p>1，软件是否支持卸载功能<br>2，是否可以通过桌面卸载、软件卸载<br>3，卸载是否支持取消功能，点击取消后软件卸载是否正常<br>4，卸载后是否删除所有的安装文件夹（log日志、历史记录、安装目录）</p>
+<h4 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h4><p>曾发现在IOS手机上有个应用安装时未完全安装，终止安装后，未完成安装的应用图标一直显示在手机上，并且无法成功删除</p>
+<h3 id="软件的升级测试"><a href="#软件的升级测试" class="headerlink" title="软件的升级测试"></a>软件的升级测试</h3><p>1，是否拥有更新提醒<br>2，是否强制升级以及用户是否可以取消升级<br>3，软件升级后是否重启手机以及强制关机<br>4，在升级时是否考虑手机电量充足<br>5，在升级时是否考虑下载升级包方式<br>6，是否默认升级（不建议）</p>
+<h3 id="权限问题的测试"><a href="#权限问题的测试" class="headerlink" title="权限问题的测试"></a>权限问题的测试</h3><p>1，是否通过用户同意使用该权限<br>2，6.0以后都需要申请权限</p>
+<h3 id="消息推送机制"><a href="#消息推送机制" class="headerlink" title="消息推送机制"></a>消息推送机制</h3><p>1，是否在锁屏的状态下继续推送<br>2，推送是否经过用户同意<br>3，是否推送用户关注的内容<br>4，推送成功后，用户是否可以正常打开链接</p>
+<h3 id="前后的切换功能"><a href="#前后的切换功能" class="headerlink" title="前后的切换功能"></a>前后的切换功能</h3><p>1，APP在前后台的正常切换及小窗口模式<br>2，双系统的切换<br>3，当异常的情况下切换（电量不足时等）<br>4，有数据交互时切换</p>
+<h3 id="兼容性测试"><a href="#兼容性测试" class="headerlink" title="兼容性测试"></a>兼容性测试</h3><h3 id="网络测试"><a href="#网络测试" class="headerlink" title="网络测试"></a>网络测试</h3><p>1，不同的运营商（移动、联通、电信）<br>2，2G、3G、4G、5G、WiFi、弱网、无网络时的测试</p>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><h4 id="性能点"><a href="#性能点" class="headerlink" title="性能点"></a>性能点</h4><p>1，响应时间<br>2，服务器资源使况是否合理<br>3，应用服务器和数据库资源使用是否合理<br>4，系统能否实现扩展<br>5，系统最多支持多少用户访问、系统最大业务处理量是多少<br>6，系统性能可能存在的瓶颈在哪里<br>7，更换那些设备可以提高性能<br>8，系统能否支持7×24小时的业务访问</p>
+<h4 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h4><p>1，内存,<br>2，CPU<br>3，流量<br>4，电量<br>5，启动速度<br>6，滑动速度<br>7，界面切换速度<br>8，与服务器交互的网络速度</p>
+<h4 id="站在测试工程师角度考虑"><a href="#站在测试工程师角度考虑" class="headerlink" title="站在测试工程师角度考虑"></a>站在测试工程师角度考虑</h4><p>1，连接超时<br>这个是App关闭的首要问题，而在移动应用中网络错误数据比例报错中最高的就是连接超时错误。想象一下当花重金好不容易把你的App推广到用户手机上，而在用户初次尝试时发生连接超时无法正常使用，多数用户会选择再也不会打开应用第二次。<br>2，崩溃<br>这个已无需多言。APP的崩溃，就是用户的崩溃。当用户使用你的App出现闪退或崩溃时，他们很有可能跑去AppStore赠送你一个“一星”差评。<br>3，系统交互（电话短信干扰，低电量提醒，push提醒，usb数据线插拔提醒，充电提醒等）<br>在APP使用过程中，可能会遇到各种中断场景，那么一旦发生这些场景，APP就卡死或者闪退，想必也没有多少用户愿意持续使用你的APP。<br>4，弱网下的运行情况<br>电梯里、地铁上，网络信号差时，APP页面的菊花转不停，界面卡死，同时错误提示一堆，这样的情况怎能不让用户抓狂。<br>5，CPU使用问题<br>CPU频率设置过高时会导致过热,过热导致耗电更严重,CPU频率设置过低导致手机滞后,应用处理缓慢同样会导致耗电。更多时候，用户解决CPU超载问题只能关闭甚至卸载App，App就被Kill了!</p>
+<h4 id="测试方法及工具"><a href="#测试方法及工具" class="headerlink" title="测试方法及工具"></a>测试方法及工具</h4><p>1、内存:使用adbshell脚本进行测试，查看Log数据。adb shell dump meminfo<br>2、CPU：使用adbshell脚本进行测试，查看Log数据。adb shell top<br>  注意：程序持续运行及操作过程中，内存不能一直增加，不然系统会自动kill掉该进程。<br>3、流量监控：可以借用网易的开源工具：Emmagee<br>4、电量监控：和竞品做对比测试，同一机型的测试机在不同时间，不同网络条件，不同功能使用的情况下分别测试电量使用情况。<br>5、启动速度和滑动、界面切换速度：编写测试代码（AndroidInstrumentation），打桩到源码中，运行后通过log数据进行分析。<br>6、其他测试工具：腾讯开发的工具：GT随身调。下载地址：<a href="http://gt.qq.com/" target="_blank" rel="noopener">http://gt.qq.com/</a></p>
+<h2 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>adb工具即Android Debug Bridge（安卓调试桥） tools。它就是一个命令行窗口，用于通过电脑端与模拟器或者真实设备交互。在某些特殊的情况下进入不了系统，adb就派上用场啦</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>1，运行设备的shell<br>2，管理模拟器、设备的端口映射<br>3，电脑和设备之间的上传和下载功能<br>4，将本地的apk</p>
+<h3 id="ADB常用命令"><a href="#ADB常用命令" class="headerlink" title="ADB常用命令"></a>ADB常用命令</h3><p>1，查看设备 *****</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
+<p>2，安装软件    ***</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -r（apk的路径）</span><br></pre></td></tr></table></figure>
+<p>3，卸载apk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall 软件名</span><br></pre></td></tr></table></figure>
+<p>4，卸载apk保留文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall -k 软件名</span><br></pre></td></tr></table></figure>
+<p>5，列出所有的包名    *****</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list package</span><br></pre></td></tr></table></figure>
+<p>6，列出第三方的包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list package -3</span><br></pre></td></tr></table></figure>
+<p>7，列出系统应用的包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list package -s</span><br></pre></td></tr></table></figure>
+<p>8，查看手机内存的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo 包名</span><br></pre></td></tr></table></figure>
+<p>9，屏幕截图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screencap &#x2F;sdcard&#x2F;screen.png</span><br></pre></td></tr></table></figure>
+<p>10，录制视频</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screenrecord &#x2F;sdcard&#x2F;demo.mp4</span><br></pre></td></tr></table></figure>
+<p>11，查看手机日志    *****</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">adb logcat</span><br><span class="line"># 日志级别如下：</span><br><span class="line"># v 	verbose	（最低）</span><br><span class="line"># D 	Debug	（调试）</span><br><span class="line"># I		Info	（通知）</span><br><span class="line"># W 	Warn	（警告）</span><br><span class="line"># E 	Error	（错误）</span><br><span class="line"># F		Fatal	（致命）</span><br><span class="line"># S		Silent	（奔溃）</span><br></pre></td></tr></table></figure>
+<p>11，将日志文件转换为本地文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb -s emulator-5554(设备名称) logcat -v time process &gt;d:log.txt(日志存放的位置)</span><br></pre></td></tr></table></figure>
+<p>12，根据日志级别打印    ****</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb logcat *:w(日志级别的首字母) </span><br><span class="line"># 大于和等于这个级别的</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="monkey"><a href="#monkey" class="headerlink" title="monkey"></a>monkey</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>它是Android系统自带一个命令行工具，可以运行在模拟器里或者真是设备中运行。monkey向系统发送伪随机的用户事件流，实现对正在开发的应用程序进行压力测试。</p>
+<p>monkey包括很多选项，大致四大类：</p>
+<p>1.基本配置选项，如设置尝试的事件数量。</p>
+<p>2.运行约束选项，如设置只对单独的一个包进行测试。</p>
+<p>3.事件类型和频率。</p>
+<p>4.调试选项</p>
+<hr>
+<h3 id="压测"><a href="#压测" class="headerlink" title="压测"></a>压测</h3><p>指定一个包  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey  -p  com.tencent.news  -v -v -v  100</span><br></pre></td></tr></table></figure>
+<pre><code>此时指定软件会被打开并开始乱点乱按</code></pre><hr>
+<p>指定多个包   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.tencent.news -p com.pdfreader -p com.widgets  -v 1000</span><br></pre></td></tr></table></figure>
+<hr>
+<p>不指定包     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -v 1000</span><br></pre></td></tr></table></figure>
+
+<pre><code>-p参数：表示指定测试的程序（空格后面跟安装包名字，拿刚才的第三方安装包一个个试）
+-v参数：表示查看monkey执行过程的信息(日志级别）（-v 越多越详细，最多三个）
+数字100:表示测试事件数为100</code></pre><hr>
+<p>将log信息写到文档中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey 100 &gt;c:&#x2F;log&#x2F;b.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>用户每次操作间隔的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.example.login --throttle 300 100</span><br></pre></td></tr></table></figure>
+<pre><code>表示执行100个伪随机用户事件流，事件间隔为300毫秒。
+注：一般设置为300毫秒，原因是实际用户操作的最快300毫秒左右一个动作事件。</code></pre><hr>
+<p>调整触摸事件的百分比</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -pct-touch 67 -v 10</span><br></pre></td></tr></table></figure>
+<pre><code>表示执行10个伪随机用户事件流，并调整其中触摸事件的百分比为67%。
+触摸事件是指在屏幕中的一个down-up事件，即在屏幕某处按下并抬起的操作</code></pre><hr>
+<p>动作事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -pct-motion 67 -v 10</span><br></pre></td></tr></table></figure>
+<pre><code>表示执行10个伪随机用户事件流，并调整其中动作事件的百分比为67%
+motion事件是由屏幕上某处一个down事件、一系列伪随机的移动事件和一个up事件组成
+这里的移动是直线滑动</code></pre><hr>
+<p><strong>–ignore-crashes</strong><br>通常，应用发生崩溃或异常时Monkey会停止运行。<br>如果设置此项，Monkey将继续发送事件给系统，直到事件计数完成。<br>正常操作，不忽略异常</p>
+<hr>
+<p><strong>–ignore-timeouts（ANR）</strong><br>通常，应用程序发生任何超时错误（如“Application Not responding”对话框）Monkey将停止运行，设置此项，Monkey将继续发送事件给系统，直到事件计数完成。</p>
+<h2 id="云测"><a href="#云测" class="headerlink" title="云测"></a>云测</h2><p>待更新…</p>
+<hr>
+<p>玩安卓压测练习：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.wan.android --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;e:\mk.log</span><br></pre></td></tr></table></figure>
+<p><img src="/image/%E7%8E%A9%E5%AE%89%E5%8D%93%E5%8E%8B%E6%B5%8B6.4.png" alt=""></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/"># 测试笔记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/06/03/day05/">day05</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
