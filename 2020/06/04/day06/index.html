@@ -292,11 +292,26 @@ motion事件是由屏幕上某处一个down事件、一系列伪随机的移动�
 <p><strong>–ignore-crashes</strong><br>通常，应用发生崩溃或异常时Monkey会停止运行。<br>如果设置此项，Monkey将继续发送事件给系统，直到事件计数完成。<br>正常操作，不忽略异常</p>
 <hr>
 <p><strong>–ignore-timeouts（ANR）</strong><br>通常，应用程序发生任何超时错误（如“Application Not responding”对话框）Monkey将停止运行，设置此项，Monkey将继续发送事件给系统，直到事件计数完成。</p>
+<h3 id="获取软件包名"><a href="#获取软件包名" class="headerlink" title="获取软件包名"></a>获取软件包名</h3><p>1.进入到cmd操作界面；</p>
+<p>2.输入  adb shell  命令； 出现如下界面</p>
+<p>3.输入 cd    /data/data    命令；出现如下界面</p>
+<p>4.输入 ls  命令；可以列出data文件夹中所有的app包名</p>
+<p><img src="/image/%E8%8E%B7%E5%8F%96%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D.png" alt=""></p>
+<p>5.然后可以运行monkey测试了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkey  –p  com.codeest.geeknews  –v  500</span><br></pre></td></tr></table></figure>
+
+<p>com.codeest.geeknews这个就是要测试应用包名。</p>
+<p>如果是在Dos下, 需要用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey  –p  com.codeest.geeknews  –v  500</span><br></pre></td></tr></table></figure>
+
 <h2 id="云测"><a href="#云测" class="headerlink" title="云测"></a>云测</h2><p>待更新…</p>
 <hr>
-<p>玩安卓压测练习：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.wan.android --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;e:\mk.log</span><br></pre></td></tr></table></figure>
+<p><strong>玩安卓压测练习：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.wan.android --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;d:\waz.log</span><br></pre></td></tr></table></figure>
 <p><img src="/image/%E7%8E%A9%E5%AE%89%E5%8D%93%E5%8E%8B%E6%B5%8B6.4.png" alt=""></p>
+<p><strong>GeekNews压测练习：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.codeest.geeknews --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;d:\geeknews.log</span><br></pre></td></tr></table></figure>
+<p><img src="/image/geeknews%E5%8E%8B%E6%B5%8B.png" alt=""></p>
 
         </div>
 
