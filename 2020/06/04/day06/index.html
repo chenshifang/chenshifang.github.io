@@ -315,7 +315,39 @@ motion事件是由屏幕上某处一个down事件、一系列伪随机的移动�
 <p>如果是在Dos下, 需要用:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey  –p  com.codeest.geeknews  –v  500</span><br></pre></td></tr></table></figure>
 
-<h2 id="云测"><a href="#云测" class="headerlink" title="云测"></a>云测</h2><p>待更新…</p>
+<h3 id="monkey压测日志分析："><a href="#monkey压测日志分析：" class="headerlink" title="monkey压测日志分析："></a>monkey压测日志分析：</h3><p><img src="/image/%E5%8E%8B%E6%B5%8B%E6%97%A5%E5%BF%97.png" alt=""></p>
+<h4 id="测试命令信息"><a href="#测试命令信息" class="headerlink" title="测试命令信息"></a>测试命令信息</h4><p>随机种子值，执行事件数量<br>:Monkey: seed=1454215444564 count=10</p>
+<h4 id="可运行的应用列表"><a href="#可运行的应用列表" class="headerlink" title="可运行的应用列表"></a>可运行的应用列表</h4><p>:AllowPackage: com.tencent.android.qqdownloader<br>Category包含LAUNCHER和MONKEY<br>:IncludeCategory: android.intent.category.LAUNCHER<br>:IncludeCategory: android.intent.category.MONKEY</p>
+<h4 id="各事件的百分比"><a href="#各事件的百分比" class="headerlink" title="各事件的百分比"></a>各事件的百分比</h4><p>0：触摸事件百分比，即参数–pct-touch</p>
+<p>1：滑动事件百分比，即参数–pct-motion</p>
+<p>2：缩放事件百分比，即参数–pct-pinchzoom</p>
+<p>3：轨迹球事件百分比，即参数–pct-trackball</p>
+<p>4：屏幕旋转事件百分比，</p>
+<p>5：基本导航事件百分比，即参数–pct-nav</p>
+<p>6：主要导航事件百分比，即参数–pct-majornav</p>
+<p>7：系统事件百分比，即参数–pct-syskeys</p>
+<p>8：Activity启动事件百分比，即参数–pct-appswitch</p>
+<p>9：键盘翻转事件百分比，即参数–pct-flip</p>
+<p>10：其他事件百分比，即参数–pct-anyevent</p>
+<h4 id="伪随机事件流信息"><a href="#伪随机事件流信息" class="headerlink" title="伪随机事件流信息"></a>伪随机事件流信息</h4><p>当Monkey开始执行测试后，会顺序输出执行的事件流信息，主要是前面提到的11大事件。这部分日志信息的解析，如代码清单4-4所示。<br>代码清单4-4 Monkey日志-伪随机事件流信息<br>执行的事件流信息<br>启动App事件</p>
+<p>:Switch: #Intent; action=android.intent.action.MAIN; category=android.intent.<br>category.LAUNCHER; launchFlags=0x10200000; component=com.tencent.android.<br>qqdownloader/com.tencent.assistant.activity.SplashActivity; end<br>// Allowing start of Intent { act=android.intent.action.MAIN cat=[android.<br>intent.category.LAUNCHER] cmp=com.tencent.android.qqdownloader/com.tencent.<br>assistant.activity.SplashActivity } in packagecom.tencent.android.qqdownloader</p>
+<h4 id="轨迹球事件"><a href="#轨迹球事件" class="headerlink" title="轨迹球事件"></a>轨迹球事件</h4><p>:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)</p>
+<h4 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h4><p>:Sending Touch (ACTION_DOWN): 0:(387.0,1858.0)<br>:Sending Touch (ACTION_UP): 0:(385.8215,1861.3011)</p>
+<h4 id="延时"><a href="#延时" class="headerlink" title="延时"></a>延时</h4><p>Sleeping for 0 milliseconds</p>
+<h4 id="异常信息"><a href="#异常信息" class="headerlink" title="异常信息"></a>异常信息</h4><p>当Monkey执行过程中遇到错误时，会输出对应异常信息，如代码清单4-5所示。<br>代码清单4-5 Monkey日志-异常信息<br>发送Crash的应用包名和pid<br>// CRASH: com.tencent.android.qqdownloader (pid 912)</p>
+<h4 id="Crash的简要信息"><a href="#Crash的简要信息" class="headerlink" title="Crash的简要信息"></a>Crash的简要信息</h4><p>// Short Msg: java.lang.ClassNotFoundException</p>
+<h4 id="Crash的详细信息"><a href="#Crash的详细信息" class="headerlink" title="Crash的详细信息"></a>Crash的详细信息</h4><p>// Long Msg: java.lang.ClassNotFoundException: Didn’t find class “com.<br>qq.AppService.AstApp” on path DexPathList[[zip file “/data/app/com.tencent.<br>android.qqdownloader-2.apk”], nativeLibraryDirectories[/data/app-lib/com.<br>tencent.android.qqdownloader-2, /vendor/lib, /system/lib]]</p>
+<h4 id="机型和系统信息"><a href="#机型和系统信息" class="headerlink" title="机型和系统信息"></a>机型和系统信息</h4><p>// Build Label: Xiaomi/pisces/pisces:4.4.4/KTU84P/5.12.24:user/release-keys<br>// Build Changelist: 5.12.24<br>// Build Time: 1450958964000</p>
+<h4 id="Crash的详细日志"><a href="#Crash的详细日志" class="headerlink" title="Crash的详细日志"></a>Crash的详细日志</h4><p>// java.lang.RuntimeException: Unable to instantiate application com.<br>qq.AppService.AstApp: java.lan.ClassNotFoundException: Didn’t find class “com.<br>qq.AppService.AstApp” on path: DexPathList[[zip fil “/data/app/com.tencent.<br>android.qqdownloader-2.apk”], nativeLibraryDirectories=[/data/app-lib/com.<br>tecent.android.qqdownloader-2, /vendor/lib, /system/lib]]<br>// at android.app.LoadedApk.makeApplication(LoadedApk.java:509)<br>// at android.app.ActivityThread.access$1500(ActivityThread.java:138)<br>// at dalvik.system.NativeStart.main(Native Method)<br>// … 11 more</p>
+<h4 id="Monkey执行结果信息"><a href="#Monkey执行结果信息" class="headerlink" title="Monkey执行结果信息"></a>Monkey执行结果信息</h4><p>当Monkey执行完所有事件后，会输出执行结果信息，其中包括执行的事件数量、旋转的角度、丢失的事件数量、网络状态以及Monkey最终的执行结果，如代码清单4-6所示。<br>代码清单4-6 Monkey日志-执行成功结果信息</p>
+<h4 id="执行的事件数量"><a href="#执行的事件数量" class="headerlink" title="执行的事件数量"></a>执行的事件数量</h4><p>Events injected: 10</p>
+<h4 id="旋转的角度为0"><a href="#旋转的角度为0" class="headerlink" title="旋转的角度为0"></a>旋转的角度为0</h4><p>:Sending rotation degree=0, persist=false</p>
+<h4 id="丢失的事件数量"><a href="#丢失的事件数量" class="headerlink" title="丢失的事件数量"></a>丢失的事件数量</h4><p>:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0</p>
+<h4 id="网络状态，"><a href="#网络状态，" class="headerlink" title="网络状态，"></a>网络状态，</h4><p>移动网络联网0ms, Wi-Fi联网0ms，没联网144ms<br>Network stats: elapsed time=144ms (0ms mobile, 0ms wifi, 144ms not connected)</p>
+<h4 id="显示Monkey执行失败"><a href="#显示Monkey执行失败" class="headerlink" title="显示Monkey执行失败"></a>显示Monkey执行失败</h4><p>＊＊ Monkey aborted due to error.</p>
+<h4 id="执行的事件数量-1"><a href="#执行的事件数量-1" class="headerlink" title="执行的事件数量"></a>执行的事件数量</h4><p>Events injected: 8</p>
+<h4 id="旋转的角度为0-1"><a href="#旋转的角度为0-1" class="headerlink" title="旋转的角度为0"></a>旋转的角度为0</h4><p>:Sending rotation degree=0, persist=false</p>
+<h4 id="丢失的事件数量-1"><a href="#丢失的事件数量-1" class="headerlink" title="丢失的事件数量"></a>丢失的事件数量</h4><p>:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0</p>
 <hr>
 <p><strong>玩安卓压测练习：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.wan.android --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;d:\waz.log</span><br></pre></td></tr></table></figure>
@@ -345,6 +377,8 @@ motion事件是由屏幕上某处一个down事件、一系列伪随机的移动�
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/06/05/day07/">day07</a>
             
             
             <a class="next" rel="next" href="/2020/06/03/day05/">day05</a>
