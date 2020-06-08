@@ -229,12 +229,22 @@ C/S结构的管理信息系统具有较强的事务处理能力，能实现复�
 无法实现分页显示，给数据库访问造成较大的压力。 
 在速度和安全性上需要花费巨大的设计成本。
 功能弱化，难以实现传统模式下的特殊功能要求。</code></pre><p>BS与CS优缺点对比<br>    CS响应速度快，安全性强，用户体验好，一般应用于局域网中，但是开发维护成本高，；BS可以实现跨平台，客户端零维护，但是个性化能力低，响应速度较慢。所以有些单位日常办公应用BS，在实际生产中使用CS结构。</p>
-<h3 id="接口测试"><a href="#接口测试" class="headerlink" title="接口测试"></a>接口测试</h3><p>接口测试主要用于外部系统与系统之间以及内部各个子系统之间的交互点，定义特定的交互点，然后通过这些交互点来，通过一些特殊的规则也就是协议，来进行数据之间的交互。</p>
+<h3 id="接口测试"><a href="#接口测试" class="headerlink" title="接口测试"></a>接口测试</h3><p>接口测试主要用于外部系统与系统之间以及内部各个子系统之间的交互点，定义特定的交互点，然后通过这些交互点来，通过一些特殊的规则也就是协议，来进行数据之间的交互。一般我们用的多的是HTTP协议的接口、WebService协议的接口，还有RPC（Remote Procedure Call Protocol）——远程过程调用协议的接口。不管是哪种接口，其本质就是发送一个request，然后服务器响应后返回一个response，然后我们对response进行分析，这即是接口测试。</p>
+<h4 id="接口的分类："><a href="#接口的分类：" class="headerlink" title="接口的分类："></a>接口的分类：</h4><p><strong>webservice接口</strong><br>webService接口是走soap协议通过http传输，请求报文和返回报文都是xml格式的，我们在测试的时候都用通过工具才能进行调用，测试。</p>
+<p><strong>http api接口</strong><br>http api接口是走http协议，通过路径来区分调用的方法，请求报文都是key-value形式的，返回报文一般都是json串，有get和post等方法，这也是最常用的两种请求方式。</p>
 <h4 id="接口测试工作流程"><a href="#接口测试工作流程" class="headerlink" title="接口测试工作流程"></a>接口测试工作流程</h4><p><strong>准备阶段（80%）：</strong><br>1，拿到开发的接口文档，并理解每个接口的参数及含义<br>2，了解被测试系统的业务流程<br>3，编写接口测试用例<br><strong>执行阶段（10%）：</strong><br>1，测试用例/测试场景执行<br>2，测试数据/系统数据收集<br><strong>分析阶段（10%）：</strong><br>1，数据汇总/日志分析<br>2，测试报告</p>
+<h4 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h4><pre><code>1开头    信息，服务器收到请求，需要请求者继续执行操作
+2开头    成功，操作被成功接收并处理
+3开头    重定向，需要进一步的操作以完成请求
+4开头    客户端错误，请求包含语法错误或无法完成请求
+5开头    服务器错误，服务器在处理请求的过程中发生了错误</code></pre><p>详情见博客-<a href="http://zfblog.xyz/2020/06/08/HTTP状态码/" target="_blank" rel="noopener">HTTP状态码</a>篇</p>
 <h4 id="接口测试用例"><a href="#接口测试用例" class="headerlink" title="接口测试用例"></a>接口测试用例</h4><p><img src="/image/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.png" alt=""><br><strong>用例编写要点：</strong><br>测试每个参数类型不合法的情况<br>测试每个参数取值范围不合法的情况<br>测试参数为空的情况<br>测试参数前后台定义的一致性<br>测试每个参数的上下限（这里容易出致命的BUG，如果程序处理不当，可能导致崩溃）<br>测试每个参数取值不合理的情况（包括取的值不属于自己，取值在这阶段不会出现，取值超出了自己拥有数量或者范围）<br>如果两个请求有严格的先后顺序，需要测试调转顺序的情况<br>自己和自己的交易、聊天等操作（这种特别容易遗漏）</p>
 <h4 id="接口测试工具Postman"><a href="#接口测试工具Postman" class="headerlink" title="接口测试工具Postman"></a>接口测试工具Postman</h4><p><strong>Get请求：</strong><br><img src="/image/postman1.png" alt=""><br><img src="/image/postman2.png" alt=""><br><strong>Post请求：</strong><br><img src="/image/postman3.png" alt=""></p>
+<p><strong>Get与Post请求的区别</strong></p>
+<p>  1、GET使用URL或Cookie传参。而POST将数据放在BODY中。<br>  2、GET的URL会有长度上的限制，2kb，则POST的数据则可以非常大。<br>  3、POST比GET安全，因为数据在地址栏上不可见。<br>  4、一般get请求用来获取数据，post请求用来发送数据。</p>
 <h4 id="接口抓包测试工具Charles"><a href="#接口抓包测试工具Charles" class="headerlink" title="接口抓包测试工具Charles"></a>接口抓包测试工具Charles</h4><p>Charles是一款Http代理服务器和Http监视器，当移动端在无线网连接中按要求设置好代理服务器，使所有对网络的请求都经过Charles客户端来转发时，Charles可以监控这个客户端各个程序所有连接互联网的Http通信。</p>
-<p><img src="/image/charles1.png" alt=""><br><img src="/image/charles2.png" alt=""><br><img src="/image/charles3.png" alt=""><br><img src="/image/charles4.png" alt=""><br><img src="/image/charles5.png" alt=""><br><img src="/image/charles6.png" alt=""><br><img src="/image/charles8.png" alt=""><br><img src="/image/charles7.png" alt=""><br><img src="/image/charles9.png" alt=""></p>
+<h4 id="Charles的功能"><a href="#Charles的功能" class="headerlink" title="Charles的功能"></a>Charles的功能</h4><p>1，抓取http和https网络封包<br>2，支持和重发网络请求<br>3，支持修改网络参数<br>4，支持网络请求并修改<br>5，支持弱网测试</p>
+<p><strong>导入证书步骤</strong><br><img src="/image/charles1.png" alt=""><br><img src="/image/charles2.png" alt=""><br><img src="/image/charles3.png" alt=""><br><img src="/image/charles4.png" alt=""><br><img src="/image/charles5.png" alt=""><br><img src="/image/charles6.png" alt=""><br><img src="/image/charles8.png" alt=""><br><img src="/image/charles7.png" alt=""><br><img src="/image/charles9.png" alt=""></p>
 <hr>
 <h3 id="周天作业—SQL语句练习"><a href="#周天作业—SQL语句练习" class="headerlink" title="周天作业—SQL语句练习"></a>周天作业—SQL语句练习</h3><ol>
 <li><p>创建db_test数据库（10分）</p>
