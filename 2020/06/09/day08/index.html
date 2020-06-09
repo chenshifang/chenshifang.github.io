@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>day08 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">day08</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 9, 2020&nbsp;&nbsp;21:21:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="JMeter软件测试"><a href="#JMeter软件测试" class="headerlink" title="JMeter软件测试"></a>JMeter软件测试</h3><p>基于java开发的开源免费的压力测试工具</p>
+<h3 id="jmeter的作用"><a href="#jmeter的作用" class="headerlink" title="jmeter的作用"></a>jmeter的作用</h3><p>1，接口测试<br>2，性能测试<br>3，压力测试<br>4，web自动化测试<br>5，数据库测试<br>6，java程序测试</p>
+<h3 id="性能测试的分类"><a href="#性能测试的分类" class="headerlink" title="性能测试的分类"></a>性能测试的分类</h3><p>1，基准测试：对系统施压过程中记录基本情况</p>
+<p>2，负载测试：不断地施压的过程</p>
+<p>3，压力测试：测试系统最大访问量的极限</p>
+<p>4，稳定性测试：长时间对系统测试</p>
+<p>5，并发测试：多个用户同时访问</p>
+<h3 id="jmeter的使用"><a href="#jmeter的使用" class="headerlink" title="jmeter的使用"></a>jmeter的使用</h3><h4 id="jmeter对接口的测试"><a href="#jmeter对接口的测试" class="headerlink" title="jmeter对接口的测试"></a>jmeter对接口的测试</h4><p><img src="/image/jmeter1.png" alt=""><br><img src="/image/jmeter3.png" alt=""><br><img src="/image/jmeter2.png" alt=""></p>
+<h4 id="对结果的查看方式"><a href="#对结果的查看方式" class="headerlink" title="对结果的查看方式"></a>对结果的查看方式</h4><p><strong>查看结果树</strong><br><img src="/image/%E7%BB%93%E6%9E%9C%E6%A0%91.png" alt=""></p>
+<p><strong>聚合报告</strong><br><img src="/image/%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.png" alt=""></p>
+<p><strong>图形结果</strong><br><img src="/image/%E5%9B%BE%E5%BD%A2%E7%BB%93%E6%9E%9C.png" alt=""></p>
+<p><strong>表格查看结果</strong><br><img src="/image/%E8%A1%A8%E6%A0%BC%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C.png" alt=""></p>
+<h4 id="参数化关联——用户变量"><a href="#参数化关联——用户变量" class="headerlink" title="参数化关联——用户变量"></a>参数化关联——用户变量</h4><p><img src="/image/%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F1.png" alt=""><br><img src="/image/%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F2.png" alt=""><br><img src="/image/%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F3.png" alt=""></p>
+<h4 id="参数化关联——CSVData"><a href="#参数化关联——CSVData" class="headerlink" title="参数化关联——CSVData"></a>参数化关联——CSVData</h4><p><img src="/image/CSVData1.png" alt=""><br><img src="/image/CSVData2.png" alt=""><br><img src="/image/CSVData3.png" alt=""><br><img src="/image/CSVData4.png" alt=""><br><img src="/image/CSVData5.png" alt=""><br><img src="/image/CSVData6.png" alt=""></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/"># 测试笔记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/06/08/day07/">day07</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
