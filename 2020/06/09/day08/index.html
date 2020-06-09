@@ -208,14 +208,14 @@
         </header>
 
         <div class="post-content">
-            <h3 id="JMeter软件测试"><a href="#JMeter软件测试" class="headerlink" title="JMeter软件测试"></a>JMeter软件测试</h3><p>基于java开发的开源免费的压力测试工具</p>
+            <h3 id="JMeter软件测试"><a href="#JMeter软件测试" class="headerlink" title="JMeter软件测试"></a>JMeter软件测试</h3><p>基于java开发的开源免费的压力测试工具<br>1，测试计划是使用 JMeter 进行测试的起点，它是其它 JMeter 测试元件的容器。<br>2，线程组：代表一定数量的并发用户，它可以用来模拟并发用户发送请求。实际的请求内容在Sampler中定义，它被线程组包含。可以在“测试计划-&gt;添加-&gt;线程组”来建立它，然后在线程组面板里有几个输入栏：线程数、Ramp-Up Period(in seconds)、循环次数，其中Ramp-Up Period(in seconds)表示在这时间内创建完所有的线程。如有8个线程，Ramp-Up = 200秒，那么线程的启动时间间隔为200/8=25秒，这样的好处是：一开始不会对服务器有太大的负载。线程组是为模拟并发负载而设计。<br>3，取样器（Sampler）：模拟各种请求。所有实际的测试任务都由取样器承担，存在很多种请求。如：HTTP 、ftp请求等等。<br>4，监听器：负责收集测试结果，同时也被告知了结果显示的方式。功能是对取样器的请求结果显示、统计一些数据（吞吐量、KB/S……）等。<br>6，断言：用于来判断请求响应的结果是否如用户所期望，是否正确。它可以用来隔离问题域，即在确保功能正确的前提下执行压力测试。这个限制对于有效的测试是非常有用的。<br>7，定时器：负责定义请求（线程）之间的延迟间隔，模拟对服务器的连续请求。<br>5，逻辑控制器：允许自定义JMeter发送请求的行为逻辑，它与Sampler结合使用可以模拟复杂的请求序列。<br>8，配置元件维护Sampler需要的配置信息，并根据实际的需要会修改请求的内容。<br>9，前置处理器和后置处理器负责在生成请求之前和之后完成工作。前置处理器常常用来修改请求的设置，后置处理器则常常用来处理响应的数据。</p>
 <h3 id="jmeter的作用"><a href="#jmeter的作用" class="headerlink" title="jmeter的作用"></a>jmeter的作用</h3><p>1，接口测试<br>2，性能测试<br>3，压力测试<br>4，web自动化测试<br>5，数据库测试<br>6，java程序测试</p>
-<h3 id="性能测试的分类"><a href="#性能测试的分类" class="headerlink" title="性能测试的分类"></a>性能测试的分类</h3><p>1，基准测试：对系统施压过程中记录基本情况</p>
-<p>2，负载测试：不断地施压的过程</p>
-<p>3，压力测试：测试系统最大访问量的极限</p>
-<p>4，稳定性测试：长时间对系统测试</p>
-<p>5，并发测试：多个用户同时访问</p>
-<h3 id="jmeter的使用"><a href="#jmeter的使用" class="headerlink" title="jmeter的使用"></a>jmeter的使用</h3><h4 id="jmeter对接口的测试"><a href="#jmeter对接口的测试" class="headerlink" title="jmeter对接口的测试"></a>jmeter对接口的测试</h4><p><img src="/image/jmeter1.png" alt=""><br><img src="/image/jmeter3.png" alt=""><br><img src="/image/jmeter2.png" alt=""></p>
+<h3 id="性能测试的分类"><a href="#性能测试的分类" class="headerlink" title="性能测试的分类"></a>性能测试的分类</h3><p>1，基准测试：在给系统施加较低压力时，查看系统的运行状况并记录相关数做为基础参考</p>
+<p>2，负载测试：是指对系统不断地增加压力或增加一定压力下的持续时间，直到系统的某项或多项性能指标达到安全临界值，例如某种资源已经达到饱和状态等 。</p>
+<pre><code>不断地施压的过程</code></pre><p>3，压力测试：压力测试是评估系统处于或超过预期负载时系统的运行情况，关注点在于系统在峰值负载或超出最大载荷情况下的处理能力。</p>
+<pre><code>测试系统最大访问量的极限</code></pre><p>4，稳定性测试：在给系统加载一定业务压力的情况下，使系统运行一段时间，以此检测系统是否稳定。24X3小时</p>
+<pre><code>长时间对系统测试</code></pre><p>5，并发测试：测试多个用户同时访问同一个应用、同一个模块或者数据记录时是否存在死锁或者其他性能问题，</p>
+<pre><code>多个用户同时访问</code></pre><h3 id="jmeter的使用"><a href="#jmeter的使用" class="headerlink" title="jmeter的使用"></a>jmeter的使用</h3><h4 id="jmeter对接口的测试"><a href="#jmeter对接口的测试" class="headerlink" title="jmeter对接口的测试"></a>jmeter对接口的测试</h4><p><img src="/image/jmeter1.png" alt=""><br><img src="/image/jmeter3.png" alt=""><br><img src="/image/jmeter2.png" alt=""></p>
 <h4 id="对结果的查看方式"><a href="#对结果的查看方式" class="headerlink" title="对结果的查看方式"></a>对结果的查看方式</h4><p><strong>查看结果树</strong><br><img src="/image/%E7%BB%93%E6%9E%9C%E6%A0%91.png" alt=""></p>
 <p><strong>聚合报告</strong><br><img src="/image/%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.png" alt=""></p>
 <p><strong>图形结果</strong><br><img src="/image/%E5%9B%BE%E5%BD%A2%E7%BB%93%E6%9E%9C.png" alt=""></p>
