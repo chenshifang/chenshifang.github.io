@@ -217,9 +217,34 @@
 <pre><code>长时间对系统测试</code></pre><p>5，并发测试：测试多个用户同时访问同一个应用、同一个模块或者数据记录时是否存在死锁或者其他性能问题，</p>
 <pre><code>多个用户同时访问</code></pre><h3 id="jmeter的使用"><a href="#jmeter的使用" class="headerlink" title="jmeter的使用"></a>jmeter的使用</h3><h4 id="jmeter对接口的测试"><a href="#jmeter对接口的测试" class="headerlink" title="jmeter对接口的测试"></a>jmeter对接口的测试</h4><p><img src="/image/jmeter1.png" alt=""><br><img src="/image/jmeter3.png" alt=""><br><img src="/image/jmeter2.png" alt=""></p>
 <h4 id="对结果的查看方式"><a href="#对结果的查看方式" class="headerlink" title="对结果的查看方式"></a>对结果的查看方式</h4><p><strong>查看结果树</strong><br><img src="/image/%E7%BB%93%E6%9E%9C%E6%A0%91.png" alt=""></p>
-<p><strong>聚合报告</strong><br><img src="/image/%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.png" alt=""></p>
-<p><strong>图形结果</strong><br><img src="/image/%E5%9B%BE%E5%BD%A2%E7%BB%93%E6%9E%9C.png" alt=""></p>
-<p><strong>表格查看结果</strong><br><img src="/image/%E8%A1%A8%E6%A0%BC%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C.png" alt=""></p>
+<pre><code>Thread Name：线程组名称
+Sample Start: 启动开始时间
+Load time：加载时长
+Latency：等待时长
+Size in bytes：发送的数据总大小
+Headers size in bytes：发送数据的其余部分大小
+Sample Count：发送统计
+Error Count：交互错误统计
+Response code：返回码
+Response message：返回信息
+Response headers：返回的头部信息</code></pre><p><strong>聚合报告</strong><br><img src="/image/%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.png" alt=""></p>
+<pre><code>lable：对应每一个http请求，显示的是http请求的Name，如百度http请求name为baidu
+Samples：表示这一次的测试中一共发出了多少请求，如上图所示，sougou和baidu的http请求每个都发出30个请求
+Average：平均响应时间，指的是所有的请求的平均响应时间，如上图的30个请求的总的响应时间除以30得出的平均响应时间，
+默认的情况下是单个请求的平均响应时间，但当使用了“事务控制器”时，则以事物为单位显示平均响应时间
+Median：中位数，也就是50%用户的响应时间
+90%Line：90%用户的响应时间
+Min：最小响应时间
+Max：最大的响应时间
+Error%：本次测试中出现错误的请求的数量/请求的总数，如上图所示，本次的测试中，sougou的http请求66.6%的请求出错，而baidu的请求则没有出错的请求
+Throughput：吞吐量，默认情况下表示每秒完成的请求数，如上图所示，每秒完成的请求数分别为6.6个每秒，6.2个每秒
+Recived KB/Sec：每秒从服务器端接收到的数据量，以kb为计算的单位</code></pre><p><strong>图形结果</strong><br><img src="/image/%E5%9B%BE%E5%BD%A2%E7%BB%93%E6%9E%9C.png" alt=""></p>
+<pre><code>样本数目：总共发送到服务器的请求数。
+最新样本：代表时间的数字，是服务器响应最后一个请求的时间。
+吞吐量：服务器每分钟处理的请求数。
+平均值：总运行时间除以发送到服务器的请求数。
+中间值：有一半的服务器响应时间低于改值而另一半高于该值。
+偏离：表示服务器响应时间变化、离散程度测量值的大小。</code></pre><p><strong>表格查看结果</strong><br><img src="/image/%E8%A1%A8%E6%A0%BC%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C.png" alt=""></p>
 <h4 id="参数化关联——用户变量"><a href="#参数化关联——用户变量" class="headerlink" title="参数化关联——用户变量"></a>参数化关联——用户变量</h4><p><img src="/image/%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F1.png" alt=""><br><img src="/image/%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F2.png" alt=""><br><img src="/image/%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F3.png" alt=""></p>
 <h4 id="参数化关联——CSVData"><a href="#参数化关联——CSVData" class="headerlink" title="参数化关联——CSVData"></a>参数化关联——CSVData</h4><p><img src="/image/CSVData1.png" alt=""><br><img src="/image/CSVData2.png" alt=""><br><img src="/image/CSVData3.png" alt=""><br><img src="/image/CSVData4.png" alt=""><br><img src="/image/CSVData5.png" alt=""><br><img src="/image/CSVData6.png" alt=""></p>
 
@@ -244,6 +269,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/06/10/day09/">day09</a>
             
             
             <a class="next" rel="next" href="/2020/06/08/day07/">day07</a>
