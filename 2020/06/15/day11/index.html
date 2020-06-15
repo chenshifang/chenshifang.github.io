@@ -12,7 +12,7 @@
 
 
 
-<title>Linux常用命令 | 陈士方的博客</title>
+<title>day11 | 陈士方的博客</title>
 
 
 
@@ -183,7 +183,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Linux常用命令</h1>
+            <h1 class="post-title">day11</h1>
             
                 <div class="post-meta">
                     
@@ -192,14 +192,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 12, 2020&nbsp;&nbsp;0:00:00</a>
+                        Date: <a href="#">六月 15, 2020&nbsp;&nbsp;22:21:18</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
                             
                         </span>
                     
@@ -209,254 +209,15 @@
 
         <div class="post-content">
             <h3 id="linux简介"><a href="#linux简介" class="headerlink" title="linux简介"></a>linux简介</h3><p>linux是一个基于POSIX和Unix的多用户、多任务、多线程和多CPU的一个操作系统</p>
-<h3 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h3><table>
-<thead>
-<tr>
-<th>runlevel</th>
-<th>查看当前的运行级别</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>systemctl status firewalld</td>
-<td>开启网络服务功能</td>
-</tr>
-<tr>
-<td>stop</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>restart</td>
-<td>重启</td>
-</tr>
-<tr>
-<td>reload</td>
-<td>重载</td>
-</tr>
-<tr>
-<td>reboot</td>
-<td>关机</td>
-</tr>
-<tr>
-<td>poweroff</td>
-<td>关机</td>
-</tr>
-</tbody></table>
-<h3 id="查看文件常用指令"><a href="#查看文件常用指令" class="headerlink" title="查看文件常用指令"></a>查看文件常用指令</h3><table>
-<thead>
-<tr>
-<th>cat</th>
-<th>在命令提示符下查看文件内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>more</td>
-<td>在命令提示符中分页查看文件内容</td>
-</tr>
-<tr>
-<td>less</td>
-<td>命令行中查看文件可以上下翻页反复浏览</td>
-</tr>
-<tr>
-<td>head</td>
-<td>命令行中查看文件头几行</td>
-</tr>
-<tr>
-<td>tail</td>
-<td>命令行中查看文件尾几行</td>
-</tr>
-<tr>
-<td>wc</td>
-<td>统计文件的单词数 行数等信息</td>
-</tr>
-<tr>
-<td>chgrp</td>
-<td>更改文件的属性</td>
-</tr>
-</tbody></table>
-<pre><code>Cat  
--a -b          显示行号
--e -n          显示行号，空行也占一行
--v             显示特殊字符
-
-
-L  rwx  rwx rwx
-0  123  456 789
-下标为0的时候代表的是  确定文件里欸选哪个
-下标为123 确定文件的所属 拥有该文件的权限
-下标为456 确定属性组   所有有权限的用户组
-下标789  其他用户拥有该文件的权限
-
-0 有的字母为 d  -  l  b  c
-D 是一个目录  
-- 是一个文件 
-l 链接文档 
-b 装置文件
-c 穿行端口设备
-
-R         读
-W         写
-X         执行
--         权限</code></pre><h3 id="目录管理常用指令"><a href="#目录管理常用指令" class="headerlink" title="目录管理常用指令"></a>目录管理常用指令</h3><table>
-<thead>
-<tr>
-<th>pwd</th>
-<th>查看你当前所在的目录</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>cd</td>
-<td>切换目录</td>
-</tr>
-<tr>
-<td>ls</td>
-<td>查看显示目录的内容</td>
-</tr>
-<tr>
-<td>du</td>
-<td>统计目录和文件空间的占用情况</td>
-</tr>
-<tr>
-<td>mkdir</td>
-<td>创建新目录</td>
-</tr>
-<tr>
-<td>rmdir</td>
-<td>删除空目录</td>
-</tr>
-<tr>
-<td>touch</td>
-<td>创建文件</td>
-</tr>
-<tr>
-<td>rm</td>
-<td>删除文件</td>
-</tr>
-<tr>
-<td>ln</td>
-<td>创建硬链接</td>
-</tr>
-<tr>
-<td>ln -s</td>
-<td>创建软链接</td>
-</tr>
-<tr>
-<td>cp</td>
-<td>复制文件或目录</td>
-</tr>
-<tr>
-<td>mv</td>
-<td>移动文件或目录</td>
-</tr>
-<tr>
-<td>which</td>
-<td>查看linux命令所在的目录</td>
-</tr>
-<tr>
-<td>Vi</td>
-<td>编辑文件</td>
-</tr>
-<tr>
-<td>mkfs</td>
-<td>格式化盘符</td>
-</tr>
-</tbody></table>
-<pre><code>Rm        
--f            忽略不存在的文件 
--i            互动模式
--r            递归删除
-
-Mv
--f            文件已经存在直接覆盖
--i            询问是否覆盖
--u            文件升级
-
-Vi
-i              输入
-:wq            退出编辑
-
-命令模式  command mode  
-输入模式  insert mode
-底线模式  LastLine mode</code></pre><h3 id="账号与权限"><a href="#账号与权限" class="headerlink" title="账号与权限"></a>账号与权限</h3><table>
-<thead>
-<tr>
-<th>组管理</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>groupadd group_name</td>
-<td>创建一个新用户组</td>
-</tr>
-<tr>
-<td>groupdel group_name</td>
-<td>删除一个用户组</td>
-</tr>
-<tr>
-<td>groupmod -n new_group_name old_group_name</td>
-<td>重命名一个用户组</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>用户管理</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>useradd zhangsan</td>
-<td>创建账户张三</td>
-</tr>
-<tr>
-<td>passwd zhangsan</td>
-<td>给用户设置密码</td>
-</tr>
-<tr>
-<td>userdel -r zhangsan</td>
-<td>删除张三及他的宿主目录</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>用户组管理</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>gpasswd -a zhangsan root</td>
-<td>将张三用户加入root组</td>
-</tr>
-<tr>
-<td>groups zhangsan</td>
-<td>确认zhangsan用户在root组</td>
-</tr>
-<tr>
-<td>gpasswd -d lisi root</td>
-<td>将李zhangsan户从root组中删除</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>权限管理</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>chown -R zhangsan /aaa</td>
-<td>将文件夹/aaa的多有者修改为zhangsan</td>
-</tr>
-<tr>
-<td>chown root:root /aaa</td>
-<td>将/aaa文件夹的属主和属组都改成root</td>
-</tr>
-<tr>
-<td>chmod 777 /aaa</td>
-<td>给文件夹文件/aaa设置权限为777</td>
-</tr>
-</tbody></table>
-<h3 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h3><pre><code>chmod +x ./sle.sh             执行sle.sh文件</code></pre><p>详情见<a href="https://www.runoob.com/linux/linux-command-manual.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<h3 id="测试中什么时候使用MySQL"><a href="#测试中什么时候使用MySQL" class="headerlink" title="测试中什么时候使用MySQL"></a>测试中什么时候使用MySQL</h3><p>1，获取参数<br>2，获取session<br>3，获取token<br>4，多表联查</p>
+<h3 id="测试中什么时候使用linux"><a href="#测试中什么时候使用linux" class="headerlink" title="测试中什么时候使用linux"></a>测试中什么时候使用linux</h3><p>1，搭建测试环境（JDK、MySQL、Tomact、Nginx）</p>
+<p>2，使用linux对服务器的简单维护</p>
+<p>3，使用linux查看日志定位BUG</p>
+<h3 id="linux的安装"><a href="#linux的安装" class="headerlink" title="linux的安装"></a>linux的安装</h3><p>1，在虚拟机中进行安装linux</p>
+<p>2，使用云服务的linux</p>
+<p><a href="https://www.runoob.com/linux/linux-install.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<h3 id="命令行连接阿里云服务器"><a href="#命令行连接阿里云服务器" class="headerlink" title="命令行连接阿里云服务器"></a>命令行连接阿里云服务器</h3><p>ssh root@公有IP<br>输入实例密码</p>
+<h3 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h3><p><a href="http://zfblog.xyz/2020/04/12/Linux/" target="_blank" rel="noopener">点我查看命令</a></p>
 
         </div>
 
@@ -467,7 +228,7 @@ i              输入
                 <span class="tag">
                     
                     
-                        <a href="/tags/Linux/"># Linux</a>
+                        <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/"># 测试笔记</a>
                     
                         
                 </span>
@@ -480,10 +241,8 @@ i              输入
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/13/%E9%9D%A2%E8%AF%95/">web开发面试题</a>
             
-            
-            <a class="next" rel="next" href="/2020/04/11/%E7%AE%97%E6%B3%95/">算法</a>
+            <a class="next" rel="next" href="/2020/06/11/day10/">day10</a>
             
         </section>
 
