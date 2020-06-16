@@ -227,7 +227,20 @@ export PATH=$PATH:${JAVA_PATH}</code></pre><p><img src="/image/%E4%BF%AE%E6%94%B
 <pre><code>注意位置</code></pre><p>6，加载更新文件、验证</p>
 <pre><code>source profile
 javac</code></pre><p><img src="/image/%E6%9B%B4%E6%96%B0jdk%E6%96%87%E4%BB%B6616-1.png" alt=""></p>
+<h3 id="Linux下安装MySQL"><a href="#Linux下安装MySQL" class="headerlink" title="Linux下安装MySQL"></a>Linux下安装MySQL</h3><p>1，下载MySQL安装包</p>
+<pre><code>wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</code></pre><p>2，设置安装权限后安装</p>
+<pre><code>chmod a+x mysql-community-release-el7-5.noarch.rpm
 
+rpm -ivh mysql-community-release-el7-5.noarch.rpm</code></pre><p>3，下载mysql-community-server</p>
+<pre><code>yum install mysql-community-server</code></pre><p>4，重启MySQL</p>
+<pre><code>service mysqld restart</code></pre><p>5，进入MySQL数据库</p>
+<pre><code>mysql -u root</code></pre><h3 id="linux下安装Tomcat"><a href="#linux下安装Tomcat" class="headerlink" title="linux下安装Tomcat"></a>linux下安装Tomcat</h3><p>1，下载包</p>
+<pre><code>wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.36/bin/apache-tomcat-9.0.36.zip</code></pre><p>2，解压包</p>
+<pre><code>unzip apache-tomcat-9.0.36.zip
+yun install unzip
+
+sh startup.sh
+sh shutdown.sh</code></pre>
         </div>
 
         
