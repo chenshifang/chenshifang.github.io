@@ -12,7 +12,7 @@
 
 
 
-<title>day11 | 陈士方的博客</title>
+<title>day12 | 陈士方的博客</title>
 
 
 
@@ -183,7 +183,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">day11</h1>
+            <h1 class="post-title">day12</h1>
             
                 <div class="post-meta">
                     
@@ -192,7 +192,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">六月 15, 2020&nbsp;&nbsp;22:21:18</a>
+                        Date: <a href="#">六月 16, 2020&nbsp;&nbsp;22:21:18</a>
                         </span>
                     
                     
@@ -208,16 +208,25 @@
         </header>
 
         <div class="post-content">
-            <h3 id="linux简介"><a href="#linux简介" class="headerlink" title="linux简介"></a>linux简介</h3><p>linux是一个基于POSIX和Unix的多用户、多任务、多线程和多CPU的一个操作系统</p>
-<h3 id="测试中什么时候使用MySQL"><a href="#测试中什么时候使用MySQL" class="headerlink" title="测试中什么时候使用MySQL"></a>测试中什么时候使用MySQL</h3><p>1，获取参数<br>2，获取session<br>3，获取token<br>4，多表联查</p>
-<h3 id="测试中什么时候使用linux"><a href="#测试中什么时候使用linux" class="headerlink" title="测试中什么时候使用linux"></a>测试中什么时候使用linux</h3><p>1，搭建测试环境（JDK、MySQL、Tomact、Nginx）</p>
-<p>2，使用linux对服务器的简单维护</p>
-<p>3，使用linux查看日志定位BUG</p>
-<h3 id="linux的安装"><a href="#linux的安装" class="headerlink" title="linux的安装"></a>linux的安装</h3><p>1，在虚拟机中进行安装linux</p>
-<p>2，使用云服务的linux</p>
-<p><a href="https://www.runoob.com/linux/linux-install.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-<h3 id="命令行连接阿里云服务器"><a href="#命令行连接阿里云服务器" class="headerlink" title="命令行连接阿里云服务器"></a>命令行连接阿里云服务器</h3><p>ssh root@公有IP<br>输入实例密码</p>
-<h3 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h3><p><a href="http://zfblog.xyz/2020/04/12/Linux/" target="_blank" rel="noopener">点我查看命令</a></p>
+            <h3 id="Linux下安装jdk"><a href="#Linux下安装jdk" class="headerlink" title="Linux下安装jdk"></a>Linux下安装jdk</h3><p>1，创建一个空文件夹</p>
+<pre><code>mkdir jdk</code></pre><p>2，进入jdk文件夹</p>
+<pre><code>cd jdk</code></pre><p>3，下载jdk     </p>
+<pre><code>wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm</code></pre><p><img src="/image/%E4%B8%8B%E8%BD%BDjdk616-1.png" alt=""><br><img src="/image/%E4%B8%8B%E8%BD%BDjdk616-2.png" alt=""></p>
+<p>4，解压安装</p>
+<pre><code>chmod +x jdk-8u131-linux-x64.rpm
+rpm -ivh jdk-8u131-linux-x64.rpm</code></pre><p><img src="/image/%E8%A7%A3%E5%8E%8Bjdk616.png" alt="">    </p>
+<p>5，修改配置文件        </p>
+<pre><code>cd /
+cd etc
+vi profile</code></pre><p><img src="/image/%E4%BF%AE%E6%94%B9jdk%E9%85%8D%E7%BD%AE616.png" alt=""></p>
+<pre><code>export JAVA_HOME=/usr/java/jdk1.8.0_131
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH
+export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin
+export PATH=$PATH:${JAVA_PATH}</code></pre><p><img src="/image/%E4%BF%AE%E6%94%B9jdk%E9%85%8D%E7%BD%AE616-2.png" alt=""></p>
+<pre><code>注意位置</code></pre><p>6，加载更新文件、验证</p>
+<pre><code>source profile
+javac</code></pre><p><img src="/image/%E6%9B%B4%E6%96%B0jdk%E6%96%87%E4%BB%B6616-1.png" alt=""></p>
 
         </div>
 
@@ -241,10 +250,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/06/16/day12/">day12</a>
             
-            
-            <a class="next" rel="next" href="/2020/06/11/day10/">day10</a>
+            <a class="next" rel="next" href="/2020/06/15/day11/">day11</a>
             
         </section>
 
