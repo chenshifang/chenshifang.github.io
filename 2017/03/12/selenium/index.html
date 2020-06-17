@@ -241,19 +241,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">driver.switch_to.frame(&quot;frame1&quot;)</span><br><span class="line">driver.switch_to.frame(&quot;frame2&quot;)</span><br></pre></td></tr></table></figure>
 
 <p>2，从frame2再切回frame1，这里selenium给我们提供了一个方法能够从子frame切回到父frame，而不用我们切回主文档再切进来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">driver.switch_to.parent_frame()</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">	有了parent_frame()这个相当于后退的方法，我们可以随意切换不同的frame，随意的跳来跳去了。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 元素定位</span><br><span class="line">例：</span><br></pre></td></tr></table></figure>
-<input type="text" name="q" class="placeholder" id="input" suggestwidth="540px" autocomplete="off">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">根据标签的ID属性定位</span><br></pre></td></tr></table></figure>
-driver.find_element_by_id("input")
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据标签的name属性定位</span><br></pre></td></tr></table></figure>
-driver.find_element_by_name("q")
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据标签的class属性定位</span><br></pre></td></tr></table></figure>
-driver.find_element_by_class_name("placeholder")
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据标签名定位</span><br></pre></td></tr></table></figure>
-driver.find_element_by_tag_name("input")
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">通过link_text定位</span><br></pre></td></tr></table></figure>
-<a href="http://www.so.com/link?3D" target="_blank" rel="noopener" data-url="http://ly.so.com/?src=tab_web" data-linkid="liangyi">良医</a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">driver.find_element_by_link_text(&quot;良医&quot;)</span><br><span class="line">driver.find_element_by_partial_link_text(&quot;医&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.switch_to.parent_frame()</span><br></pre></td></tr></table></figure>
+
+<pre><code>有了parent_frame()这个相当于后退的方法，我们可以随意切换不同的frame，随意的跳来跳去了。</code></pre><h3 id="元素定位"><a href="#元素定位" class="headerlink" title="元素定位"></a>元素定位</h3><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;q&quot; class&#x3D;&quot;placeholder&quot; id&#x3D;&quot;input&quot; suggestwidth&#x3D;&quot;540px&quot; autocomplete&#x3D;&quot;off&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>根据标签的ID属性定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_element_by_id(&quot;input&quot;)</span><br></pre></td></tr></table></figure>
+<p>根据标签的name属性定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_element_by_name(&quot;q&quot;)</span><br></pre></td></tr></table></figure>
+<p>根据标签的class属性定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_element_by_class_name(&quot;placeholder&quot;)</span><br></pre></td></tr></table></figure>
+<p>根据标签名定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_element_by_tag_name(&quot;input&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>通过link_text定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.so.com&#x2F;link?3D&quot; data-url&#x3D;&quot;http:&#x2F;&#x2F;ly.so.com&#x2F;?src&#x3D;tab_web&quot; data-linkid&#x3D;&quot;liangyi&quot;&gt;良医&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">driver.find_element_by_link_text(&quot;良医&quot;)</span><br><span class="line">driver.find_element_by_partial_link_text(&quot;医&quot;)</span><br></pre></td></tr></table></figure>
 
 <p>例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;q&quot; class&#x3D;&quot;placeholder&quot; id&#x3D;&quot;input&quot; suggestwidth&#x3D;&quot;540px&quot; autocomplete&#x3D;&quot;off&quot;&gt;</span><br></pre></td></tr></table></figure>
