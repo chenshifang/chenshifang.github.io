@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>回顾一 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">回顾一</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 22, 2020&nbsp;&nbsp;11:35:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>软件测试是贯穿整个软件开发生命周期、对软件产品（包括阶段性产品）进行验证和确认的活动过程，其目的<br>是尽快尽早的发现在软件产品中所存在的各种问题–与用户需求、预先定义的不一致性。</p>
+<h4 id="软件开发的生命周期"><a href="#软件开发的生命周期" class="headerlink" title="软件开发的生命周期"></a>软件开发的生命周期</h4><pre><code>1，客户提出需求
+2，根据客户提出的需求写出相对的需求文档
+3，① 前端同事设计效果图
+   ② 后端开发人员编写代码实现功能
+   ③ 测试人员编写测试计划和测试用例
+4，后端开发实现功能后，测试人员根据测试用例进行测试
+5，开发完全结束后，测试人员进行整体测试，测试成功后上线
+6，软件上线后，根据用户体验和实际效果进行小版本迭代</code></pre><h4 id="测试流程"><a href="#测试流程" class="headerlink" title="测试流程"></a>测试流程</h4><p>1，在立项会上根据客户需求编写需求文档/规格说明书，UI设计原型图，后台编码，测试人员编写测试计划和测试用例<br>2，随着开发的代码实现测试进行测试评审<br>3，代码实现后测试人员先进行’冒烟测试’<br>4，代码实现后测试执行测试用例<br>5，根据执行的结果进行对应bug提交给相应的开发人员让其修改代码<br>6，开发修改后测试人员进行’回归测试’<br>7，直至项目上线后，测试人员编写测试总结用于下一个版本的迭代</p>
+<h4 id="软件测试的分类"><a href="#软件测试的分类" class="headerlink" title="软件测试的分类"></a>软件测试的分类</h4><pre><code>1，按阶段划分
+    a.单元测试    对一个模块测试
+    b.集成测试    对多个模块测试（有一点关联）
+    c.系统测试    在软件编译后执行的整体测试
+    d.验收测试    对软件执行后的用户体验测试
+       阿尔法测试       有一定的发开测试人员的测试    内存
+       贝塔测试            只有用户参与的测试            公测
+
+2，按是否运行程序划分
+    a.静态测试    UI设计图
+    b.动态测试    执行代码过程中产生的问题
+
+3，按是否查看源代码方式划分
+    a.黑盒测试    不看源代码结构，只关心外观和能否输入输出以及响应时间
+        功能测试           界面、安装、兼容、易用
+        性能测试        压力测试、负载测试、一般性能和稳定性测试    
+    b.白盒测试    只看代码结构以及代码实现方式
+    c.灰盒测试    介于黑盒和白盒之间的一种</code></pre><h4 id="软件测试开发常见的模式"><a href="#软件测试开发常见的模式" class="headerlink" title="软件测试开发常见的模式"></a>软件测试开发常见的模式</h4><p>1，V型：先开发，后测试<br>2，W型：开发和测试同步进行<br>3，螺旋型：保证后期开发和验证的效率</p>
+<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><p>执行测试的依据，将测试的操作步骤进行以文档的方式记录下来</p>
+<h4 id="测试用例的格式"><a href="#测试用例的格式" class="headerlink" title="测试用例的格式"></a>测试用例的格式</h4><p>1，测试用例的模块： 操作软件的一个大的菜单，命名以模块名称为主<br>2，测试用例的编号： 命名以菜单下具体功能 —— 数字<br>3，测试输入： 对具体的功能操作步骤<br>4，执行条件： 操作的先决条件<br>5，预期结果： 是以需求文档上的内容为准<br>6，实际结果： 依据测试数据的输出内容后得到的结果可能与预期一致或是不一致</p>
+<h4 id="测试方法："><a href="#测试方法：" class="headerlink" title="测试方法："></a>测试方法：</h4><p>1，等价类划分：划分为有效等价类和无效等价类<br>有效等价类：对于系统而言，输入的数据是合理的，有意义的数据<br>无效等价类：对于系统而言，输入的数据是不合理的，无意义的数据<br>设计有效等价类用例时，尽量用一条用例覆盖更多或全部的有效等价类（主要是避免用例冗余）<br>设计无效等价类用例时，每一个无效等价类设计一条用例</p>
+<p>2，边界值<br>取正好等于、刚刚大于、刚刚小于边界的值、0、负数作为测试数据</p>
+<p>3，因果图法<br>因果图法着重测试规格说明中的输入与输出间的依赖关系。<br>（1）确定软件规格(需求)中的原因和结果</p>
+<p>（2）确定原因和结果之间的逻辑关系</p>
+<p>（3）确定因果图中的各个约束</p>
+<p>（4）画出因果图并转换为决策表</p>
+<p>（5）根据决策表设计测试用例</p>
+<p>4，场景法<br>通过场景描述业务流程：画出流程图来描述业务流程</p>
+<p>5，错误推断法<br>根据经验和直觉推断</p>
+<h4 id="编写测试用例三部曲："><a href="#编写测试用例三部曲：" class="headerlink" title="编写测试用例三部曲："></a>编写测试用例三部曲：</h4><p>1,根据需求提取测试用例的测试点<br>2,根据测试点内容输入不同数据类型<br>3,得到不同结果用来编写测试用例</p>
+<h3 id="缺陷报告"><a href="#缺陷报告" class="headerlink" title="缺陷报告"></a>缺陷报告</h3><h4 id="缺陷报告书写规范"><a href="#缺陷报告书写规范" class="headerlink" title="缺陷报告书写规范"></a>缺陷报告书写规范</h4><p>1，标题简洁、提供缺陷的本质信息即可<br>2，复现的步骤要详细，包含如何使别人能够很容易的复现该缺陷的完整步骤。用数字编码<br>3，实际结果和错误结果要描述清楚<br>4，列出预期结果<br>5，测试数据<br>6，提供附件<br>7，提供严重性属性和其他公司需要填写的属性</p>
+<h4 id="缺陷报告的注意事项"><a href="#缺陷报告的注意事项" class="headerlink" title="缺陷报告的注意事项"></a>缺陷报告的注意事项</h4><p>1，尽量保证缺陷可以重现<br>2，简洁、准确、完整<br>3，一个缺陷报告尽量只写一个缺陷</p>
+<h4 id="BUG等级划分"><a href="#BUG等级划分" class="headerlink" title="BUG等级划分"></a>BUG等级划分</h4><p>系统崩溃： 完全无法进行测试的<br>严重： 功能没有实现的<br>一般： 数据计算有误的<br>次要： 字体样式、颜色有误的<br>建议： 改不改都可以的</p>
+<h4 id="BUG的生命周期"><a href="#BUG的生命周期" class="headerlink" title="BUG的生命周期"></a>BUG的生命周期</h4><p>新建 、确认 、 解决 、重新验证 、 关闭 、 重新打开</p>
+<h4 id="处理bug流程"><a href="#处理bug流程" class="headerlink" title="处理bug流程"></a>处理bug流程</h4><p>1，测试工程师发现并提交BUG</p>
+<p>2，测试经理进行缺陷的过滤</p>
+<p>3.测试经理将缺陷指派给开发经理</p>
+<p>4.开发经理将缺陷指派给响应的开发人员</p>
+<p>5.开发工程师确认缺陷，如果是缺陷，则fix，如果不是缺陷，则reject并给出理由</p>
+<p>6.如果缺陷状态为fix，则测试工程师进行确认活动，如果成功，则将缺陷状态改为close，如果没有fix，则将状态改为reopen</p>
+<p>7.如果开发人员认为不是缺陷，测试人员应说明认为是缺陷的原因，如果意见不能一致，则由项目经理协调处理</p>
+<p>采用缺陷管理工具，开源（Bugzilla、jira、matins、Excel等）商业（QC/ALM、禅道等）</p>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><p>MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 公司。MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。<br>MySQL 是开源的，所以你不需要支付额外的费用。<br>MySQL 支持大型的数据库。可以处理拥有上千万条记录的大型数据库。<br>MySQL 使用标准的 SQL 数据语言形式。<br>MySQL 可以运行于多个系统上，并且支持多种语言。这些编程语言包括 C、C++、Python、Java、Perl、PHP、Eiffel、Ruby 和 Tcl 等。<br>MySQL 对PHP有很好的支持，PHP 是目前最流行的 Web 开发语言。<br>MySQL 支持大型数据库，支持 5000 万条记录的数据仓库，32 位系统表文件最大可支持 4GB，64 位系统支持最大的表文件为8TB。<br>MySQL 是可以定制的，采用了 GPL 协议，你可以修改源码来开发自己的 MySQL 系统。</p>
+<h4 id="三范式："><a href="#三范式：" class="headerlink" title="三范式："></a>三范式：</h4><p>第一范式：强调的是列的原子性，即列不能够再分成其他几列。</p>
+<p>第二范式：首先是建立在1NF基础之上，另外包含两部分内容；<br>一是表必须有一个主键；<br>二是没有包含在主键中的列必须完全依赖于主键，而不能只依赖于主键的一部分。</p>
+<p>第三范式：首先是建立在2NF基础之上，另外非主键列必须直接依赖于主键，不能存在传递依赖；即不能存在：<br>非主键列A依赖于非主键列B，非主键列B依赖于主键的情况。</p>
+<h4 id="MySQL数据库的约束"><a href="#MySQL数据库的约束" class="headerlink" title="MySQL数据库的约束"></a>MySQL数据库的约束</h4><p>1，主键primary key：物理上存储的顺序<br>2，非空not null：此字段不允许填写空值<br>3，惟一unique：此字段的值不允许重复<br>4，默认default：当不填写此值时会使用默认值，如果填写时以填写为准<br>5，外键foreign key：对关系字段进行约束，当为关系字段填写值时，会到关联的表中查询此值是否存在，如果存在则填写成功，如果不存在则填写失败并抛出异常</p>
+<h4 id="MySQL的数据类型"><a href="#MySQL的数据类型" class="headerlink" title="MySQL的数据类型"></a>MySQL的数据类型</h4><p>枚举： enum<br>整数： int、bit、tinyint<br>小数： Decimal、float<br>字符串： varchar、char、text<br>时间日期： date、time、datetime、year</p>
+<h3 id="移动端测试"><a href="#移动端测试" class="headerlink" title="移动端测试"></a>移动端测试</h3><p>Android开源导致碎片化比较严重，以为手机品牌众多，系统版本各异，无法保证应用兼容所有手机，BUG比较多<br>IOS机型统一、系统稳定，BUG会少一些</p>
+<h4 id="安装测试："><a href="#安装测试：" class="headerlink" title="安装测试："></a>安装测试：</h4><p>1，软件安装后是否可以正常运行<br>2，安装过程中是否可以取消，取消后安装未完成的文件是否清理<br>3，安装空间不足时是否有相应的提示<br>4，从不同的应用市场下载进行安装测试。比如应用宝、安卓市场、华为市场等</p>
+<h4 id="卸载测试："><a href="#卸载测试：" class="headerlink" title="卸载测试："></a>卸载测试：</h4><p>1，软件是否支持卸载功能<br>2，是否可以通过桌面卸载、软件卸载<br>3，卸载是否支持取消功能，点击取消后软件卸载是否正常<br>4，卸载后是否删除所有的安装文件夹（log日志、历史记录、安装目录）</p>
+<h4 id="软件的升级测试"><a href="#软件的升级测试" class="headerlink" title="软件的升级测试"></a>软件的升级测试</h4><p>1，是否拥有更新提醒<br>2，是否强制升级以及用户是否可以取消升级<br>3，软件升级后是否重启手机以及强制关机<br>4，在升级时是否考虑手机电量充足<br>5，在升级时是否考虑下载升级包方式<br>6，是否默认升级（不建议）</p>
+<h4 id="消息推送机制测试"><a href="#消息推送机制测试" class="headerlink" title="消息推送机制测试"></a>消息推送机制测试</h4><p>1，是否在锁屏的状态下继续推送<br>2，推送是否经过用户同意<br>3，是否推送用户关注的内容<br>4，推送成功后，用户是否可以正常打开链接</p>
+<h3 id="adb"><a href="#adb" class="headerlink" title="adb"></a>adb</h3><p>adb工具即Android Debug Bridge（安卓调试桥） tools。它就是一个命令行窗口，用于通过电脑端与模拟器或者真实设备交互。在某些特殊的情况下进入不了系统，adb就派上用场啦</p>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>1，运行设备的shell<br>2，管理模拟器、设备的端口映射<br>3，电脑和设备之间的上传和下载功能<br>4，将本地的apk软件安装到模拟器或者移动端设备</p>
+<h4 id="ADB常用命令"><a href="#ADB常用命令" class="headerlink" title="ADB常用命令"></a>ADB常用命令</h4><p>1，查看设备<br>adb devices</p>
+<p>2，安装软件<br>adb install -r（apk的路径）</p>
+<p>3，卸载apk<br>adb uninstall 软件名</p>
+<p>4，卸载apk保留文件<br>adb uninstall -k 软件名</p>
+<p>5，列出所有的包名<br>adb shell pm list package</p>
+<p>6，列出第三方的包名<br>adb shell pm list package -3</p>
+<p>7，列出系统应用的包名<br>adb shell pm list package -s</p>
+<p>8，查看手机内存的命令<br>adb shell dumpsys meminfo 包名</p>
+<p>9，屏幕截图<br>adb shell screencap /sdcard/screen.png</p>
+<p>10，录制视频<br>adb shell screenrecord /sdcard/demo.mp4</p>
+<h3 id="monkey"><a href="#monkey" class="headerlink" title="monkey"></a>monkey</h3><p>它是Android系统自带一个命令行工具，可以运行在模拟器里或者真是设备中运行。monkey向系统发送伪随机的用户事件流，实现对正在开发的应用程序进行压力测试。</p>
+<p>monkey包括很多选项，大致四大类：</p>
+<p>1.基本配置选项，如设置尝试的事件数量。</p>
+<p>2.运行约束选项，如设置只对单独的一个包进行测试。</p>
+<p>3.事件类型和频率。</p>
+<p>4.调试选项</p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>指定一个包<br>adb shell monkey  -p  com.tencent.news  -v -v -v  100</p>
+<p>指定多个包<br>adb shell monkey -p com.tencent.news -p com.pdfreader -p com.widgets  -v 1000</p>
+<p>不指定包<br>adb shell monkey -v 1000<br>-p参数：表示指定测试的程序（空格后面跟安装包名字，拿刚才的第三方安装包一个个试）<br>-v参数：表示查看monkey执行过程的信息(日志级别）（-v 越多越详细，最多三个）<br>数字100:表示测试事件数为100</p>
+<p>将log信息写到文档中<br>adb shell monkey 100 &gt;c:/log/b.txt</p>
+<p>–throttle：事件之间加入延时操作<br>adb shell monkey -p com.example.login –throttle 300 100<br>表示执行100个伪随机用户事件流，事件间隔为300毫秒。<br>注：一般设置为300毫秒，原因是实际用户操作的最快300毫秒左右一个动作事件。</p>
+<p>-pct-touch：调整触摸事件的百分比<br>adb shell monkey -pct-touch 67 -v 10<br>表示执行10个伪随机用户事件流，并调整其中触摸事件的百分比为67%。<br>触摸事件是指在屏幕中的一个down-up事件，即在屏幕某处按下并抬起的操作</p>
+<p>-pct-motion：动作事件<br>adb shell monkey -pct-motion 67 -v 10<br>表示执行10个伪随机用户事件流，并调整其中动作事件的百分比为67%<br>motion事件是由屏幕上某处一个down事件、一系列伪随机的移动事件和一个up事件组成<br>这里的移动是直线滑动</p>
+<p>–ignore-crashes：忽略崩溃<br>通常，应用发生崩溃或异常时Monkey会停止运行。<br>如果设置此项，Monkey将继续发送事件给系统，直到事件计数完成。<br>正常操作，不忽略异常</p>
+<p>–ignore-timeouts：忽略超时<br>通常，应用程序发生任何超时错误（如“Application Not responding”对话框）Monkey将停止运行，<br>设置此项，Monkey将继续发送事件给系统，直到事件计数完成。</p>
+<p>–ignore-security-exceptions：忽略安全异常<br>adb shell monkey<br>-p com.miui.calculator<br>–ignore-crashes –ignore-timeouts –ignore-security-exceptions<br>-v 1000</p>
+<h3 id="接口测试"><a href="#接口测试" class="headerlink" title="接口测试"></a>接口测试</h3><p>接口测试主要用于外部系统与系统之间以及内部各个子系统之间的交互点，定义特定的交互点，然后通过这些交互点来，通过一些特殊的规则也就是协议，来进行数据之间的交互。一般我们用的多的是HTTP协议的接口、WebService协议的接口，还有RPC（Remote Procedure Call Protocol）——远程过程调用协议的接口。不管是哪种接口，其本质就是发送一个request，然后服务器响应后返回一个response，然后我们对response进行分析，这即是接口测试。</p>
+<h4 id="接口的分类："><a href="#接口的分类：" class="headerlink" title="接口的分类："></a>接口的分类：</h4><p>webservice接口<br>webService接口是走soap协议通过http传输，请求报文和返回报文都是xml格式的，我们在测试的时候都用通过工具才能进行调用，测试。</p>
+<p>http api接口<br>http api接口是走http协议，通过路径来区分调用的方法，请求报文都是key-value形式的，返回报文一般都是json串，有get和post等方法，这也是最常用的两种请求方式。</p>
+<h4 id="接口测试工作流程"><a href="#接口测试工作流程" class="headerlink" title="接口测试工作流程"></a>接口测试工作流程</h4><p>准备阶段（80%）：<br>1，拿到开发的接口文档，并理解每个接口的参数及含义<br>2，了解被测试系统的业务流程<br>3，编写接口测试用例<br>执行阶段（10%）：<br>1，测试用例/测试场景执行<br>2，测试数据/系统数据收集<br>分析阶段（10%）：<br>1，数据汇总/日志分析<br>2，测试报告</p>
+<h4 id="用例编写要点："><a href="#用例编写要点：" class="headerlink" title="用例编写要点："></a>用例编写要点：</h4><p>测试每个参数类型不合法的情况<br>测试每个参数取值范围不合法的情况<br>测试参数为空的情况<br>测试参数前后台定义的一致性<br>测试每个参数的上下限（这里容易出致命的BUG，如果程序处理不当，可能导致崩溃）<br>测试每个参数取值不合理的情况（包括取的值不属于自己，取值在这阶段不会出现，取值超出了自己拥有数量或者范围）<br>如果两个请求有严格的先后顺序，需要测试调转顺序的情况<br>自己和自己的交易、聊天等操作（这种特别容易遗漏）</p>
+<p>接口测试工具<br>Postman</p>
+<p>接口抓包工具<br>Charles</p>
+<p>压力测试工具<br>Jmeter</p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>linux是一个基于POSIX和Unix的多用户、多任务、多线程和多CPU的一个操作系统</p>
+<h4 id="测试中什么时候使用linux"><a href="#测试中什么时候使用linux" class="headerlink" title="测试中什么时候使用linux"></a>测试中什么时候使用linux</h4><p>1，搭建测试环境（JDK、MySQL、Tomact、Nginx）</p>
+<p>2，使用linux对服务器的简单维护</p>
+<p>3，使用linux查看日志定位BUG</p>
+<h4 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h4><pre><code>pwd        查看你当前所在的目录
+cd        切换目录
+ls        查看显示目录的内容
+du        统计目录和文件空间的占用情况
+mkdir    创建新目录
+rmdir    删除空目录
+touch    创建文件
+rm        删除文件
+ln        创建硬链接
+ln -s    创建软链接
+cp        复制文件或目录
+mv        移动文件或目录</code></pre><h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><h4 id="七大数据类型"><a href="#七大数据类型" class="headerlink" title="七大数据类型"></a>七大数据类型</h4><p>字符串、数字（整型、浮点型）、列表、元祖、字典、集合、布尔</p>
+<h4 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法"></a>字符串常用方法</h4><p>1，find()：检测元素是否包含在字符串中，如果存在，则返回索引值，否则返回-1</p>
+<p>2，rfind()：类似于 find()函数，不过是从右边开始查找</p>
+<p>3，index()：检测 元素 是否包含在 字符串中，如果是返回开始的索引值，否则报错</p>
+<p>4，count()：返回元素在字符串中出现的次数</p>
+<p>5，replace()：替换字符串中的元素</p>
+<p>6，split()：将字符串中的元素分割，返回一个列表</p>
+<p>7，join()：str 中每个字符后面插入my_str,构造出一个新的字符串</p>
+<h4 id="列表常用方法"><a href="#列表常用方法" class="headerlink" title="列表常用方法"></a>列表常用方法</h4><p>append：通过append可以向列表（尾部）添加元素</p>
+<p>extend：通过extend可以将另一个集合中的元素逐一添加到列表中</p>
+<p>insert：insert(index, object) 在指定位置index前插入元素object</p>
+<p>del：根据下标进行删除</p>
+<p>pop：删除最后一个元素</p>
+<p>remove：根据元素的值进行删除</p>
+<p>reverse:将列表逆转</p>
+<p>sort：将列表重新排序，默认从小到大</p>
+<h4 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h4><p>优点是：解决了程序的扩展性。对某一个对象单独修改，会立刻反映到整个体系中，如对游戏中一个人物参数的特征和技能修改都很容易。</p>
+<p>缺点：可控性差，无法向面向过程的程序设计流水线式的可以很精准的预测问题的处理流程与结果，面向对象的程序一旦开始就由对象之间的交互解决问题，即便是上帝也无法预测最终结果。于是我们经常看到一个游戏人某一参数的修改极有可能导致阴霸的技能出现，一刀砍死3个人，这个游戏就失去平衡。</p>
+<p>类：具有相同特征的一类事物(人、狗、老虎)</p>
+<p>对象／实例：具体的某一个事物（隔壁阿花、楼下旺财）</p>
+<p>实例化：类——&gt;对象的过程（这在生活中表现的不明显）</p>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><p>打开文件：open</p>
+<p>关闭文件：close</p>
+<p>读文件：R</p>
+<p>写文件：W</p>
+<p>文件重命名：rename</p>
+<p>删除文件：remove</p>
+<p>新建文件：mkdir</p>
+<p>删除文件夹：rmdir</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/"># 测试笔记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/06/21/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">python文件操作</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
