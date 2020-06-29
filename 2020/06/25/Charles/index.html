@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>Charles | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Charles</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 25, 2020&nbsp;&nbsp;22:35:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="Charles简介"><a href="#Charles简介" class="headerlink" title="Charles简介"></a>Charles简介</h3><p>Charles中文名叫青花瓷，她是一款基于HTTP协议的代理服务器，通过称为电脑或者浏览器的代理，然后截取请求<br>和请求结果达到分析抓包的目的</p>
+<p>Charles工作原理图：<br><img src="/image/charles%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt=""></p>
+<p>跨平台，支持Mac、Linux、Windows</p>
+<p>支持HTTP及HTTPS代理</p>
+<p>支持流量控制，用来进行弱网测试</p>
+<p>支持接口并发请求，用来进行性能测试、压力测试</p>
+<p>支持断点调试，用来进行修改对应的请求数据和返回的结果数据，来构建异常的测试环境</p>
+<p>支持重发网络请求</p>
+<h3 id="Charles组件介绍"><a href="#Charles组件介绍" class="headerlink" title="Charles组件介绍"></a>Charles组件介绍</h3><p><img src="/image/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D.png" alt=""><br><img src="/image/%E4%B8%BB%E5%AF%BC%E8%88%AA%E6%A0%8F%E4%BB%8B%E7%BB%8D.png" alt=""><br><img src="/image/charles%E8%AF%B7%E6%B1%82%E6%A0%8F.png" alt=""><br><img src="/image/charles%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E6%A0%8F.png" alt=""></p>
+<h3 id="Charles代理设置"><a href="#Charles代理设置" class="headerlink" title="Charles代理设置"></a>Charles代理设置</h3><p><img src="/image/charles%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE1.png" alt=""></p>
+<h3 id="charles访问控制"><a href="#charles访问控制" class="headerlink" title="charles访问控制"></a>charles访问控制</h3><p><img src="/image/charles%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6.png" alt=""></p>
+<h3 id="Charles代理设置-Windows"><a href="#Charles代理设置-Windows" class="headerlink" title="Charles代理设置-Windows"></a>Charles代理设置-Windows</h3><p><img src="/image/charles%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE2.png" alt=""></p>
+<p><img src="/image/charles%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE3.png" alt=""></p>
+<h3 id="Charles-HTTPS代理配置"><a href="#Charles-HTTPS代理配置" class="headerlink" title="Charles HTTPS代理配置"></a>Charles HTTPS代理配置</h3><p><img src="/image/charlesHTTPS.png" alt=""></p>
+<h3 id="Charles流量配置"><a href="#Charles流量配置" class="headerlink" title="Charles流量配置"></a>Charles流量配置</h3><p><img src="/image/charles%E6%B5%81%E9%87%8F%E9%85%8D%E7%BD%AE.png" alt=""></p>
+<h3 id="Charles断点"><a href="#Charles断点" class="headerlink" title="Charles断点"></a>Charles断点</h3><p><img src="/image/charles%E6%96%AD%E7%82%B91.png" alt=""><br><img src="/image/charles%E6%96%AD%E7%82%B92.png" alt=""></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Charles/"># Charles</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/06/22/%E6%B5%8B%E8%AF%95%E4%B8%80%E5%9B%9E%E9%A1%BE/">回顾一</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
