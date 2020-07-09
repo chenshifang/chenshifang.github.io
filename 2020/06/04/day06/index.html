@@ -251,6 +251,9 @@
 <p>12，根据日志级别打印    ****</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb logcat *:w(日志级别的首字母) </span><br><span class="line"># 大于和等于这个级别的</span><br></pre></td></tr></table></figure>
 
+<p>13，连接模拟器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">5555</span></span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="monkey"><a href="#monkey" class="headerlink" title="monkey"></a>monkey</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>它是Android系统自带一个命令行工具，可以运行在模拟器里或者真是设备中运行。monkey向系统发送伪随机的用户事件流，实现对正在开发的应用程序进行压力测试。</p>
