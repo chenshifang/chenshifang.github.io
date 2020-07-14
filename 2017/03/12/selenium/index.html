@@ -199,7 +199,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/selenium/">selenium</a>
+                                <a href="/categories/Selenium/">Selenium</a>
                             
                         </span>
                     
@@ -208,7 +208,11 @@
         </header>
 
         <div class="post-content">
-            <h3 id="自动化测试工具：selenium"><a href="#自动化测试工具：selenium" class="headerlink" title="自动化测试工具：selenium"></a>自动化测试工具：selenium</h3><p>Chromedriver下载地址： <a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.html</a></p>
+            <h3 id="Web自动化测试工具：selenium"><a href="#Web自动化测试工具：selenium" class="headerlink" title="Web自动化测试工具：selenium"></a>Web自动化测试工具：selenium</h3><p>Selenium 是web自动化测试工具集，包括IDE、Grid、RC（selenium 1.0）、WebDriver（selenium 2.0）等。</p>
+<p>Selenium IDE 是firefox浏览器的一个插件。提供简单的脚本录制、编辑与回放功能。</p>
+<p>Selenium Grid 是用来对测试脚步做分布式处理。现在已经集成到selenium server 中了。</p>
+<p>RC和WebDriver 更多应该把它看成一套规范，在这套规范里定义客户端脚步与浏览器交互的协议。以及元素定位与操作的接口。</p>
+<p>Google-Chromedriver下载地址： <a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.html</a></p>
 <pre><code>注意：版本要与浏览器的版本接近</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#导入selenium</span><br><span class="line">from selenium import webdriver</span><br><span class="line"></span><br><span class="line">#创建chrome驱动实例,打开浏览器</span><br><span class="line">driver&#x3D;webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">#浏览器最大化</span><br><span class="line">driver.maximize_window()</span><br><span class="line"></span><br><span class="line">#浏览器最小化</span><br><span class="line">driver.minimize_window()</span><br><span class="line"></span><br><span class="line">#获取浏览器当前窗口大小</span><br><span class="line">size&#x3D;driver.get_window_size()</span><br><span class="line"></span><br><span class="line">#设置浏览器窗口大小</span><br><span class="line">driver.set_window_size(400,400)</span><br><span class="line"></span><br><span class="line">#打开指定网页</span><br><span class="line">driver.get(&quot;http:&#x2F;&#x2F;www.so.com&quot;)</span><br><span class="line"></span><br><span class="line">#获取当前页面的链接地址</span><br><span class="line">url&#x3D;driver.current_url</span><br><span class="line">driver.get(&quot;http:&#x2F;&#x2F;baike.so.com&quot;)</span><br><span class="line"></span><br><span class="line">#后退</span><br><span class="line">driver.back()</span><br><span class="line"></span><br><span class="line">#前进</span><br><span class="line">driver.forward()</span><br><span class="line"></span><br><span class="line">#浏览器退出</span><br><span class="line">driver.close()</span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
 
 
@@ -435,7 +439,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/selenium/"># selenium</a>
+                        <a href="/tags/Selenium/"># Selenium</a>
                     
                         
                 </span>

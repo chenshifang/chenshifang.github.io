@@ -12,7 +12,7 @@
 
 
 
-<title>day06 | 陈士方的博客</title>
+<title>移动端测试 | 陈士方的博客</title>
 
 
 
@@ -183,7 +183,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">day06</h1>
+            <h1 class="post-title">移动端测试</h1>
             
                 <div class="post-meta">
                     
@@ -199,7 +199,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                                <a href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/">移动端测试</a>
                             
                         </span>
                     
@@ -222,142 +222,6 @@
 <h4 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h4><p>1，内存,<br>2，CPU<br>3，流量<br>4，电量<br>5，启动速度<br>6，滑动速度<br>7，界面切换速度<br>8，与服务器交互的网络速度</p>
 <h4 id="站在测试工程师角度考虑"><a href="#站在测试工程师角度考虑" class="headerlink" title="站在测试工程师角度考虑"></a>站在测试工程师角度考虑</h4><p>1，连接超时<br>这个是App关闭的首要问题，而在移动应用中网络错误数据比例报错中最高的就是连接超时错误。想象一下当花重金好不容易把你的App推广到用户手机上，而在用户初次尝试时发生连接超时无法正常使用，多数用户会选择再也不会打开应用第二次。<br>2，崩溃<br>这个已无需多言。APP的崩溃，就是用户的崩溃。当用户使用你的App出现闪退或崩溃时，他们很有可能跑去AppStore赠送你一个“一星”差评。<br>3，系统交互（电话短信干扰，低电量提醒，push提醒，usb数据线插拔提醒，充电提醒等）<br>在APP使用过程中，可能会遇到各种中断场景，那么一旦发生这些场景，APP就卡死或者闪退，想必也没有多少用户愿意持续使用你的APP。<br>4，弱网下的运行情况<br>电梯里、地铁上，网络信号差时，APP页面的菊花转不停，界面卡死，同时错误提示一堆，这样的情况怎能不让用户抓狂。<br>5，CPU使用问题<br>CPU频率设置过高时会导致过热,过热导致耗电更严重,CPU频率设置过低导致手机滞后,应用处理缓慢同样会导致耗电。更多时候，用户解决CPU超载问题只能关闭甚至卸载App，App就被Kill了!</p>
 <h4 id="测试方法及工具"><a href="#测试方法及工具" class="headerlink" title="测试方法及工具"></a>测试方法及工具</h4><p>1、内存:使用adbshell脚本进行测试，查看Log数据。adb shell dump meminfo<br>2、CPU：使用adbshell脚本进行测试，查看Log数据。adb shell top<br>  注意：程序持续运行及操作过程中，内存不能一直增加，不然系统会自动kill掉该进程。<br>3、流量监控：可以借用网易的开源工具：Emmagee<br>4、电量监控：和竞品做对比测试，同一机型的测试机在不同时间，不同网络条件，不同功能使用的情况下分别测试电量使用情况。<br>5、启动速度和滑动、界面切换速度：编写测试代码（AndroidInstrumentation），打桩到源码中，运行后通过log数据进行分析。<br>6、其他测试工具：腾讯开发的工具：GT随身调。下载地址：<a href="http://gt.qq.com/" target="_blank" rel="noopener">http://gt.qq.com/</a></p>
-<h2 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>adb工具即Android Debug Bridge（安卓调试桥） tools。它就是一个命令行窗口，用于通过电脑端与模拟器或者真实设备交互。在某些特殊的情况下进入不了系统，adb就派上用场啦</p>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>1，运行设备的shell<br>2，管理模拟器、设备的端口映射<br>3，电脑和设备之间的上传和下载功能<br>4，将本地的apk软件安装到模拟器或者移动端设备</p>
-<h3 id="ADB常用命令"><a href="#ADB常用命令" class="headerlink" title="ADB常用命令"></a>ADB常用命令</h3><p>1，查看设备 *****</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
-<p>2，安装软件    ***</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -r（apk的路径）</span><br></pre></td></tr></table></figure>
-<p>3，卸载apk</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall 软件名</span><br></pre></td></tr></table></figure>
-<p>4，卸载apk保留文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall -k 软件名</span><br></pre></td></tr></table></figure>
-<p>5，列出所有的包名    *****</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list package</span><br></pre></td></tr></table></figure>
-<p>6，列出第三方的包名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list package -3</span><br></pre></td></tr></table></figure>
-<p>7，列出系统应用的包名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list package -s</span><br></pre></td></tr></table></figure>
-<p>8，查看手机内存的命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo 包名</span><br></pre></td></tr></table></figure>
-<p>9，屏幕截图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screencap &#x2F;sdcard&#x2F;screen.png</span><br></pre></td></tr></table></figure>
-<p>10，录制视频</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screenrecord &#x2F;sdcard&#x2F;demo.mp4</span><br></pre></td></tr></table></figure>
-<p>11，查看手机日志    *****</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">adb logcat</span><br><span class="line"># 日志级别如下：</span><br><span class="line"># v 	verbose	（最低）</span><br><span class="line"># D 	Debug	（调试）</span><br><span class="line"># I		Info	（通知）</span><br><span class="line"># W 	Warn	（警告）</span><br><span class="line"># E 	Error	（错误）</span><br><span class="line"># F		Fatal	（致命）</span><br><span class="line"># S		Silent	（奔溃）</span><br></pre></td></tr></table></figure>
-<p>11，将日志文件转换为本地文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb -s emulator-5554(设备名称) logcat -v time process &gt;d:log.txt(日志存放的位置)</span><br></pre></td></tr></table></figure>
-<p>12，根据日志级别打印    ****</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb logcat *:w(日志级别的首字母) </span><br><span class="line"># 大于和等于这个级别的</span><br></pre></td></tr></table></figure>
-
-<p>13，连接模拟器</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">5555</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="monkey"><a href="#monkey" class="headerlink" title="monkey"></a>monkey</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>它是Android系统自带一个命令行工具，可以运行在模拟器里或者真是设备中运行。monkey向系统发送伪随机的用户事件流，实现对正在开发的应用程序进行压力测试。</p>
-<p>monkey包括很多选项，大致四大类：</p>
-<p>1.基本配置选项，如设置尝试的事件数量。</p>
-<p>2.运行约束选项，如设置只对单独的一个包进行测试。</p>
-<p>3.事件类型和频率。</p>
-<p>4.调试选项</p>
-<hr>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>指定一个包  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey  -p  com.tencent.news  -v -v -v  100</span><br></pre></td></tr></table></figure>
-<pre><code>此时指定软件会被打开并开始乱点乱按</code></pre><hr>
-<p>指定多个包   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.tencent.news -p com.pdfreader -p com.widgets  -v 1000</span><br></pre></td></tr></table></figure>
-<hr>
-<p>不指定包     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -v 1000</span><br></pre></td></tr></table></figure>
-
-<pre><code>-p参数：表示指定测试的程序（空格后面跟安装包名字，拿刚才的第三方安装包一个个试）
--v参数：表示查看monkey执行过程的信息(日志级别）（-v 越多越详细，最多三个）
-数字100:表示测试事件数为100</code></pre><hr>
-<p>将log信息写到文档中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey 100 &gt;c:&#x2F;log&#x2F;b.txt</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>–throttle：事件之间加入延时操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.example.login --throttle 300 100</span><br></pre></td></tr></table></figure>
-<pre><code>表示执行100个伪随机用户事件流，事件间隔为300毫秒。
-注：一般设置为300毫秒，原因是实际用户操作的最快300毫秒左右一个动作事件。</code></pre><hr>
-<p>-pct-touch：调整触摸事件的百分比</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -pct-touch 67 -v 10</span><br></pre></td></tr></table></figure>
-<pre><code>表示执行10个伪随机用户事件流，并调整其中触摸事件的百分比为67%。
-触摸事件是指在屏幕中的一个down-up事件，即在屏幕某处按下并抬起的操作</code></pre><hr>
-<p>-pct-motion：动作事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -pct-motion 67 -v 10</span><br></pre></td></tr></table></figure>
-<pre><code>表示执行10个伪随机用户事件流，并调整其中动作事件的百分比为67%
-motion事件是由屏幕上某处一个down事件、一系列伪随机的移动事件和一个up事件组成
-这里的移动是直线滑动</code></pre><hr>
-<p><strong>–ignore-crashes：忽略崩溃</strong></p>
-<pre><code>通常，应用发生崩溃或异常时Monkey会停止运行。
-如果设置此项，Monkey将继续发送事件给系统，直到事件计数完成。
-正常操作，不忽略异常</code></pre><hr>
-<p><strong>–ignore-timeouts：忽略超时</strong></p>
-<pre><code>通常，应用程序发生任何超时错误（如“Application Not responding”对话框）Monkey将停止运行，
-设置此项，Monkey将继续发送事件给系统，直到事件计数完成。</code></pre><hr>
-<p><strong>–ignore-security-exceptions：忽略安全异常</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey </span><br><span class="line">-p com.miui.calculator</span><br><span class="line">--ignore-crashes --ignore-timeouts --ignore-security-exceptions</span><br><span class="line">-v 1000</span><br></pre></td></tr></table></figure>
-
-<p>可以设定的事件类型还有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--pct-trackball &lt;percent&gt;:指定轨迹球事件的百分比。</span><br><span class="line"></span><br><span class="line">--pct-nav &lt;percent&gt;:指定导航事件中，up、down、left、right等事件的百分比。</span><br><span class="line"></span><br><span class="line">--pct-majornav &lt;percent&gt;:指定导航事件中，back、menu等事件的百分比。</span><br><span class="line"></span><br><span class="line">--pct-syskeys &lt;percent&gt;:指定系统按键的百分比，包括HOME、Back、音量等。</span><br><span class="line"></span><br><span class="line">--pct-appswitch &lt;percent&gt;:指定Activity之间切换的比例。</span><br><span class="line"></span><br><span class="line">--pct-anyevent &lt;percent&gt;:指定任意事件的百分比。</span><br></pre></td></tr></table></figure>
-<pre><code>其中，当不作任何配置的时候，默认为--pct-anyevent &lt;percent&gt;，此时所有事件的触发均为随机的。
-当所有事件的百分比加起重来小于100%的时候，多余的随机事件也将被转化为--pct-anyevent &lt;percent&gt;事件。
-超过时，系统会重新运算相应的比例。</code></pre><h3 id="获取软件包名"><a href="#获取软件包名" class="headerlink" title="获取软件包名"></a>获取软件包名</h3><p>1.进入到cmd操作界面；</p>
-<p>2.输入  adb shell  命令； 出现如下界面</p>
-<p>3.输入 cd    /data/data    命令；出现如下界面</p>
-<p>4.输入 ls  命令；可以列出data文件夹中所有的app包名</p>
-<p><img src="/image/%E8%8E%B7%E5%8F%96%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D.png" alt=""></p>
-<p>5.然后可以运行monkey测试了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkey  –p  com.codeest.geeknews  –v  500</span><br></pre></td></tr></table></figure>
-
-<p>com.codeest.geeknews这个就是要测试应用包名。</p>
-<p>如果是在Dos下, 需要用:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey  –p  com.codeest.geeknews  –v  500</span><br></pre></td></tr></table></figure>
-
-<h3 id="monkey压测日志分析："><a href="#monkey压测日志分析：" class="headerlink" title="monkey压测日志分析："></a>monkey压测日志分析：</h3><p><img src="/image/%E5%8E%8B%E6%B5%8B%E6%97%A5%E5%BF%97.png" alt=""></p>
-<h4 id="测试命令信息"><a href="#测试命令信息" class="headerlink" title="测试命令信息"></a>测试命令信息</h4><p>随机种子值，执行事件数量<br>:Monkey: seed=1454215444564 count=10</p>
-<h4 id="可运行的应用列表"><a href="#可运行的应用列表" class="headerlink" title="可运行的应用列表"></a>可运行的应用列表</h4><p>:AllowPackage: com.tencent.android.qqdownloader<br>Category包含LAUNCHER和MONKEY<br>:IncludeCategory: android.intent.category.LAUNCHER<br>:IncludeCategory: android.intent.category.MONKEY</p>
-<h4 id="各事件的百分比"><a href="#各事件的百分比" class="headerlink" title="各事件的百分比"></a>各事件的百分比</h4><p>0：触摸事件百分比，即参数–pct-touch</p>
-<p>1：滑动事件百分比，即参数–pct-motion</p>
-<p>2：缩放事件百分比，即参数–pct-pinchzoom</p>
-<p>3：轨迹球事件百分比，即参数–pct-trackball</p>
-<p>4：屏幕旋转事件百分比，</p>
-<p>5：基本导航事件百分比，即参数–pct-nav</p>
-<p>6：主要导航事件百分比，即参数–pct-majornav</p>
-<p>7：系统事件百分比，即参数–pct-syskeys</p>
-<p>8：Activity启动事件百分比，即参数–pct-appswitch</p>
-<p>9：键盘翻转事件百分比，即参数–pct-flip</p>
-<p>10：其他事件百分比，即参数–pct-anyevent</p>
-<h4 id="伪随机事件流信息"><a href="#伪随机事件流信息" class="headerlink" title="伪随机事件流信息"></a>伪随机事件流信息</h4><p>当Monkey开始执行测试后，会顺序输出执行的事件流信息，主要是前面提到的11大事件。这部分日志信息的解析，如代码清单4-4所示。<br>代码清单4-4 Monkey日志-伪随机事件流信息<br>执行的事件流信息<br>启动App事件</p>
-<p>:Switch: #Intent; action=android.intent.action.MAIN; category=android.intent.<br>category.LAUNCHER; launchFlags=0x10200000; component=com.tencent.android.<br>qqdownloader/com.tencent.assistant.activity.SplashActivity; end<br>// Allowing start of Intent { act=android.intent.action.MAIN cat=[android.<br>intent.category.LAUNCHER] cmp=com.tencent.android.qqdownloader/com.tencent.<br>assistant.activity.SplashActivity } in packagecom.tencent.android.qqdownloader</p>
-<h4 id="轨迹球事件"><a href="#轨迹球事件" class="headerlink" title="轨迹球事件"></a>轨迹球事件</h4><p>:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)</p>
-<h4 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h4><p>:Sending Touch (ACTION_DOWN): 0:(387.0,1858.0)<br>:Sending Touch (ACTION_UP): 0:(385.8215,1861.3011)</p>
-<h4 id="延时"><a href="#延时" class="headerlink" title="延时"></a>延时</h4><p>Sleeping for 0 milliseconds</p>
-<h4 id="异常信息"><a href="#异常信息" class="headerlink" title="异常信息"></a>异常信息</h4><p>当Monkey执行过程中遇到错误时，会输出对应异常信息，如代码清单4-5所示。<br>代码清单4-5 Monkey日志-异常信息<br>发送Crash的应用包名和pid<br>// CRASH: com.tencent.android.qqdownloader (pid 912)</p>
-<h4 id="Crash的简要信息"><a href="#Crash的简要信息" class="headerlink" title="Crash的简要信息"></a>Crash的简要信息</h4><p>// Short Msg: java.lang.ClassNotFoundException</p>
-<h4 id="Crash的详细信息"><a href="#Crash的详细信息" class="headerlink" title="Crash的详细信息"></a>Crash的详细信息</h4><p>// Long Msg: java.lang.ClassNotFoundException: Didn’t find class “com.<br>qq.AppService.AstApp” on path DexPathList[[zip file “/data/app/com.tencent.<br>android.qqdownloader-2.apk”], nativeLibraryDirectories[/data/app-lib/com.<br>tencent.android.qqdownloader-2, /vendor/lib, /system/lib]]</p>
-<h4 id="机型和系统信息"><a href="#机型和系统信息" class="headerlink" title="机型和系统信息"></a>机型和系统信息</h4><p>// Build Label: Xiaomi/pisces/pisces:4.4.4/KTU84P/5.12.24:user/release-keys<br>// Build Changelist: 5.12.24<br>// Build Time: 1450958964000</p>
-<h4 id="Crash的详细日志"><a href="#Crash的详细日志" class="headerlink" title="Crash的详细日志"></a>Crash的详细日志</h4><p>// java.lang.RuntimeException: Unable to instantiate application com.<br>qq.AppService.AstApp: java.lan.ClassNotFoundException: Didn’t find class “com.<br>qq.AppService.AstApp” on path: DexPathList[[zip fil “/data/app/com.tencent.<br>android.qqdownloader-2.apk”], nativeLibraryDirectories=[/data/app-lib/com.<br>tecent.android.qqdownloader-2, /vendor/lib, /system/lib]]<br>// at android.app.LoadedApk.makeApplication(LoadedApk.java:509)<br>// at android.app.ActivityThread.access$1500(ActivityThread.java:138)<br>// at dalvik.system.NativeStart.main(Native Method)<br>// … 11 more</p>
-<h4 id="Monkey执行结果信息"><a href="#Monkey执行结果信息" class="headerlink" title="Monkey执行结果信息"></a>Monkey执行结果信息</h4><p>当Monkey执行完所有事件后，会输出执行结果信息，其中包括执行的事件数量、旋转的角度、丢失的事件数量、网络状态以及Monkey最终的执行结果，如代码清单4-6所示。<br>代码清单4-6 Monkey日志-执行成功结果信息</p>
-<h4 id="执行的事件数量"><a href="#执行的事件数量" class="headerlink" title="执行的事件数量"></a>执行的事件数量</h4><p>Events injected: 10</p>
-<h4 id="旋转的角度为0"><a href="#旋转的角度为0" class="headerlink" title="旋转的角度为0"></a>旋转的角度为0</h4><p>:Sending rotation degree=0, persist=false</p>
-<h4 id="丢失的事件数量"><a href="#丢失的事件数量" class="headerlink" title="丢失的事件数量"></a>丢失的事件数量</h4><p>:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0</p>
-<h4 id="网络状态，"><a href="#网络状态，" class="headerlink" title="网络状态，"></a>网络状态，</h4><p>移动网络联网0ms, Wi-Fi联网0ms，没联网144ms<br>Network stats: elapsed time=144ms (0ms mobile, 0ms wifi, 144ms not connected)</p>
-<h4 id="显示Monkey执行失败"><a href="#显示Monkey执行失败" class="headerlink" title="显示Monkey执行失败"></a>显示Monkey执行失败</h4><p>＊＊ Monkey aborted due to error.</p>
-<h4 id="执行的事件数量-1"><a href="#执行的事件数量-1" class="headerlink" title="执行的事件数量"></a>执行的事件数量</h4><p>Events injected: 8</p>
-<h4 id="旋转的角度为0-1"><a href="#旋转的角度为0-1" class="headerlink" title="旋转的角度为0"></a>旋转的角度为0</h4><p>:Sending rotation degree=0, persist=false</p>
-<h4 id="丢失的事件数量-1"><a href="#丢失的事件数量-1" class="headerlink" title="丢失的事件数量"></a>丢失的事件数量</h4><p>:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0</p>
-<hr>
-<p><strong>玩安卓压测练习：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.wan.android --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;d:\waz.log</span><br></pre></td></tr></table></figure>
-<p><img src="/image/%E7%8E%A9%E5%AE%89%E5%8D%93%E5%8E%8B%E6%B5%8B6.4.png" alt=""></p>
-<p><strong>GeekNews压测练习：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.codeest.geeknews --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;d:\geeknews.log</span><br></pre></td></tr></table></figure>
-<p><img src="/image/geeknews%E5%8E%8B%E6%B5%8B.png" alt=""></p>
 
         </div>
 
@@ -381,10 +245,10 @@ motion事件是由屏幕上某处一个down事件、一系列伪随机的移动�
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/06/08/day07/">day07</a>
+                <a class="prev" rel="prev" href="/2020/06/08/day07/">BS、CS</a>
             
             
-            <a class="next" rel="next" href="/2020/06/03/day05/">day05</a>
+            <a class="next" rel="next" href="/2020/06/04/monkey/">monkey命令</a>
             
         </section>
 
