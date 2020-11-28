@@ -12,7 +12,7 @@
 
 
 
-<title>扫地机器人-简介 | 陈士方的博客</title>
+<title>自动化框架-unittest | 陈士方的博客</title>
 
 
 
@@ -183,7 +183,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">扫地机器人-简介</h1>
+            <h1 class="post-title">自动化框架-unittest</h1>
             
                 <div class="post-meta">
                     
@@ -192,14 +192,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">十一月 27, 2020&nbsp;&nbsp;20:30:18</a>
+                        Date: <a href="#">七月 12, 2020&nbsp;&nbsp;20:30:18</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/">扫地机器人</a>
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
                             
                         </span>
                     
@@ -208,7 +208,13 @@
         </header>
 
         <div class="post-content">
-            <h3 id="待更新…"><a href="#待更新…" class="headerlink" title="待更新…"></a>待更新…</h3>
+            <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>unittest中最核心的四个概念是：test case, test suite, test runner, test fixture。</p>
+<p><strong>TestCase</strong><br>一个TestCase的实例就是一个测试用例。什么是测试用例呢？就是一个完整的测试流程，包括测试前准备环境的搭建(setUp)，执行测试代码(run)，以及测试后环境的还原(tearDown)。元测试(unit test)的本质也就在这里，一个测试用例是一个完整的测试单元，通过运行这个测试单元，可以对某一个问题进行验证。</p>
+<p><strong>TestSuite</strong><br>而多个测试用例集合在一起，就是TestSuite，而且TestSuite也可以嵌套TestSuite。</p>
+<p><strong>TestLoader</strong><br>TestLoader是用来加载TestCase到TestSuite中的，其中有几个loadTestsFrom__()方法，就是从各个地方寻找TestCase，创建它们的实例，然后add到TestSuite中，再返回一个TestSuite实例。</p>
+<p><strong>TextTestRunner</strong><br>TextTestRunner是来执行测试用例的，其中的run(test)会执行TestSuite/TestCase中的run(result)方法。<br>测试的结果会保存到TextTestResult实例中，包括运行了多少测试用例，成功了多少，失败了多少等信息。</p>
+<p><strong>TestFixture</strong><br>而对一个测试用例环境的搭建和销毁，是一个fixture。</p>
+
         </div>
 
         
@@ -218,7 +224,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E7%AE%80%E4%BB%8B/"># 扫地机简介</a>
+                        <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"># 自动化</a>
                     
                         
                 </span>
@@ -231,8 +237,10 @@
         </section>
         <section class="post-nav">
             
+                <a class="prev" rel="prev" href="/2020/11/27/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">扫地机器人-简介</a>
             
-            <a class="next" rel="next" href="/2020/07/12/unittest/">自动化框架-unittest</a>
+            
+            <a class="next" rel="next" href="/2020/07/05/Tomcat%E5%AE%89%E8%A3%85%E5%92%8CJenkins%E9%83%A8%E7%BD%B2/">Tomcat安装、Jenkins部署</a>
             
         </section>
 
