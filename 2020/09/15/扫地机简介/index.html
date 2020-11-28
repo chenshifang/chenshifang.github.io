@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>扫地机器人-简介 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">扫地机器人-简介</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 15, 2020&nbsp;&nbsp;20:30:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/">扫地机器人</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="从扫地机到智能扫地机器人的进化史"><a href="#从扫地机到智能扫地机器人的进化史" class="headerlink" title="从扫地机到智能扫地机器人的进化史"></a>从扫地机到智能扫地机器人的进化史</h2><p>扫地机作为一个全新的家电门类，诞生还不到20年。早期就是扫地机，直到近些年智能化提高才被称为扫地机器人。也就是说扫地机器人采用智能自动化模式的才算，我们家里常用的吸尘器不算机器人。扫地机器人的进化经历了几个阶段，下面我给大家科普一下。</p>
+<h3 id="第一代：扫地机器人的诞生"><a href="#第一代：扫地机器人的诞生" class="headerlink" title="第一代：扫地机器人的诞生"></a>第一代：扫地机器人的诞生</h3><p>1997年第一代扫地机器人诞生于瑞典伊莱克斯三叶虫专业家电制造商，三叶草采用位于机器后部的单滚刷及无边刷设计，拥有无电自动回充防跌落的功能。它的反应速度、运算速度以及机器行进速度都比较慢，导致清扫的效率低下。同时它的设计厚度不合理，造成他无法深入很多家具底部进行清扫，也是该款产品的最大诟病之一。而其高昂的价格更是让绝大多数消费者望而却步，所以该款产品的关注程度较低。英国黑科技公司Dyson(戴森)曾于2001年设计了一款名为DC06的扫地机器人，但因为价格过于高昂，并没有推出市面。据说这款吸尘器搭载了超过70个传感器、两台机载计算机，有着强大的吸力和精确的探测，上市的话大概要卖3000美元(折合人民币20690元)。</p>
+<p>优点：自动回充，跌落设计<br>缺点：价格贵，高度设计不合理，清扫效率低。<br>点评：第一代产品虽然有很大的不足，但是它也属于跨时代的产品，时至今日，还有不少国产扫地机沿用着当初第一代扫地机器人的技术。</p>
+<p><img src="/image/%E4%B8%89%E5%8F%B6%E8%99%AB%E6%89%AB%E5%9C%B0%E6%9C%BA.jpg" alt=""></p>
+<div style="height:30px"></div>
+
+<h3 id="第二代：随机式清扫时代"><a href="#第二代：随机式清扫时代" class="headerlink" title="第二代：随机式清扫时代"></a>第二代：随机式清扫时代</h3><p>到了2002年，美国科技公司iRobot推出了Roomba扫地机器人。其实，iRobot最早是做军用及安防机器人起家，专门为美国政府、军方、及各国高校和研究机构提供太空探测、战地救援、排爆、勘察、安保、研发等不同用途的机器人。而2002年的Roomba就是iRobot转型家用的首次尝试。起初iRobot公司只生产了15000多台，但是在发布会上就销售了1万多台，他们预感到强烈的市场需求，于是同年圣诞节又追加生产了5万台，以满足节日需要，这一成功动作之后，正式开启了扫地机器人的发展爆发阶段。但是随之而来的弊端也有不少，不少使用者抱怨：“我家扫地机器人经常在扫过的地方来回的走，有的地方又干脆不少”；“工作时候声音太大了，只要一工作，午睡的小朋友都会被吵醒”；“有点呆板，不小心在地上有插线板什么的，就有可能被缠住，卡住半天”；“我家扫地机走走位很风骚，很扑朔迷离”。</p>
+<p>优点：厚度低于12厘米以下，增加边刷辅助清洁，清扫能力有所提高<br>缺点：随机碰撞，覆盖率低，吸力较弱<br>点评：第二代产品减少了机身的厚度，增加了边刷，对墙角的清洁能力有所提升，但是始终还是随机式的覆盖较低，一律叫大清洁算法，有着天生的劣势。<br><img src="/image/Roomba%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA.jpg" alt=""></p>
+<div style="height:30px"></div>
+
+<h3 id="第三代：随机式清扫时代-灯塔定位"><a href="#第三代：随机式清扫时代-灯塔定位" class="headerlink" title="第三代：随机式清扫时代-灯塔定位"></a>第三代：随机式清扫时代-灯塔定位</h3><p>考虑到随机式机型遗漏问题严重，iRobot又推出了一个类型号号称灯塔的辅助定位扫地机。灯塔发出信号能够被扫地机接收，从而判断出自己和灯塔的距离，在很大程度上改善了之前类似无头苍蝇的情况。但是由于相对参照坐标，因此对灯塔的摆放有着极高的要求，很多时候覆盖率的高低完全取决于，摆放者的水平。因此，当你搜索灯塔扫地机器人的关键词的时候，往往会看看到大多都是，求助如何摆放的。</p>
+<p>优点：新的定位技术有效的提高的覆盖率至99%<br>缺点：灯塔摆放的位置要求极高，需要定期充电<br>点评：虽然想尽办法解决遗留的问题，但始终有点。隔靴搔痒治标不治本的感觉。一般情况下，一百平米的家庭需要三个灯塔才能解决覆盖问题，但是三个灯塔的价格基本上就可以买一个扫地机了！<br><img src="/image/%E7%81%AF%E5%A1%94%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA.jpg" alt=""></p>
+<div style="height:30px"></div>
+
+
+<h3 id="第四代：规划式清扫-激光扫描定位"><a href="#第四代：规划式清扫-激光扫描定位" class="headerlink" title="第四代：规划式清扫-激光扫描定位"></a>第四代：规划式清扫-激光扫描定位</h3><p>2010年逻辑的创始人贾科莫马里尼，在美国加州硅谷推出了一款使用激光雷达测距的扫地机器人，他的机身装备了一个激光发射器，一个激光接收器。在工作的时候，发射器发射激光，遇到障碍物之后，激光会反射反射，光会被接收器接收到，通过计算发射器和接收的时间差。利用光速恒定的原理以及一系列的算法，能够算出障碍物与机器之间的距离，生成3d地图。能够有效的进入清扫区域和未清扫区域。Neato扫地机器人于2010年推出，使用一个可以360度旋转的激光测距仪扫描周围的环境并进行即时定位与环境地图构建（SLAM），在此基础上进行合理规划清扫路线。Neato还可以进行断点记忆恢复，当它因电量不足而自动返回充电完毕后，可以从上次返回的断点接着进行清扫。</p>
+<p>优点：覆盖率高，清洁能力强，首创断点式续扫<br>缺点：价格是普通国产机的2到3倍，机身厚度约十厘米。<br>点评：激光雷达目前看来是一个比较理想的解决方案，配合地形设定于一千帕，大吸力覆盖率，96%的同时有效的清洁地面，是目前市面上比较领先的机型。</p>
+<p><img src="/image/%E8%BF%BD%E8%A7%85D9.gif" alt=""></p>
+<pre><code>上图为：追觅D9</code></pre><div style="height:30px"></div>
+
+
+<h3 id="第五代：规划式清扫-摄像头定位"><a href="#第五代：规划式清扫-摄像头定位" class="headerlink" title="第五代：规划式清扫-摄像头定位"></a>第五代：规划式清扫-摄像头定位</h3><p>随后的几年，不少科技公司开始研究规划式扫地机器人，最初的想法是让扫地机可以看到房间的情况，然后家里清扫减少遗漏。这一台扫地机器人，它的核心技术是摄像头定位，用摄像头扫描周围的环境，结合红外传感器，每秒拍摄30张图片生成地面固定面积十米墙面图，然后利用数学运算和几何三角法测绘出房间的地图，以此来进行导航，前面的路上会根据前后摄像中各个坐标位置的变化来判断当前的移动路线，对其所构造的环境模型进行更新和调整。著名传统吸尘器品牌Dyson十几年前的扫地机器人计划失败后，终于在2014年重返扫地机器人市场，推出了高端扫地机器人360Eye。它利用顶部搭载的摄像头全方位观测并分析周围环境，利用算法得出房间的地图和做出导航，并根据前后图像中各个地标的位置变化来判断当前的移动路线，并对其所构建的环境模型进行更新与调整。</p>
+<p>优点：解决了定位问题有规划，而且提高了覆盖率<br>缺点：受光线影响很大，天黑了，无法自主清扫<br>点评：第四代扫地机器人从技术角度出发，通过摄像头定位，有效地解决了清扫一个问题，但是受制于光线的影响，在昏暗的环境下工作还是很受限的，再者就是造价高达上万元，致使无法普及，有不少机型只存在于实验室里。<br><img src="/image/360eye.jpg" alt=""></p>
+<div style="height:30px"></div>
+
+<p><img src="/image/%E6%89%AB%E5%9C%B0%E6%9C%BA%E4%BA%A7%E5%93%81%E8%BF%AD%E4%BB%A3.jpeg" alt=""></p>
+<p>到目前为止，要满足<font color="red">智能扫地机器人</font>最起码的标准:<br>智能规划，激光导航；自动回充，自主脱困；联网控制，定时预约；环境感知，断点续扫；主动学习，清扫到位。</p>
+<h2 id="国内扫地机器人企业竞争格局及技术路线"><a href="#国内扫地机器人企业竞争格局及技术路线" class="headerlink" title="国内扫地机器人企业竞争格局及技术路线"></a>国内扫地机器人企业竞争格局及技术路线</h2><p>科沃斯在国内市场凭借先发优势形成第一梯队，目前其占率大约在50%左右。科沃斯产品系列较为齐全，涵盖了低端的随机碰撞式以及中高端导航机器人，技术路线也覆盖了LDS以及VSLAM。</p>
+<div style="height:30px"></div>
+
+<p>第二梯队主要是国际巨头iRobot和新贵品牌小米，二者合计占国内市场份额约23%-25%。根据年报的披露，iRobot在全球市占率高达60%，在美国拥有80%的市场份额。其技术路线一直采用VSLAM，主要定位于高端市场，产品价格也相对较高。小米的扫地机器人产品主要采用LDS技术，旗下的石头科技已经推出3个系列、4款单品。三大系列分别是：（1）高端的“石头”品牌，定位扫拖一体智能导航扫地机器人，首发价2499元；（2）中端的“米家”品牌，背靠小米面向中端客户，首发价1699元；（3）面向年轻消费群体的“小瓦”品牌，设计语言与另外两个品牌保持一致，核心功能针对中小户型特点进行定制，两款价格分别为1099和1799元。目前在LDS算法里面，技术领先的企业已经能够做到分区扫、设置虚拟墙、断点续扫等。</p>
+<div style="height:30px"></div>
+
+<p>第三梯队主要是一些国内外的领先品牌。其中，国外品牌技术优势明显，然而渠道较弱以及售后能力不足，以浦桑尼克、福玛特、飞利浦和三星为主；国内企业主要是传统家电厂商海尔、美的等，这类企业拥有渠道优势，后续发展空间不容忽视；剩余还有一些中小品牌，众多没有核心技术和产业链整合能力的公司将会被行业整合。</p>
+<p><img src="/image/ffc9dc297b544d2da022d1443e05fd19.jpeg" alt=""></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/"># 扫地机器人</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/09/20/LDS%E4%B8%8EVslam/">LDS与VSLAM</a>
+            
+            
+            <a class="next" rel="next" href="/2020/07/12/unittest/">自动化框架-unittest</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

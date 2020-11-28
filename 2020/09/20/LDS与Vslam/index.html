@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>LDS与VSLAM | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">LDS与VSLAM</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 20, 2020&nbsp;&nbsp;20:30:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/">扫地机器人</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="LDS与VSLAM"><a href="#LDS与VSLAM" class="headerlink" title="LDS与VSLAM"></a>LDS与VSLAM</h2><p>当前扫地机器人中的定位与地图构建的主流是SLAM技术。</p>
+<p>SLAM（Simultaneous Localization And Mapping）的含义是即时定位与地图构建，指的是机器人在自身位置不确定的条件下，在完全未知环境中创建地图，同时利用地图进行自主定位和导航。SLAM问题可以描述为：机器人在未知环境中从一个未知位置开始移动，在移动过程中根据位置估计和传感器数据进行自身定位，同时建造增量式地图。</p>
+<p>自主定位导航需要三大技术：</p>
+<p>（1）实时定位（Localization）。目前GPS的精度只能达到半米，而且实时定位的更新频率很快，需要达到10次/秒，GPS定位技术无法满足。定位包括相对定位和绝对定位：相对定位主要依靠内部本体感受传感器如里程计、陀螺仪等，通过给定初始位姿，来测量相对于机器人初始位姿的距离和方向来确定当前机器人的位姿，也叫做航迹推测（Dead Reckoning，DR）；绝对定位主要采用主动或被动标识、地图匹配、GPS、或导航信标进行定位。位置的计算方法包括有三角测量法、三边测量法和模型匹配算法等。</p>
+<p>（2）绘制地图（Mapping）。导航领域是有专人绘制的，然而家居的实时变化决定了扫地机器人需要在没有人工干预的情况下自主画图。</p>
+<p>（3）路径规划。机器人绘制的地图可以向任意方向行驶，因此其路径规划还包括避障和直接控制行为，导航仪是由人来决定，机器人是用算法决定的，因此算法是路径规划的。</p>
+<p>按传感器种类来划分，SLAM技术主要分为两类：</p>
+<h3 id="LDS"><a href="#LDS" class="headerlink" title="LDS"></a>LDS</h3><p>LDS运用三角测距原理，能够获得精度较高的距离信息，在测量与人距离这一功能上尚无完美替代。目前阻碍LDS大规模推广的主要还是价格因素，通常线束越高，价格越高。随着终端用户的产品放量，激光雷达的产业化将会带动价格打破瓶颈区域。</p>
+<p>LDS方案：技术成熟，降低成本是关键</p>
+<p>激光雷达SLAM是LDS激光测距传感器与SLAM技术的结合。激光雷达测距LDS的原理是：从半导体激光器以一定的入射角度发射一束或n束激光照射被测物体，激光在物体表面发生散射或折射，通过透镜对反射激光汇聚成像，光斑成像在CCD传感器上（Charge-coupled Device，感光耦合组件）。当物体发生位移时，光斑也将随之产生移动，其位移大小通过信号处理器的计算而获得，由光斑位移距离计算出被测物体与基线的距离值。由于入射光和反射光构成一个三角形，位移计算运用了几何三角定理，故又被称为激光三角测距法。这种方法能够获得精度较高的距离信息。</p>
+<p>LDS的硬件工作流程分为几步：</p>
+<p>1.发射激光，同时感光芯片曝光；</p>
+<p>2.读取像素数据；</p>
+<p>3.计算出像素的质心位置；</p>
+<p>4.将步骤3中的计算结果（像素位置）换算成距离信息。</p>
+<p><img src="/image/%E5%B0%8F%E7%B1%B3LDS%E6%89%AB%E5%9C%B0%E6%9C%BA%E8%A7%A3%E6%9E%90.jpeg" alt=""></p>
+<div style="height:30px"></div>
+
+<h3 id="VSLAM"><a href="#VSLAM" class="headerlink" title="VSLAM"></a>VSLAM</h3><p>VSLAM是一种机器视觉导航定位系统，其技术难点在于两方面：</p>
+<p>1.特征点提取与匹配；</p>
+<p>2.匹配点图像坐标与空间坐标是非线性关系。</p>
+<p>VSLAM精度相对较低，但其优势在于纹理信息的丰富性，相同外形的障碍物VSLAM可以识别出内容上的不同，这带来了场景分类上的优势，适用于动态复杂的环境。</p>
+<p>VSLAM方案：发展迅速，稳健性是难点</p>
+<p>VSLAM过程可以分为前端和后端，前端相当于VO（视觉里程计），研究帧与帧之间变换关系，提取每帧图像特征点，进行相邻帧图像的特征点匹配；后端主要是利用TORO、G2O算法的全局优化。因此，VSLAM的技术难点在于两方面：1.特征点提取与匹配；2.匹配点图像坐标与空间坐标是非线性关系。例如2D-2D像素点的对应满足对极几何、2D-3D点的对应满足PnP约束，这些匹配会引入众多约束关系，使得待估计变量的关系错综复杂。这两个难点，前者导致了前端的特征跟踪不易，后者导致了后端的优化不易。</p>
+<p>因此VSLAM的稳健性是一个有挑战的问题。为此需要引入回环检测，就是如何有效判断相机经过同一场景的能力。如果回环成功，通过把对比信息输送给后端优化，提供更加有效的姿态约束，从而显著减小累积误差，逼近全局一致。</p>
+<p>对于VSLAM而言，视觉传感器的重要性不言而喻。视觉传感器主要分为单目、双目、单目结构光、双目结构光、ToF几大类。传统面阵相机/多目被动式相机采用面阵CMOS作为核心元件，随着手机行业对于镜头的强劲需求，使得整个CMOS、镜头制造行业迅猛发展，带动其成本的降低，这也是VSLAM发展起来的重要原因。</p>
+<p>按照传感器的不同，实现vLSAM有两条路径：</p>
+<p>一是基于单目、鱼眼相机，利用多帧图像来估计自身的位姿变化；</p>
+<p>二是基于深度相机的方案，与LDS类似，通过收集到的点云数据，直接计算障碍物距离。</p>
+<p>ToF（Time of Flight）飞行时间测距法：根据调制方法的不同，一般可以分为脉冲调制和连续波调制两种。ToF是一种很有前景的深度信息获取方法，通过传感器发出调制波，碰到物体后反射，计算发射与反射的时间差或相位差，以产生深度信息。目前搭载消费级ToF的产品主要有微软的Kinect 2、MESA的SR4000、Google Project Tango中使用的PMD Tech等，在手势识别、环境建模等方面取得了较多的应用。</p>
+<p><img src="/image/TOF%E5%8E%9F%E7%90%86.jpeg" alt=""></p>
+<div style="height:30px"></div>
+
+<h3 id="结构光、ToF、双目"><a href="#结构光、ToF、双目" class="headerlink" title="结构光、ToF、双目"></a>结构光、ToF、双目</h3><p>结构光（Structured Light）原理：通俗来说就是光源具备特殊结构，例如离散光斑、条纹光等。通过将图像投影至被测物上，根据图像的畸变程度来判断被测物体的深度信息。以Light Coding方案为例，其光源成为“激光散斑”，激光束通过光学衍生元件DOE（Diffractive Optical Elements，如扩散片和光斑）进行衍射，得到散斑图。散斑具备高度随机性，空间中任意两个散斑图案均不同，因此可以给整个空间做出标记。在形成基准坐标后，IR传感器可以捕捉经过物体畸变后的散斑，通过进一步计算可以得到在基准坐标中的偏移量，从而求解出深度信息。</p>
+<p>自微软的Kinect系列推出以来，基于深度相机的RGB-D SLAM已经成为了VSLAM的主流方案。RGB-D是一种新型的视觉传感器，其核心是获取周围环境的RGB图像和Depth map（深度信息）。相比传统单目和双目相机，RGB-D更易于获得障碍物的三维信息，深度信息通过红外结构光或飞行时间原理测得。</p>
+<p>双目、ToF和结构光，这三种方法在检测距离、检测速度上相差不大，主要区别在于：</p>
+<p>1.结构光方案优势在于技术成熟，深度图像分辨率可以做得比较高。由于结构光会主动投射编码光，因此适合用于光照不足、缺乏纹理的场景。其缺点在于室外环境基本不能使用，因为容易受到强自然光影响，导致投射的编码光被淹没。</p>
+<p>2.ToF方案抗干扰性能好，与基于特征匹配原理的深度相机不同，其测量精度不会随着测量距离的增大而降低，测量误差基本上是固定的，因此在远距离场景具有明显优势，视角更宽。ToF的主要不足在于深度图像分辨率较低，近距离测量精度相比其他深度相机有较大差距。同时，ToF传感器芯片成本很高，阻碍了其量产。</p>
+<p>3.双目方法的成本相对是最低的，但是最大的问题在于深度信息依赖软件算法，导致需要较高计算性能的芯片。另外，双目法也有普通RGB的通病：依赖于光照强度和物理纹理，在物理特征不明显的区域性能出现下降。</p>
+<h3 id="LDS、Vslam对比"><a href="#LDS、Vslam对比" class="headerlink" title="LDS、Vslam对比"></a>LDS、Vslam对比</h3><p>LDS测距精准，VSLAM应用场景巨大</p>
+<p>激光雷达扫地机器人采用一线低成本LDS技术获得周围物体的距离信息，优势在于厘米级的精度和较大的覆盖范围（半径为5米的激光雷达能够覆盖80平方米的空间）；缺点在于无法探测到落地玻璃、花瓶等高反射率物体（激光照射这类物体无法接收散射光）。</p>
+<p>基于VSLAM的扫地机器人，优势在于应用场景较宽，对室内居室没有要求，缺点在于精度较低，会出现累积误差。</p>
+<p>我们将两者的特征进行了对比。从建模精度来说，激光测距精度非常高，可以达到0.01-0.1米，适用于静态且简单的场景；而VSLAM的精度相对较低，但地图的信息量更完整。从应用场景来看，LDS由于强光直射的影响，其设备档次被明确划分为室内应用和室外应用；VSLAM的优势在于纹理信息的丰富性，相同外形的障碍物VSLAM可以识别出内容上的不同，这带来了场景分类上的优势。然而在光照较弱或纹理不清晰的环境，VSLAM的表现相对较差。</p>
+<p>从成本上来说，LDS有很多价格档次，例如Velodyne的室外远距离多线雷达价格在几万至几十万不等，室内的中低端近距离平面激光雷达价格也在千元级，但目前国内也有低成本LDS的解决方案；VSLAM主要通过摄像头采集数据信息，成本上要更低。在计算需求和算法难度方面，LDS由于其研究成熟以及误差模型相对简单，在算法上门槛更低，甚至部分开算代码已经纳入了ROS系统成为标配。而VSLAM由于特征点提取与匹配、坐标转换等图像处理问题，其算法门槛要远高于LDS，因此VSLAM基本需要强劲的准桌面级CPU或者GPU支持，而LDS可以在普通ARM CPU上实时运行。</p>
+<p>整体来看，LDS与VSLAM各有优劣，并不存在明显的替代关系，未来在应用场景上可能各有区分。</p>
+<p><img src="/image/lds_and_vslam2.jpeg" alt=""></p>
+<h2 id="多传感融合是感知模块的未来方向"><a href="#多传感融合是感知模块的未来方向" class="headerlink" title="多传感融合是感知模块的未来方向"></a>多传感融合是感知模块的未来方向</h2><p>激光SLAM和VSLAM都具备独特的优势，单独使用均存在局限性。现实中的SLAM系统往往会配备惯性原件、视觉里程计、GPS等辅助定位系统，使得SLAM系统与其他传感器的融合成为了一大热点。比如在单独使用VSLAM双目视觉的情况下，后期感知系统会出现累积误差；而在视觉引导激光修正的情况下，这种误差会显著减少。</p>
+<p>VSLAM在纹理信息丰富的动态环境中也能保持稳定性能，并能为激光SLAM提供准确的点云匹配；而激光雷达则能提供精确的方向和距离信息，尤其是在光照不足或纹理缺失的环境中，激光雷达表现出更加优越的性能。二者的配合使用，具有取长补短的潜力，能提升导航的精度和稳定性。</p>
+<p><b>激光雷达在精度和探测人体的稳定性优势较大；在机器人的感知领域，除了要探测到障碍物，还需要进行障碍物识别，因此，在整个过程中，还需要加载机器视觉与其配合，共同完成对环境的感知。</b></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/"># 扫地机器人</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/09/15/%E6%89%AB%E5%9C%B0%E6%9C%BA%E7%AE%80%E4%BB%8B/">扫地机器人-简介</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
