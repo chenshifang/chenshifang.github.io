@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>MySQL练习题一 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">MySQL练习题一</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">五月 22, 2017&nbsp;&nbsp;17:21:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="MySQL简介"><a href="#MySQL简介" class="headerlink" title="MySQL简介"></a>MySQL简介</h3><p>MySQL数据库是关系型数据库，orade旗下产品。<br>MySQL数据库优点：开源、免费、支持多平台、易用。<br>详情见博客数据库-<a href="http://zfblog.xyz/2017/03/31/MySql/" target="_blank" rel="noopener">MySQL</a>篇</p>
+<h3 id="MySQL的安装"><a href="#MySQL的安装" class="headerlink" title="MySQL的安装"></a>MySQL的安装</h3><p>见<a href="https://www.runoob.com/mysql/mysql-install.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<h3 id="MySQL的卸载"><a href="#MySQL的卸载" class="headerlink" title="MySQL的卸载"></a>MySQL的卸载</h3><p>1，在控制面板中找到MySQL服务–&gt;删除<br>2，MySQL安装在所在的路径进行删除文件<br>3，在运行输入regedit进行对注册表的删除<br>4，重启电脑<br>多次安装失败的原因：<br>1，my.ini文件没有删除<br>2，注册表有对应的MySQL服务没有删除<br>3，之前的MySQL的端口号被占用</p>
+<h3 id="数据库语言分类"><a href="#数据库语言分类" class="headerlink" title="数据库语言分类"></a>数据库语言分类</h3><p>DDL：        数据库定义语言        (对数据库的增删改)<br>DML：        数据库操作语言        (对表的增删改)<br>DQL：        数据库查询语言        (对数据库和表的查询)<br>DCL：        数据库控制语言        </p>
+<hr>
+<hr>
+<p>1 创建一个书籍数据库（books）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database books charset&#x3D;utf8</span><br></pre></td></tr></table></figure>
+<p>2 创建表（book）,包含字段id（整形主键）name（书籍名称）price(浮点型)author(作者)publish(出版社)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table books(</span><br><span class="line">id int primary key auto_increment,</span><br><span class="line">name varchar(20),</span><br><span class="line">price decimal(3,1),</span><br><span class="line">author varchar(20),</span><br><span class="line">publish varchar(20))</span><br><span class="line"># 查看表</span><br><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+
+<p>3 添加数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">insert into books values(1,&#39;北平无故事&#39;,25,&#39;刘和平&#39;,&#39;作家出版社&#39;),</span><br><span class="line">(2,&#39;人间失格&#39;,16,&#39;太宰治著&#39;,&#39;作家出版社&#39;),</span><br><span class="line">(3,&#39;高兴&#39;,16,&#39;贾平凹&#39;,&#39;人民出版社&#39;),</span><br><span class="line">(4,&#39;源氏物语&#39;,57,&#39;刘和平&#39;,&#39;人民出版社&#39;),</span><br><span class="line">(5,&#39;卡夫卡文集&#39;,9,&#39;卡夫卡&#39;,&#39;邮电出版社&#39;),</span><br><span class="line">(6,&#39;大家&#39;,12,&#39;王蒙&#39;,&#39;邮电出版社&#39;),</span><br><span class="line">(7,&#39;拉片子&#39;,37,&#39;杨健&#39;,&#39;清华出版社&#39;),</span><br><span class="line">(8,&#39;古代散文&#39;,5,&#39;归有光&#39;,&#39;安徽出版社&#39;),</span><br><span class="line">(9,&#39;百花散文&#39;,6,&#39;孙虹选&#39;,&#39;百花文艺出版社&#39;),</span><br><span class="line">(10,&#39;方令孺散文集&#39;,5,&#39;方令孺&#39;,&#39;安徽文艺&#39;)</span><br><span class="line"># 查看book所有数据</span><br><span class="line">select * from books</span><br></pre></td></tr></table></figure>
+<p>4 查询所有图书的信息，并按价格降序显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from books order by price desc</span><br></pre></td></tr></table></figure>
+<p>5查询所有作家出版社的图书信息，并按价格降序显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from books where publish&#x3D;&#39;作家出版社&#39; order by price desc</span><br></pre></td></tr></table></figure>
+<p>6查询出所有刘和平的图书信息 ，并输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from books where author&#x3D;&#39;刘和平&#39;</span><br></pre></td></tr></table></figure>
+<p>7 删除ID是2的记录，如果没有相关记录则提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from books where id&#x3D;2</span><br></pre></td></tr></table></figure>
+<p>8 将所有价格不足10元的图书调到10元，并查看信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from books where price&lt;10 	# 思路：先查出所有价格小于10的书籍</span><br><span class="line">update books set price&#x3D;10 where price&lt;10</span><br><span class="line">select * from books</span><br></pre></td></tr></table></figure>
+<p>9 查看所有图书的价格情况，并升序显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from books order by price</span><br></pre></td></tr></table></figure>
+
+<p>10 查看所有价格低于20元的图收信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from books where price&lt;20</span><br></pre></td></tr></table></figure>
+<p>11 所有图书的价格上调20%，并查看信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">update books set price&#x3D;prcie*1.2</span><br><span class="line">select * from books</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>作业二：</strong><br>1 创建db_test数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database db_test charset&#x3D;utf8</span><br></pre></td></tr></table></figure>
+<p>2 创建员工表（staff）,包含字段sid（整形主键）sname（员工名称）sex(枚举类型)<br>job(职业)birthday(datetime)salary(整型)comm (整型)withhold(整型)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table staff(</span><br><span class="line">sid int primary key auto_increment,</span><br><span class="line">sname varchar(20),</span><br><span class="line">sex enum(&#39;男&#39;,&#39;女&#39;),</span><br><span class="line">job varchar(20),</span><br><span class="line">birthday datetime,</span><br><span class="line">salary int,</span><br><span class="line">comm int,</span><br><span class="line">withhold int)</span><br></pre></td></tr></table></figure>
+<p>3 添加数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">insert into staff values(</span><br><span class="line">1001,&#39;张三&#39;,&#39;男&#39;,&#39;高级程师&#39;,&#39;1975-1-1&#39;,2200,1100,200),</span><br><span class="line">(1002,&#39;李四&#39;,&#39;女&#39;,&#39;助工&#39;,&#39;1985-1-1&#39;,1200,200,100),</span><br><span class="line">(1003,&#39;王五&#39;,&#39;男&#39;,&#39;工程师&#39;,&#39;1978-11-11&#39;,1900,700,200),</span><br><span class="line">(1004,&#39;赵六&#39;,&#39;男&#39;,&#39;工程师&#39;,&#39;1979-1-1&#39;,1960,700,150)</span><br></pre></td></tr></table></figure>
+<p>4 修改表名为emp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rename table staff to emp;</span><br><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+
+<p>5向表中添加字段hobby,设置类型为varchar(50),设置唯一约束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table emp add hobby varchar(50) unique</span><br></pre></td></tr></table></figure>
+
+<p>6向表中添加一条记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into emp values(1005,&#39;张的&#39;,&#39;男&#39;,&#39;高级程师&#39;,&#39;1975-1-1&#39;,2200,1100,200,&#39;看书&#39;)</span><br></pre></td></tr></table></figure>
+<p>7 修改sname字段的类型为varchar(21)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table emp modify sname varchar(21);</span><br></pre></td></tr></table></figure>
+<p>8 查询表中sid字段的值从是1002或1003或1005员工的所有记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where sid in(1002,1003,1005)</span><br></pre></td></tr></table></figure>
+
+<p>9 修改表中job值是高级工程师员工的job为“架构师”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">update emp set job&#x3D;&#39;架构师&#39; where job&#x3D;&#39;高级程师&#39;</span><br><span class="line">select * from emp</span><br></pre></td></tr></table></figure>
+
+<p>10 删除表中sid是1003并且job是王五的员工的记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from emp where sid&#x3D;1003</span><br></pre></td></tr></table></figure>
+
+<p>11修改表中姓名是1004员工的salary在原来的基础上-300</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update emp set salary&#x3D;salary-300 where sid&#x3D;1004</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/MySQL/"># MySQL</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2017/05/27/day05/">MySQL练习题二</a>
+            
+            
+            <a class="next" rel="next" href="/2017/04/15/mongoDB/">MongoDB</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

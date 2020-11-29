@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>测试用例 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">测试用例</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">一月 29, 2020&nbsp;&nbsp;20:21:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><p><strong>例图1</strong><br><img src="/image/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%A1%A8.png" alt="测试用例表"><br><strong>例图2</strong><br><img src="/image/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%9B%BE2.png" alt="测试用例表"><br><strong>例图3</strong><br><img src="/image/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%9B%BE3.png" alt="测试用例表"></p>
+<p><strong>定义：</strong><br>执行测试的依据，将测试的操作步骤进行以文档的方式记录下来</p>
+<p><strong>格式：</strong><br>1，测试用例的模块：        操作软件的一个大的菜单，命名以模块名称为主<br>2，测试用例的编号：        命名以菜单下具体功能 —— 数字<br>3，测试输入：            对具体的功能操作步骤<br>4，执行条件：            操作的先决条件<br>5，预期结果：            是以需求文档上的内容为准<br>6，实际结果：            依据测试数据的输出内容后得到的结果可能与预期一致或是不一致</p>
+<p><strong>文档：</strong><br>Exl、表格的方式、Word文档</p>
+<p><strong>特征：</strong><br>正确性、完整性、准确性、清晰简洁、可维护性、适应性</p>
+<p><strong>特性：</strong><br>1，代表性：能够代表并覆盖各种合理与不合理、合法与不合法、边界与越界以及极限的输入数据、操作等<br>2，针对性：对程序中的可能存在的错误有针对性的测试<br>3，可判定性：测试执行结果的正确性是可判定的，每一个测试用例都应有相应的期望结果<br>4，可重现性：对同样的测试用例，系统的执行结果应当是相同的</p>
+<p><strong>测试方法：</strong><br>1，等价类划分<br>概述：<br>根据程序对数据的要求，把程序的输入域划分成若干个部分<br>区分出哪些数据是有效的，哪些数据是无效的，(有效等价类与无效等价类)<br>从每个部分中选取少数代表性数据作为测试用例<br>步骤：<br>划分等价类<br>细化等价类 (对等价类进行编号)<br>建立等价类表<br>编写测试用例<br>要点：<br>被选为测试用例的数据在测试中的作用等价于这一类中的其他值<br>如果等价类中的一个测试能够捕获一个缺陷,那么选择该等价类中的其他测试也能捕获该缺陷<br>如果等价类中的一个测试不能捕获缺陷,那么选择该类中的其他测试也不会捕获到缺陷</p>
+<p>2，边界值<br>概述：<br>找到测试数据的边界点，也就是有效等价类和无效等价类的边界点<br>对边界点数据专门进行测试<br>步骤：<br>找到测试数据的边界点， 分析出上点、离点、内点<br>根据上点、离点、内点写出测试用例<br>要点：<br>如果输入条件规定了值的范围，则应取边界点数据，以及边界点两边的数据进行测试<br>如果输入条件规定了值的个数，则用最大个数及其两边的点、最小个数及其两边的点作为测试数据<br>根据规格说明的每个输出条件，使用前面的原则<br>根据规格说明的每个输出条件，应用前面的原则<br>如果程序的规格说明给出的输入域或输出域是有序集合，则应选取集合的第一个元素和最后一个元素作为测试用例</p>
+<p>3，因果图法<br>概述：<br>在一个模块或一个界面中，有多个控件,这些控件存在约束关系或组合关系，且输出依赖于输入条件,则可以使用因果图法<br>步骤：<br>找出所有的输入条件<br>找出所有的输出条件<br>明确所有输入条件之间的制约关系以及组合关系<br>明确所有输出条件之间的制约关系以及组合关系<br>找出怎么样的输入条件组合会产生那种输出结果<br>根据因果图写出判定表<br>根据判定表写出测试用例<br>要点:<br>恒等、或（V）、与（∧）、非（~）、互斥（E）、包含（I）、唯一（O）、要求（R）、屏蔽（M）<br>因果图法主要考虑控件之间条件的组合关系<br>每个控件的条件不宜过多,最好为2个<br>控件较多,或每个控件的条件过多，不宜用因果图法</p>
+<p>4，场景法<br>概述：<br>场景法就是模拟用户操作软件时的场景，主要用于测试系统的业务流程<br>在冒烟测试时也主要采用场景法进行测试<br>步骤：<br>根据说明，描述出程序的基本流及各项备选流<br>根据基本流和各项备选流生成不同的场景<br>对每一个场景生成相应的测试用例<br>要点：<br>一、 基本流：<br>按照正确的业务流程来实现的一条操作路径（模拟正确的操作流程）<br>二、 备选流 ：<br>导致程序出现错误的操作流程（模拟错误的操作流程）</p>
+<p>5，正交法<br>概述：<br>能够使用最小的测试过程集合获得最大的测试覆盖率<br>步骤：<br>根据所测程序中控件的个数以及每个控件的取值个数,选取一个合适的正交排列表<br> 把控件以及取值列出来,并对取值进行编号<br>把控件以及取值映射到正交排列表中<br>根据映射好的正交排列表编写测试用例<br>要点：<br>一、 n阶拉丁方：<br>用n个不同的拉丁字母排成一个n阶方阵, 每个字母在任一行、任一列中只出现一次</p>
+<p>二、 正交拉丁方：<br>设有两个n阶的拉丁方，如果将它们叠合在一起，恰好出n2个不同的有序数对</p>
+<p>三、 正交表是一种特制的表，记为：<br>m是每个控件包含的取值个数<br>K表示控件的个数<br>n是表的行数, n=k<em>(m-1)+1<br>n=k1</em>(m1-1)+k2<em>(m2-1)+…kx</em>(mx-1)+1<br>L为正交表的代号<br>Ln(m1^k1 m2^k2…mx^kx)<br>正交排列法的局限性:<br>基本都要求每个控件中取值的个数要相等，这在实际软件中很少遇到<br>正交表的性质：<br>每一列中，不同的数字出现的次数相等<br>任意两列中数字的排列方式齐全而且均衡<br>即：<br>正交表的两大优越性，“均匀分散性，整齐可比性”<br>通俗的说，每个因素的每个水平与另一个因素各水平各碰一次，这就是正交性<br>种类：<br>各列水平数均相同的正交表<br>混合水平正交表<br>例：L8（4*24）——一个控件有4个属性，4个控件有2个属性</p>
+<p>6，错误推断法<br>判断表主要侧重输入条件之间的逻辑关系（画因果图只是一个辅助工具，通过分析最终得到判定表，再通过判定表编写测试用例）<br>步骤：<br>找出所有的输入条件<br>找出所有的输出条件<br>明确所有输入条件之间的制约关系以及组合关系<br>明确所有输出条件之间的制约关系以及组合关系<br>找出怎么样的输入条件组合会产生那种输出结果<br>根据因果图写出判定表<br>根据判定表写出测试用例<br>要点：<br>规格说明以判定表的形式给出，或很容易转换成判定表<br>条件的排列顺序不影响执行哪些操作<br> 规则的排列顺序不影响执行哪些操作<br>当某一规则的条件已经满足，并确定要执行的操作后，不必检验别的规则<br>如果某一规则要执行多个操作，这些操作的执行顺序无关紧要</p>
+<p><strong>测试用例的输入类型：</strong><br>字母、数字、特殊符号、空字符、汉字</p>
+<p><strong>编写测试用例三部曲：</strong><br><font color="red">1,根据需求提取测试用例的测试点<br>2,根据测试点内容输入不同数据类型<br>3,得到不同结果用来编写测试用例</font></p>
+<p><strong>软件的分类：</strong><br>OA：    办公自动化<br>CRM：    客户管理系统、电商项目<br>ERP：    进销存系统</p>
+<hr>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/"># 测试笔记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/02/01/day03/">缺陷报告</a>
+            
+            
+            <a class="next" rel="next" href="/2020/01/28/day01/">软件测试简介</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

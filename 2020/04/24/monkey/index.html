@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>monkey命令 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">monkey命令</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">四月 24, 2020&nbsp;&nbsp;19:21:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/">移动端测试</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="monkey"><a href="#monkey" class="headerlink" title="monkey"></a>monkey</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>它是Android系统自带一个命令行工具，可以运行在模拟器里或者真是设备中运行。monkey向系统发送伪随机的用户事件流，实现对正在开发的应用程序进行压力测试。</p>
+<p>monkey包括很多选项，大致四大类：</p>
+<p>1.基本配置选项，如设置尝试的事件数量。</p>
+<p>2.运行约束选项，如设置只对单独的一个包进行测试。</p>
+<p>3.事件类型和频率。</p>
+<p>4.调试选项</p>
+<hr>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>指定一个包  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey  -p  com.tencent.news  -v -v -v  100</span><br></pre></td></tr></table></figure>
+<pre><code>此时指定软件会被打开并开始乱点乱按</code></pre><hr>
+<p>指定多个包   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.tencent.news -p com.pdfreader -p com.widgets  -v 1000</span><br></pre></td></tr></table></figure>
+<hr>
+<p>不指定包     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -v 1000</span><br></pre></td></tr></table></figure>
+
+<pre><code>-p参数：表示指定测试的程序（空格后面跟安装包名字，拿刚才的第三方安装包一个个试）
+-v参数：表示查看monkey执行过程的信息(日志级别）（-v 越多越详细，最多三个）
+数字100:表示测试事件数为100</code></pre><hr>
+<p>将log信息写到文档中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey 100 &gt;c:&#x2F;log&#x2F;b.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>–throttle：事件之间加入延时操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.example.login --throttle 300 100</span><br></pre></td></tr></table></figure>
+<pre><code>表示执行100个伪随机用户事件流，事件间隔为300毫秒。
+注：一般设置为300毫秒，原因是实际用户操作的最快300毫秒左右一个动作事件。</code></pre><hr>
+<p>-pct-touch：调整触摸事件的百分比</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -pct-touch 67 -v 10</span><br></pre></td></tr></table></figure>
+<pre><code>表示执行10个伪随机用户事件流，并调整其中触摸事件的百分比为67%。
+触摸事件是指在屏幕中的一个down-up事件，即在屏幕某处按下并抬起的操作</code></pre><hr>
+<p>-pct-motion：动作事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -pct-motion 67 -v 10</span><br></pre></td></tr></table></figure>
+<pre><code>表示执行10个伪随机用户事件流，并调整其中动作事件的百分比为67%
+motion事件是由屏幕上某处一个down事件、一系列伪随机的移动事件和一个up事件组成
+这里的移动是直线滑动</code></pre><hr>
+<p><strong>–ignore-crashes：忽略崩溃</strong></p>
+<pre><code>通常，应用发生崩溃或异常时Monkey会停止运行。
+如果设置此项，Monkey将继续发送事件给系统，直到事件计数完成。
+正常操作，不忽略异常</code></pre><hr>
+<p><strong>–ignore-timeouts：忽略超时</strong></p>
+<pre><code>通常，应用程序发生任何超时错误（如“Application Not responding”对话框）Monkey将停止运行，
+设置此项，Monkey将继续发送事件给系统，直到事件计数完成。</code></pre><hr>
+<p><strong>–ignore-security-exceptions：忽略安全异常</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey </span><br><span class="line">-p com.miui.calculator</span><br><span class="line">--ignore-crashes --ignore-timeouts --ignore-security-exceptions</span><br><span class="line">-v 1000</span><br></pre></td></tr></table></figure>
+
+<p>可以设定的事件类型还有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--pct-trackball &lt;percent&gt;:指定轨迹球事件的百分比。</span><br><span class="line"></span><br><span class="line">--pct-nav &lt;percent&gt;:指定导航事件中，up、down、left、right等事件的百分比。</span><br><span class="line"></span><br><span class="line">--pct-majornav &lt;percent&gt;:指定导航事件中，back、menu等事件的百分比。</span><br><span class="line"></span><br><span class="line">--pct-syskeys &lt;percent&gt;:指定系统按键的百分比，包括HOME、Back、音量等。</span><br><span class="line"></span><br><span class="line">--pct-appswitch &lt;percent&gt;:指定Activity之间切换的比例。</span><br><span class="line"></span><br><span class="line">--pct-anyevent &lt;percent&gt;:指定任意事件的百分比。</span><br></pre></td></tr></table></figure>
+<pre><code>其中，当不作任何配置的时候，默认为--pct-anyevent &lt;percent&gt;，此时所有事件的触发均为随机的。
+当所有事件的百分比加起重来小于100%的时候，多余的随机事件也将被转化为--pct-anyevent &lt;percent&gt;事件。
+超过时，系统会重新运算相应的比例。</code></pre><h3 id="获取软件包名"><a href="#获取软件包名" class="headerlink" title="获取软件包名"></a>获取软件包名</h3><p>1.进入到cmd操作界面；</p>
+<p>2.输入  adb shell  命令； 出现如下界面</p>
+<p>3.输入 cd    /data/data    命令；出现如下界面</p>
+<p>4.输入 ls  命令；可以列出data文件夹中所有的app包名</p>
+<p><img src="/image/%E8%8E%B7%E5%8F%96%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D.png" alt=""></p>
+<p>5.然后可以运行monkey测试了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkey  –p  com.codeest.geeknews  –v  500</span><br></pre></td></tr></table></figure>
+
+<p>com.codeest.geeknews这个就是要测试应用包名。</p>
+<p>如果是在Dos下, 需要用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey  –p  com.codeest.geeknews  –v  500</span><br></pre></td></tr></table></figure>
+
+<h3 id="monkey压测日志分析："><a href="#monkey压测日志分析：" class="headerlink" title="monkey压测日志分析："></a>monkey压测日志分析：</h3><p><img src="/image/%E5%8E%8B%E6%B5%8B%E6%97%A5%E5%BF%97.png" alt=""></p>
+<h4 id="测试命令信息"><a href="#测试命令信息" class="headerlink" title="测试命令信息"></a>测试命令信息</h4><p>随机种子值，执行事件数量<br>:Monkey: seed=1454215444564 count=10</p>
+<h4 id="可运行的应用列表"><a href="#可运行的应用列表" class="headerlink" title="可运行的应用列表"></a>可运行的应用列表</h4><p>:AllowPackage: com.tencent.android.qqdownloader<br>Category包含LAUNCHER和MONKEY<br>:IncludeCategory: android.intent.category.LAUNCHER<br>:IncludeCategory: android.intent.category.MONKEY</p>
+<h4 id="各事件的百分比"><a href="#各事件的百分比" class="headerlink" title="各事件的百分比"></a>各事件的百分比</h4><p>0：触摸事件百分比，即参数–pct-touch</p>
+<p>1：滑动事件百分比，即参数–pct-motion</p>
+<p>2：缩放事件百分比，即参数–pct-pinchzoom</p>
+<p>3：轨迹球事件百分比，即参数–pct-trackball</p>
+<p>4：屏幕旋转事件百分比，</p>
+<p>5：基本导航事件百分比，即参数–pct-nav</p>
+<p>6：主要导航事件百分比，即参数–pct-majornav</p>
+<p>7：系统事件百分比，即参数–pct-syskeys</p>
+<p>8：Activity启动事件百分比，即参数–pct-appswitch</p>
+<p>9：键盘翻转事件百分比，即参数–pct-flip</p>
+<p>10：其他事件百分比，即参数–pct-anyevent</p>
+<h4 id="伪随机事件流信息"><a href="#伪随机事件流信息" class="headerlink" title="伪随机事件流信息"></a>伪随机事件流信息</h4><p>当Monkey开始执行测试后，会顺序输出执行的事件流信息，主要是前面提到的11大事件。这部分日志信息的解析，如代码清单4-4所示。<br>代码清单4-4 Monkey日志-伪随机事件流信息<br>执行的事件流信息<br>启动App事件</p>
+<p>:Switch: #Intent; action=android.intent.action.MAIN; category=android.intent.<br>category.LAUNCHER; launchFlags=0x10200000; component=com.tencent.android.<br>qqdownloader/com.tencent.assistant.activity.SplashActivity; end<br>// Allowing start of Intent { act=android.intent.action.MAIN cat=[android.<br>intent.category.LAUNCHER] cmp=com.tencent.android.qqdownloader/com.tencent.<br>assistant.activity.SplashActivity } in packagecom.tencent.android.qqdownloader</p>
+<h4 id="轨迹球事件"><a href="#轨迹球事件" class="headerlink" title="轨迹球事件"></a>轨迹球事件</h4><p>:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)</p>
+<h4 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h4><p>:Sending Touch (ACTION_DOWN): 0:(387.0,1858.0)<br>:Sending Touch (ACTION_UP): 0:(385.8215,1861.3011)</p>
+<h4 id="延时"><a href="#延时" class="headerlink" title="延时"></a>延时</h4><p>Sleeping for 0 milliseconds</p>
+<h4 id="异常信息"><a href="#异常信息" class="headerlink" title="异常信息"></a>异常信息</h4><p>当Monkey执行过程中遇到错误时，会输出对应异常信息，如代码清单4-5所示。<br>代码清单4-5 Monkey日志-异常信息<br>发送Crash的应用包名和pid<br>// CRASH: com.tencent.android.qqdownloader (pid 912)</p>
+<h4 id="Crash的简要信息"><a href="#Crash的简要信息" class="headerlink" title="Crash的简要信息"></a>Crash的简要信息</h4><p>// Short Msg: java.lang.ClassNotFoundException</p>
+<h4 id="Crash的详细信息"><a href="#Crash的详细信息" class="headerlink" title="Crash的详细信息"></a>Crash的详细信息</h4><p>// Long Msg: java.lang.ClassNotFoundException: Didn’t find class “com.<br>qq.AppService.AstApp” on path DexPathList[[zip file “/data/app/com.tencent.<br>android.qqdownloader-2.apk”], nativeLibraryDirectories[/data/app-lib/com.<br>tencent.android.qqdownloader-2, /vendor/lib, /system/lib]]</p>
+<h4 id="机型和系统信息"><a href="#机型和系统信息" class="headerlink" title="机型和系统信息"></a>机型和系统信息</h4><p>// Build Label: Xiaomi/pisces/pisces:4.4.4/KTU84P/5.12.24:user/release-keys<br>// Build Changelist: 5.12.24<br>// Build Time: 1450958964000</p>
+<h4 id="Crash的详细日志"><a href="#Crash的详细日志" class="headerlink" title="Crash的详细日志"></a>Crash的详细日志</h4><p>// java.lang.RuntimeException: Unable to instantiate application com.<br>qq.AppService.AstApp: java.lan.ClassNotFoundException: Didn’t find class “com.<br>qq.AppService.AstApp” on path: DexPathList[[zip fil “/data/app/com.tencent.<br>android.qqdownloader-2.apk”], nativeLibraryDirectories=[/data/app-lib/com.<br>tecent.android.qqdownloader-2, /vendor/lib, /system/lib]]<br>// at android.app.LoadedApk.makeApplication(LoadedApk.java:509)<br>// at android.app.ActivityThread.access$1500(ActivityThread.java:138)<br>// at dalvik.system.NativeStart.main(Native Method)<br>// … 11 more</p>
+<h4 id="Monkey执行结果信息"><a href="#Monkey执行结果信息" class="headerlink" title="Monkey执行结果信息"></a>Monkey执行结果信息</h4><p>当Monkey执行完所有事件后，会输出执行结果信息，其中包括执行的事件数量、旋转的角度、丢失的事件数量、网络状态以及Monkey最终的执行结果，如代码清单4-6所示。<br>代码清单4-6 Monkey日志-执行成功结果信息</p>
+<h4 id="执行的事件数量"><a href="#执行的事件数量" class="headerlink" title="执行的事件数量"></a>执行的事件数量</h4><p>Events injected: 10</p>
+<h4 id="旋转的角度为0"><a href="#旋转的角度为0" class="headerlink" title="旋转的角度为0"></a>旋转的角度为0</h4><p>:Sending rotation degree=0, persist=false</p>
+<h4 id="丢失的事件数量"><a href="#丢失的事件数量" class="headerlink" title="丢失的事件数量"></a>丢失的事件数量</h4><p>:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0</p>
+<h4 id="网络状态，"><a href="#网络状态，" class="headerlink" title="网络状态，"></a>网络状态，</h4><p>移动网络联网0ms, Wi-Fi联网0ms，没联网144ms<br>Network stats: elapsed time=144ms (0ms mobile, 0ms wifi, 144ms not connected)</p>
+<h4 id="显示Monkey执行失败"><a href="#显示Monkey执行失败" class="headerlink" title="显示Monkey执行失败"></a>显示Monkey执行失败</h4><p>＊＊ Monkey aborted due to error.</p>
+<h4 id="执行的事件数量-1"><a href="#执行的事件数量-1" class="headerlink" title="执行的事件数量"></a>执行的事件数量</h4><p>Events injected: 8</p>
+<h4 id="旋转的角度为0-1"><a href="#旋转的角度为0-1" class="headerlink" title="旋转的角度为0"></a>旋转的角度为0</h4><p>:Sending rotation degree=0, persist=false</p>
+<h4 id="丢失的事件数量-1"><a href="#丢失的事件数量-1" class="headerlink" title="丢失的事件数量"></a>丢失的事件数量</h4><p>:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0</p>
+<hr>
+<p><strong>玩安卓压测练习：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.wan.android --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;d:\waz.log</span><br></pre></td></tr></table></figure>
+<p><img src="/image/%E7%8E%A9%E5%AE%89%E5%8D%93%E5%8E%8B%E6%B5%8B6.4.png" alt=""></p>
+<p><strong>GeekNews压测练习：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.codeest.geeknews --throttle 100 --pct-touch 50 --pct-motion 50 -v -v 5000 &gt;d:\geeknews.log</span><br></pre></td></tr></table></figure>
+<p><img src="/image/geeknews%E5%8E%8B%E6%B5%8B.png" alt=""></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Monkey/"># Monkey</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/05/04/adb%E5%91%BD%E4%BB%A4/">adb命令</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/11/day10/">JMeter连接MySQL数据库</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

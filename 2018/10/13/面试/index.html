@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>汇总 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">汇总</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 13, 2018&nbsp;&nbsp;0:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法"></a>字符串常用方法</h3><p>1，find：查找，存在返回下标，不存在返回-1<br>2，split：切割，把字符串变成列表,<br>3，join：拼接，把列表变成字符串<br>4，index：查询<br>5，replace：替换<br>6，strip：除去字符串的首尾空格</p>
+<h3 id="列表常用方法"><a href="#列表常用方法" class="headerlink" title="列表常用方法"></a>列表常用方法</h3><p>1，append：尾部添加<br>2，inster：指定位置添加<br>3，pop：默认删除尾部元素<br>4，count：统计某元素在列表中出现的次数<br>5，index：查找某元素，然后返回索引</p>
+<h3 id="字典的常用方法"><a href="#字典的常用方法" class="headerlink" title="字典的常用方法"></a>字典的常用方法</h3><p>clear：清除字典中所有元素<br>get：取值，没有就返回None<br>pop：删除键值<br>update：利用一个字段更新另一个字典<br>zip：将两个列表合成字典</p>
+<h3 id="集合的常用方法"><a href="#集合的常用方法" class="headerlink" title="集合的常用方法"></a>集合的常用方法</h3><p>去重：set<br>交集：intersection<br>并集：union<br>差集：different</p>
+<h3 id="常见的数据结构"><a href="#常见的数据结构" class="headerlink" title="常见的数据结构"></a>常见的数据结构</h3><p>栈：后进先出，插入和删除都是从同一端<br>队列：先进先出，可以从一段插入，从另一端删除<br>链表：链表每个元素都一个节点，每个节点都可以连接在一起形成一个链表<br>数组：数字的集合</p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><ul>
+<li><p>定义：<br>1，进程是资源分配的最小单位<br>2，进程之间有自己独立的内存，如果两个进程之间想要通信，必须要通过一个中间代理<br>3，程序不能单独运行，只有将程序装载到内存中，系统为他分配资源才能运行，这种执行的程序就是进程</p>
+</li>
+<li><p>进程的优点：<br>提供多道编程，让我们感觉我们每个人都用于自己的CPU和其他资源，可以提高计算机的利用率</p>
+</li>
+<li><p>进程的缺点：<br>1，只能在一时间干一件事，如果想同时干两件或多件事，进程就无能为力了<br>2，在执行的过程中如果阻塞，即使进程中有些工作不依赖输入的数据，也无法执行</p>
+</li>
+<li><p>进程间互相访问数据的四种方式<br>1，利用Queues实现父进程到子进程的数据传递<br>2，使用管道pipe实现两个进程间数据的传递<br>3，managers实现很多进程间数据共享<br>4，借助redis中间件进行数据共享</p>
+</li>
+</ul>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>1，线程是操作系统调度的最小单位<br>2，他被包含在进程中，是进程中的实际运作单位<br>3，进程本身是无法自己执行的，要操作CPU，必须要创建一个线程，线程是一系列指令的集合<br>4，同一个进程里的线程可以共享资源，线程可以操作同进程中的其他线程</p>
+<ul>
+<li>进程和线程的区别<br>1，进程包含线程<br>2，进程内存是独立的；而线程共享内存空间<br>3，父进程可以修改不影响子进程，单不能修改</li>
+</ul>
+<p>守护线程：主线程退出时，需要子线程随主线程一起退出</p>
+<ul>
+<li>GIl全局解释器锁<br>1，在一个进程内，同时只能运行一个线程<br>2，python多线程中GIL锁只是在CPU操作时才是串行的，其他都是并行的，所以此串行快很多<br>3，为了解决不同线程同时访问同一资源时，数据保护问题，而产生了GIL</li>
+</ul>
+<ul>
+<li>线程锁<br>1，当一个线程对某个资源进程CPU计算的操作时加一个线程锁，只有当前线程计算完成后主动解锁后，其他线程才能对其操作<br>2，这样就可以防止还未计算完成，释放GIL锁后其他线程对这个资源操作导致胡乱问题</li>
+</ul>
+<h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><p>1，协程又称微线程，是一种轻量级的线程<br>2，协程拥有自己的寄存器上下文和栈<br>3，协程能保留上一次调用时的状态，每次调用时，就相当于进入上次调用的状态<br>4，协程最主要的作用是在单线程的条件下实现并发的效果</p>
+<ul>
+<li><p>协程的缺点：<br>因为协程的本质是单线程的，所以他无法利用多核资源</p>
+</li>
+<li><p>使用协程处理并发<br>Gevent只用起一个线程，当请求发出去后Gevent就不管了，永远就只有一个线程工作，谁先回来先处理</p>
+</li>
+</ul>
+<h3 id="select、poll、epoll"><a href="#select、poll、epoll" class="headerlink" title="select、poll、epoll"></a>select、poll、epoll</h3><ul>
+<li><p>select<br>1，能监控的数量有限，不能告诉用户具体哪个连接有数据<br>2，select的一个缺点在于单个进程能够监视的文件描述的数量存在最大限制，linux上一般为1024</p>
+</li>
+<li><p>poll<br>poll和select在本质上没有太大区别，但是poll没有最大文件描述数量的限制</p>
+</li>
+<li><p>epoll<br>1，epoll被认为是linux下性能最好的多路io就绪通知方法<br>2，epoll没有最大文件描述符数量限制<br>3，epoll最重要的是他可以告诉用户哪个连接有数据<br>4，epoll可以实现高并发原理</p>
+</li>
+</ul>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><ul>
+<li><p>定义<br>在不修改函数源代码和原功能的基础上，添加新的功能</p>
+</li>
+<li><p>使用场景<br>1，授权：装饰器能有助于检查某人是否被授权去使用一个web应用的端点，它们被大量应用在flask额django框架<br>2，日志：在记录日志的地方添加装饰器<br>3，缓存：通过装饰器获取缓存中的值<br>4，计算程序的运行时间</p>
+</li>
+</ul>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><ul>
+<li><p>定义<br>1，生成器可以理解为一种数据类型，这种数据类型可以自动实现迭代器协议<br>2，在python中，一边循环，一边计算的机制，称为生成器</p>
+</li>
+<li><p>工作原理<br>1，生成器是一个函数，而且函数的参数都会保留<br>2，迭代到下一次的调用时，所使用的参数都是第一次所保留下来的</p>
+</li>
+<li><p>yield生成器运行机制<br>在Python中，yield就是这样的一个生成器。<br>1) 当你问生成器要一个数时，生成器会执行，直至出现 yield 语句，生成器把yield 的参数给你，之后生成器就不会往下继续运行。<br>2) 当你问他要下一个数时，他会从上次的状态开始运行，直至出现yield语句，把参数给你，之后停下。如此反复<br>3) 在python中，当你定义一个函数，使用了yield关键字时，这个函数就是一个生成器<br>4) 它的执行会和其他普通的函数有很多不同，函数返回的是一个对象，而不是你平常所用return语句那样，能得到结果值。如果想取得值，那得调用next()函数<br>5) 每当调用一次迭代器的next函数，生成器函数运行到yield之处，返回yield后面的值且在这个地方暂停，所有的状态都会被保持住，直到下次next函数被调用，或者碰到异常循环退出</p>
+</li>
+</ul>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><ul>
+<li>定义<br>1，迭代器是访问集合内元素的方式，他从集合的第一个元素开始访问，直到访问到最后一个结束<br>2，迭代器仅仅是一个容器对象，它有两个基本方法：<br>  1)：next方法 - 返回容器的下一个元素<br>  2)：_iter_方法 - 返回迭代器自身</li>
+</ul>
+<h3 id="迭代器和生成器的区别"><a href="#迭代器和生成器的区别" class="headerlink" title="迭代器和生成器的区别"></a>迭代器和生成器的区别</h3><p>1，在使用生成器时，我们创建一个函数；在使用迭代器时，我们使用内置函数iteration()和next()<br>2，使用类可以实现自己的迭代器；但是无法实现生成器<br>3，生成器运行速度快，语法简洁，更简单；迭代器更能节省内存</p>
+<h3 id="面向对象三大特性"><a href="#面向对象三大特性" class="headerlink" title="面向对象三大特性"></a>面向对象三大特性</h3><ul>
+<li><p>封装：把方法和数据封装一个类容器中</p>
+</li>
+<li><p>继承：一个类可以派生出多个子类，这些子类继承父类的属性、方法</p>
+</li>
+<li><p>多态：多态是面向对象的重要特性，简单来说：一个接口，多种实现。    </p>
+</li>
+</ul>
+<h3 id="静态方法、类方法、属性方法"><a href="#静态方法、类方法、属性方法" class="headerlink" title="静态方法、类方法、属性方法"></a>静态方法、类方法、属性方法</h3><ul>
+<li>静态方法<br>1,作用：静态方法可以更好地组织代码，防止代码变大后变得比较混乱</li>
+</ul>
+<p>2，特性：静态方法只是名义上归类管理，实际上在静态方法里访问不了类或者实例中的属性</p>
+<p>3，使用场景：<br>    1)更改环境变量<br>    2)修改其他类的属性</p>
+<p>4，调用方式：既可以被类调用，也可以通过实例调用</p>
+<ul>
+<li>类方法<br>1，作用：无需实例化，直接被类调用</li>
+</ul>
+<p>2，特性：类方法只访问类变量，不能访问实例变量</p>
+<p>3，使用场景：当我们还没创建实例，但是需要调用类中的方法时</p>
+<p>4，调用方式：既可以被类调用，也可以通过实例调用</p>
+<ul>
+<li>属性方法<br>作用：把一个方法变成属性，隐藏实现细节，调用时不用再加括号</li>
+</ul>
+<h3 id="魔法方法"><a href="#魔法方法" class="headerlink" title="魔法方法"></a>魔法方法</h3><p><strong>new</strong>  :  先于<strong>init</strong>方法，每生成一个实例执行一次，<strong>new</strong> 类方法创建实例对象<br><strong>init</strong> :  <strong>init</strong>方法每生成一个实例就会执行一次，初始化实例对象<br><strong>call</strong> :   后与<strong>init</strong>方法，C()() 使用类再加一个括号调用， C为类名称<br><strong>del</strong>  :   析构方法，删除无用的内存对象（当程序结束会自动自行析构方法）</p>
+<h3 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h3><ul>
+<li>浅拷贝<br>1，实现：copy.copy<br>2，不管多么复杂的数据结构，浅拷贝都只拷贝第一层<br>3，拷贝不可变：只是增加一个指向原对象的引用，改变会互相影响<br>4，拷贝可变（多层结构）：改变会互相影响</li>
+</ul>
+<ul>
+<li>深拷贝<br>1，实现：copy.deepcopy<br>2，深拷贝会完全复制原变量的所有内容，在内存中生成一套完全一样的内容，如果修改其中一个，另一个不会受到影响</li>
+</ul>
+<h3 id="python垃圾回收机制"><a href="#python垃圾回收机制" class="headerlink" title="python垃圾回收机制"></a>python垃圾回收机制</h3><ul>
+<li><p>引用计数<br>1，当一个对象的引用被创建或者复制时，对象的引用计数加1；当一个对象的引用被销毁时，对象的引用计数减1<br>2，当对象的引用计数减少为0时，就意味着对象以及再没有被使用了，可以将其内存释放掉</p>
+</li>
+<li><p>标记 - 清除<br>1，他分为两个阶段：<br>  第一阶段是标记阶段，GC会吧所有的活动对象打上标记<br>  第二阶段是把那些没有标记的对象、非活动对象进行回收<br>2，对象之间通过引用连在一起，构成一个有向图<br>3，从根对象出发，沿着有向边遍历对象，可达对象标记为活动对象，不可达的对象就是要被清除的非活动对象<br>注：根对象就是全局变量、调用栈、寄存器</p>
+</li>
+<li><p>分代回收<br>1，年轻代：新创建的对象都会被分配在年轻代，当年轻代满了，python垃圾回收机制就会被触发；年轻代最先被回收<br>2，中年代：把那些可以被回收的对象回收掉，而那些不会被回收的对象就会被移到中年代中<br>3，老年代：老年代中的对象是存活时间最久的对象，甚至是存活于整个系统的生命周期内</p>
+</li>
+</ul>
+<h3 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h3><p>1，with是一种上下文管理协议，目的在于从流程图中把try、except等关键字和资源分配释放相关代码统统去掉，简化try的处理流程<br>2，所以使用with处理的对象必须有enter()和exit()这两个方法</p>
+<ul>
+<li>使用场景<br>1，文件使用后自动关闭<br>2，线程中锁的自动获取和释放等</li>
+</ul>
+<h3 id="python四大高阶函数"><a href="#python四大高阶函数" class="headerlink" title="python四大高阶函数"></a>python四大高阶函数</h3><p>Map()是对序列根据设定条件进行操作后返回他设置的是操作方法</p>
+<p>filter()函数可以对序列做过滤处理</p>
+<p>reduce()函数即为化简函数，它的执行过程为：每一次迭代，都将上一次的迭代结果与下一个元素一同传入二元func函数中去执行。</p>
+<p>sorted()对字典排序</p>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><ul>
+<li><p>事务四大特性<br>1，原子性：事务的所以操作要么全部提交成功，要么全部失败回滚<br>2，一致性：几个并行执行的事务，期执行结果必须与某一顺序执行的结果一致<br>3，隔离性：事务的执行不受其他事务的干扰<br>4，持久性：一个事务一旦被提交，那么对数据库中的数据的改变就是永久性的</p>
+</li>
+<li><p>事务隔离级别<br>1 未提交读: 脏读（READ UNCOMMITTED）<br>  1）事务2查询到的数据是事务1中修改但未提交的数据，但因为事务1回滚了数据<br>  2）所以事务2查询的数据是不正确的，因此出现了脏读的问题。<br>2 提交读: 不可重复读（READ COMMITTED）<br>  1）事务2执行update语句但未提交前，事务1的前两个select操作返回结果是相同的。<br>  2）但事务2执行commit操作后，事务1的第三个select操作就读取到事务2对数据的改变。<br>  3）导致与前两次select操作返回不同的数据，因此出现了不可重复读的问题。<br>3 可重复读: 幻读（REPEATABLE READ）：这是MySQL的默认事务隔离级别<br>  1）事务每开启一个实例，都会分配一个版本号给它，如果读取的数据行正在被其它事务执行DELETE或UPDATE操作（即该行上有排他锁）<br>  2）这时该事物的读取操作不会等待行上的锁释放，而是根据版本号去读取行的快照数据（记录在undo log中）<br>  3）这样，事务中的查询操作返回的都是同一版本下的数据，解决了不可重复读问题。<br>  4）虽然该隔离级别下解决了不可重复读问题，但理论上会导致另一个问题：幻读（Phantom Read）。<br>  5）一个事务在执行过程中，另一个事物对已有数据行的更改，MVCC机制可保障该事物读取到的原有数据行的内容相同<br>  6）但并不能阻止另一个事务插入新的数据行，这就会导致该事物中凭空多出数据行，像出现了幻读一样，这便是幻读问题。<br>4 可串行读（SERIALIZABLE）<br>  1）这是事务的最高隔离级别，通过强制事务排序，使之不可能相互冲突，就是在每个读的数据行加上共享锁来实现<br>  2）在该隔离级别下，可以解决前面出现的脏读、不可重复读和幻读问题，但也会导致大量的超时和锁竞争现象，一般不推荐使用</p>
+</li>
+</ul>
+<h3 id="MySQL中的锁"><a href="#MySQL中的锁" class="headerlink" title="MySQL中的锁"></a>MySQL中的锁</h3><ul>
+<li>锁分类</li>
+</ul>
+<ol>
+<li>按操作划分：DML锁，DDL锁</li>
+<li>按锁的粒度划分：表级锁、行级锁、页级锁</li>
+<li>按锁级别划分：共享锁、排他锁</li>
+<li>按加锁方式划分：自动锁、显示锁</li>
+<li>按使用方式划分：乐观锁、悲观锁</li>
+</ol>
+<ul>
+<li>乐观锁</li>
+</ul>
+<ol>
+<li>每次获取商品时，不对该商品加锁。</li>
+<li>在更新数据的时候需要比较程序中的库存量与数据库中的库存量是否相等，如果相等则进行更新</li>
+<li>反之程序重新获取库存量，再次进行比较，直到两个库存量的数值相等才进行数据更新。</li>
+</ol>
+<ul>
+<li>悲观锁</li>
+</ul>
+<ol>
+<li>每次获取商品时，对该商品加排他锁。</li>
+<li>也就是在用户A获取获取 id=1 的商品信息时对该行记录加锁，期间其他用户阻塞等待访问该记录</li>
+</ol>
+<ul>
+<li>排它锁</li>
+</ul>
+<ol>
+<li>排它锁又叫写锁，如果事务T对A加上排它锁，则其它事务都不能对A加任何类型的锁。获准排它锁的事务既能读数据，又能写数据。</li>
+<li>用法 ：  SELECT … FOR UPDATE</li>
+</ol>
+<ul>
+<li>共享锁(share lock)</li>
+</ul>
+<ol>
+<li>共享锁又叫读锁，如果事务T对A加上共享锁，则其它事务只能对A再加共享锁，不能加其它锁。</li>
+<li>获准共享锁的事务只能读数据，不能写数据。</li>
+<li>用法： SELECT … LOCK IN SHARE MODE;</li>
+</ol>
+<h3 id="MySQL-基于Docker的主从复制"><a href="#MySQL-基于Docker的主从复制" class="headerlink" title="MySQL - 基于Docker的主从复制"></a>MySQL - 基于Docker的主从复制</h3><p>1， 首先基于docker拉取mysql镜像<br>2.    使用下载好的镜像，启动主从两个容器<br>3.    配置主从<br>4.    vi my.cnf，进入/etc/mysql目录下，对my.cnf进行编辑<br>5.    创建主从所需权限用户<br>6.    配置从数据库</p>
+<h3 id="redis五大数据类型"><a href="#redis五大数据类型" class="headerlink" title="redis五大数据类型"></a>redis五大数据类型</h3><p>list列表：基于双向链表的，使用场景是栈和队列<br>string字符串：基于数值的，使用场景一般用于缓存用户信息<br>哈希：基于hashmap,使用场景一般用于缓存用户信息</p>
+<h3 id="redis事务"><a href="#redis事务" class="headerlink" title="redis事务"></a>redis事务</h3><p>1，redis事务可以一次执行多个命令，本质是一组命令的集合<br>2，一个事务中的所有命令都会序列化，按顺序串行化的执行而不会被其他命令插入</p>
+<ul>
+<li>作用<br>一个队列中，一次性、顺序性、排他性的执行一系列命令</li>
+</ul>
+<ul>
+<li>使用<br>1，multi：开始一个redis事务<br>2，exec：执行事务<br>3，discard：丢弃事务</li>
+</ul>
+<ul>
+<li>watch指令</li>
+</ul>
+<ol>
+<li>watch其实就是redis提供的一种乐观锁，可以解决并发修改问题</li>
+<li>watch会在事物开始前盯住一个或多个关键变量，当服务器收到exec指令要顺序执行缓存中的事物队列时</li>
+<li>redis会检查关键变量自watch后是否被修改（包括当前事物所在的客户端）</li>
+<li>如果关键变量被人改动过，exec指令就会返回null回复告知客户端事物执行失败，这个时候客户端会选择重试<br>注：redis禁用在multi和exec之间执行watch指令，必须在multi之前盯住关键变量，否则会出错</li>
+</ol>
+<ul>
+<li>redis原子操作</li>
+</ul>
+<ol>
+<li>原子操作是指不会被线程调度机制打断的操作</li>
+<li>这种操作一旦开始，就会一直运行到结束，中间不会切换任何进程</li>
+</ol>
+<ul>
+<li>分布式锁</li>
+</ul>
+<ol>
+<li>分布式锁本质是占一个坑，当别的进程也要来占坑时发现已经被占，就会放弃或者稍后重试</li>
+<li>占坑一般使用 setnx(set if not exists)指令，只允许一个客户端占坑</li>
+<li>先来先占，用完了在调用del指令释放坑</li>
+</ol>
+<h3 id="redis雪崩、穿透、击穿"><a href="#redis雪崩、穿透、击穿" class="headerlink" title="redis雪崩、穿透、击穿"></a>redis雪崩、穿透、击穿</h3><ul>
+<li>雪崩<br>定义：<br>  1，由于缓存区承载着大量的请求，有效的保护了存储区，但是缓存区由于一些原因不能提供服务<br>  2，于是所有的请求都到达了存储区，造成存储区也会挂掉</li>
+</ul>
+<p>解决方案：<br>    1，保证缓存区服务高可用性：如redis sentinel 和 redis cluster 都实现了高可用性<br>    2，依赖隔离组件为后端限流并降级；</p>
+<ul>
+<li>穿透<br>定义：<br>  1，指查询一个不一定存在的数据，由于缓存不命中，接着查询数据库也无法查询出结果<br>  2，虽然不会写入到缓存中，但是这将导致每个查询都会去请求数据库，造成缓存穿透<br>解决方案：布隆过滤<br>  1，对所有可能查询的参数以hash形式存储，在控制层先进行校验，不符合就丢弃，避免对底层存储系统的查询压力</li>
+</ul>
+<ul>
+<li>击穿<br>定义：<ol>
+<li>缓存击穿，就是说某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况</li>
+<li>当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。<br>解决方法</li>
+<li>解决方式也很简单，可以将热点数据设置为永远不过期；</li>
+<li>或者基于 redis or zookeeper 实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据</li>
+</ol>
+</li>
+</ul>
+<h3 id="主从同步"><a href="#主从同步" class="headerlink" title="主从同步"></a>主从同步</h3><ul>
+<li>CPA原理</li>
+</ul>
+<ol>
+<li>CPA原理是分布式存储理论的基石： C(一致性)；   A(可用性)；  P(分区容忍性);</li>
+<li>当主从网络无法连通时，修改操作无法同步到节点，所以“一致性”无法满足</li>
+<li>除非我们牺牲“可用性”，也就是暂停分布式节点服务，不再提供修改数据功能，知道网络恢复<br>【一句话概括CAP: 当网络分区发生时，一致性 和 可用性 两难全】</li>
+</ol>
+<ul>
+<li>全量同步<br>注：Redis全量复制一般发生在Slave初始化阶段，这时Slave需要将Master上的所有数据都复制一份。具体步骤如下：<br>1）从服务器连接主服务器，发送SYNC命令；<br>2）主服务器接收到SYNC命名后，开始执行BGSAVE命令生成RDB文件并使用缓冲区记录此后执行的所有写命令；<br>3）主服务器BGSAVE执行完后，向所有从服务器发送快照文件，并在发送期间继续记录被执行的写命令；<br>4）从服务器收到快照文件后丢弃所有旧数据，载入收到的快照；<br>5）主服务器快照发送完毕后开始向从服务器发送缓冲区中的写命令；<br>6）从服务器完成对快照的载入，开始接收命令请求，并执行来自主服务器缓冲区的写命令；<br>7）完成上面几个步骤后就完成了从服务器数据初始化的所有操作，从服务器此时可以接收来自用户的读请求。</li>
+</ul>
+<ul>
+<li>增量同步</li>
+</ul>
+<ol>
+<li>主节点会将那些对自己状态产生修改性影响的指令记录在本地内存buffer中，然后异步将buffer中指令同步到从节点</li>
+<li>从节点一边执行同步指令达到主节点状态，一边向主节点反馈自己同步到哪里（偏移量）</li>
+<li>当网络状态不好时，从节点无法和主节点进行同步，当网络恢复时需要进行快照同步</li>
+</ol>
+<ul>
+<li>Redis主从同步策略</li>
+</ul>
+<ol>
+<li>主从刚刚连接的时候，进行全量同步；全同步结束后，进行增量同步。</li>
+<li>当然，如果有需要，slave 在任何时候都可以发起全量同步。</li>
+<li>redis 策略是，无论如何，首先会尝试进行增量同步，如不成功，要求从机进行全量同步。</li>
+</ol>
+<h3 id="哨兵模式-sentinel"><a href="#哨兵模式-sentinel" class="headerlink" title="哨兵模式 - sentinel"></a>哨兵模式 - sentinel</h3><ul>
+<li>作用<br>1，当用redis做主从方案时，假如master宕机，redis本身无法自动进行主备切换</li>
+</ul>
+<ol start="2">
+<li>而Redis-sentinel本身也是一个独立运行的进程，它能监控多个master-slave集群，发现master宕机后能进行自动切换。</li>
+</ol>
+<ul>
+<li>sentinel原理</li>
+</ul>
+<ol>
+<li>sentinel负责持续监控主节点的健康，当主节挂掉时，自动选择一个最优的从节点切换成主节点</li>
+<li>从节点来连接集群时会首先连接sentinel，通过sentinel来查询主节点的地址</li>
+<li>当主节点发生故障时，sentinel会将最新的主节点地址告诉客户端，可以实现无需重启自动切换redis</li>
+</ol>
+<ul>
+<li>Sentinel支持集群</li>
+</ul>
+<ol>
+<li>只使用单个sentinel进程来监控redis集群是不可靠的，当sentinel进程宕掉后sentinel本身也有单点问题</li>
+<li>如果有多个sentinel，redis的客户端可以随意地连接任意一个sentinel来获得关于redis集群中的信息。</li>
+</ol>
+<h3 id="Linux-supervisor"><a href="#Linux-supervisor" class="headerlink" title="Linux-supervisor"></a>Linux-supervisor</h3><p>Supervisor是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具，不支持Windows系统。它可以很方便的监听、启动、停止、重启一个或多个进程。用Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程死后，会自动将它重新拉起，很方便的做到进程自动恢复的功能，不再需要自己写shell脚本来控制。<br>不使用守护进程会出现的三个问题：</p>
+<ol>
+<li>ASP.NET Core应用程序运行在shell之中，如果关闭shell则会发现 ASP.NET Core程序被关闭，从而导致应用无法访问，这种情况当然是我们不想遇到的，而且生产环境对这种情况是零容忍的。</li>
+<li>如果 ASP.NET Core进程意外终止那么需要人为连进shell进行再次启动，往往这种操作都不够及时。</li>
+<li>如果服务器宕机或需要重启，我们则还是需要连入shell进行启动。</li>
+</ol>
+<h3 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h3><p>pwd                   ：查看你当前所在的目录<br>cd                    ：切换目录<br>ls                    ：查看显示目录的内容<br>du                    ：统计目录和文件空间的占用情况<br>mkdir                 ：创建新目录<br>rmdir                 ：删除空目录<br>touch                 ：创建文件<br>rm                    ：删除文件<br>ln                    ：创建硬链接<br>ln -s                 ：创建软链接<br>cp                    ：复制文件或目录<br>mv                    ：动文件或目录<br>which                 ：查看linux命令所在的目录</p>
+<h3 id="三元运算"><a href="#三元运算" class="headerlink" title="三元运算"></a>三元运算</h3><p>一种语法糖<br>只是把if、for那些东西横过来写，列表推导式<br>只能加一些简单的逻辑</p>
+<h3 id="GIl全局解释器锁"><a href="#GIl全局解释器锁" class="headerlink" title="GIl全局解释器锁"></a>GIl全局解释器锁</h3><p>解决方法：换解释器，语法还是python</p>
+<h3 id="b-tree、b-tree"><a href="#b-tree、b-tree" class="headerlink" title="b-tree、b+tree"></a>b-tree、b+tree</h3><p>非叶子节点不存数据，只存储键值信息<br>叶子节点存储data，所有叶子节点都有一个链指针<br>由于B+Tree内节点去掉了data域，因此可以拥有更大的出度<br>还有顺序访问指针，拥有更好的性能。</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"># 面试题</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2018/12/11/%E7%AE%97%E6%B3%95/">算法</a>
+            
+            
+            <a class="next" rel="next" href="/2018/07/08/%E5%8F%88%E6%8B%8D%E4%BA%91%E4%B8%8A%E4%BC%A0/">又拍云文件上传</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

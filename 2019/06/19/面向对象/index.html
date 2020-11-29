@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>python基础-面向对象 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">python基础-面向对象</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 19, 2019&nbsp;&nbsp;23:02:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><p>面向对象的程序设计的核心是对象（上帝式思维），要理解对象为何物，必须把自己当成上帝，上帝眼里世间存在的万物皆为对象，不存在的也可以创造出来。面向对象的程序设计好比如来设计西游记，如来要解决的问题是把经书传给东土大唐，如来想了想解决这个问题需要四个人：唐僧，沙和尚，猪八戒，孙悟空，每个人都有各自的特征和技能（这就是对象的概念，特征和技能分别对应对象的属性和方法），然而这并不好玩，于是如来又安排了一群妖魔鬼怪，为了防止师徒四人在取经路上被搞死，又安排了一群神仙保驾护航，这些都是对象。然后取经开始，师徒四人与妖魔鬼怪神仙互相缠斗着直到最后取得真经。如来根本不会管师徒四人按照什么流程去取。</p>
+<p>优点是：解决了程序的扩展性。对某一个对象单独修改，会立刻反映到整个体系中，如对游戏中一个人物参数的特征和技能修改都很容易。</p>
+<p>缺点：可控性差，无法向面向过程的程序设计流水线式的可以很精准的预测问题的处理流程与结果，面向对象的程序一旦开始就由对象之间的交互解决问题，即便是上帝也无法预测最终结果。于是我们经常看到一个游戏人某一参数的修改极有可能导致阴霸的技能出现，一刀砍死3个人，这个游戏就失去平衡。</p>
+<p>应用场景：需求经常变化的软件，一般需求的变化都集中在用户层，互联网应用，企业内部软件，游戏等都是面向对象的程序设计大显身手的好地方。</p>
+<p>了解一些名词：类、对象、实例、实例化</p>
+<p>类：具有相同特征的一类事物(人、狗、老虎)</p>
+<p>对象／实例：具体的某一个事物（隔壁阿花、楼下旺财）</p>
+<p>实例化：类——&gt;对象的过程（这在生活中表现的不明显）</p>
+<h3 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h3><p>面向过程的程序设计的核心是过程（流水线式思维），过程即解决问题的步骤，面向过程的设计就好比精心设计好一条流水线，考虑周全什么时候处理什么东西。</p>
+<p>优点是：极大的降低了写程序的复杂度，只需要顺着要执行的步骤，堆叠代码即可。</p>
+<p>缺点是：一套流水线或者流程就是用来解决一个问题，代码牵一发而动全身。</p>
+<p>应用场景：一旦完成基本很少改变的场景，著名的例子有Linux內核，git，以及Apache HTTP Server等。</p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类有两种作用：属性引用和实例化</p>
+<h4 id="实例引用"><a href="#实例引用" class="headerlink" title="实例引用"></a>实例引用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 定义一个动物类</span><br><span class="line">class Animal:</span><br><span class="line"></span><br><span class="line">    # 这个动物是只猫（属性）</span><br><span class="line">    type &#x3D; &quot;Cat&quot;</span><br><span class="line"></span><br><span class="line">    # 这只猫会喵喵叫（方法）</span><br><span class="line">    def cry(self):</span><br><span class="line">        print(&quot;miao...&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查看动物的属性</span><br><span class="line">print(Animal.type)</span><br><span class="line"></span><br><span class="line"># 引用猫叫的方法</span><br><span class="line">print(Animal.cry)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h4><p>类名加括号就是实例化，会自动触发<strong>init</strong>函数的运行，可以用它来为每个实例定制自己的特征</p>
+<p>原本我们只有一个Animal类，在这个过程中，产生了一个egg对象，有自己的名字</p>
+<p>语法：对象名 = 类名(参数)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 定义一个动物</span><br><span class="line">class Animal:</span><br><span class="line"></span><br><span class="line">    # 这个动物是只猫（属性）</span><br><span class="line">    type &#x3D; &quot;Cat&quot;</span><br><span class="line"></span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        # 每只猫都有自己的名字</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    # 这只猫会喵喵叫（方法）</span><br><span class="line">    def cry(self):</span><br><span class="line">        print(&quot;miao...&quot;)</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line"># 类名()就等于在执行Animal.__init__()</span><br><span class="line"># 执行完__init__()就会返回一个对象。这个对象类似一个字典，存着属于这只猫的属性和方法</span><br><span class="line">res &#x3D; Animal(&#39;Fang&#39;)</span><br><span class="line"></span><br><span class="line"># 查看属性</span><br><span class="line">print(res.name)</span><br><span class="line"></span><br><span class="line"># 调用方法</span><br><span class="line">print(res.cry())</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 1.	请手写一个函数，用来取出1—100（均包含）中5的倍数或者带有数字5的所有整数</span><br><span class="line"># def numli(num):</span><br><span class="line">#     li &#x3D; []</span><br><span class="line">#</span><br><span class="line">#     for i in range(1, num + 1):</span><br><span class="line">#         if i % 5 &#x3D;&#x3D; 0 or str(i).find(&#39;5&#39;) !&#x3D; -1:</span><br><span class="line">#             li.append(i)</span><br><span class="line">#     return li</span><br><span class="line"># print(numli(100))</span><br><span class="line"></span><br><span class="line"># 2.	lis &#x3D; [2,3,&#39;k&#39;,[&#39;qwe&#39;,20,[&#39;k&#39;,[&#39;tt&#39;,3,&#39;1&#39;]],89],&#39;ab&#39;,&#39;adv&#39;]  写一个函数将该列表中的tt变成大写</span><br><span class="line"></span><br><span class="line"># lis &#x3D; [2,3,&#39;k&#39;,[&#39;qwe&#39;,20,[&#39;k&#39;,[&#39;tt&#39;,3,&#39;1&#39;]],89],&#39;ab&#39;,&#39;adv&#39;]</span><br><span class="line"># def liss():</span><br><span class="line">#     lis[3][2][1][0]&#x3D;&#39;TT&#39;</span><br><span class="line">#     print(lis)</span><br><span class="line"># liss()</span><br><span class="line"></span><br><span class="line"># 3. 打印该年所有月份，并显示所属季节，如：“1月 冬季 2月 冬季 3月 春季”等</span><br><span class="line"></span><br><span class="line"># year &#x3D; int(input(&quot;请输入年份：&quot;))</span><br><span class="line"># def show_season(self):</span><br><span class="line">#     for i in range(1, 13):</span><br><span class="line">#         if i in (12, 1, 2):</span><br><span class="line">#             print(i, &quot;冬季&quot;)</span><br><span class="line">#</span><br><span class="line">#         elif i in (3, 4, 5):</span><br><span class="line">#             print(i, &quot;春季&quot;)</span><br><span class="line">#</span><br><span class="line">#         elif i in (6, 7, 8):</span><br><span class="line">#             print(i, &quot;夏季&quot;)</span><br><span class="line">#</span><br><span class="line">#         else:</span><br><span class="line">#             print(i, &quot;秋季&quot;)</span><br><span class="line"># show_season(year)</span><br><span class="line"></span><br><span class="line"># 4. 用户由键盘随机输入一个年份，如：2018，打印该年是否是闰年（能被4整除但不能被100整除，或者能被400整除的年	份）</span><br><span class="line"></span><br><span class="line"># year &#x3D; int(input(&quot;请输入年份：&quot;))</span><br><span class="line"># def fun4(b):</span><br><span class="line">#     if b % 4 &#x3D;&#x3D; 0 and b % 100 !&#x3D; 0 or b % 400 &#x3D;&#x3D; 0:</span><br><span class="line">#         print(b,&quot;是闰年&quot;)</span><br><span class="line">#     else:</span><br><span class="line">#         print(b,&#39;不是闰年&#39;)</span><br><span class="line"># fun4(year)</span><br><span class="line"></span><br><span class="line"># 5. 判断数字是否是回文数（数字顺读和逆读都是一样）</span><br><span class="line"></span><br><span class="line"># def fun5(a):</span><br><span class="line">#     if a &#x3D;&#x3D; a[::-1]:</span><br><span class="line">#         print(a,&#39;是回文数，回文数是&#39;,a[::-1])</span><br><span class="line">#     else:</span><br><span class="line">#         print(a,&quot;不是回文数&quot;)</span><br><span class="line"># a &#x3D; input(&quot;请输入数字：&quot;)</span><br><span class="line"># fun5(a)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>功能描述<br>定义一个类：MyYear ，它包含：<br>1个实例属性：year<br>用户由键盘随机输入一个年份，如：2018，将该值作为MyYear类<strong>init</strong>方法的一个参数传入，并赋给类的实例属性year</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class MyYear(object):</span><br><span class="line">    def init(self):</span><br><span class="line">        self.year &#x3D; int(input(&quot;请输入年份：&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>7个实例方法：</p>
+<p>1)    show_season()<br>打印该年所有月份，并显示所属季节，如：“1月 冬季 2月 冬季 3月 春季”等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def show_season(self):</span><br><span class="line">    for i in range(1, 13):</span><br><span class="line">        if i in (12, 1, 2):</span><br><span class="line">            print(i, &quot;冬季&quot;)</span><br><span class="line"></span><br><span class="line">        elif i in (3, 4, 5):</span><br><span class="line">            print(i, &quot;春季&quot;)</span><br><span class="line"></span><br><span class="line">        elif i in (6, 7, 8):</span><br><span class="line">            print(i, &quot;夏季&quot;)</span><br><span class="line"></span><br><span class="line">        else:</span><br><span class="line">            print(i, &quot;秋季&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>2)    isleap()<br>打印该年是否是闰年（能被4整除但不能被100整除，或者能被400整除的年    份），如：如果属性year的值为2018，则输出：“2018年不是闰年”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def isleap(self):</span><br><span class="line">    if self.year % 4 &#x3D;&#x3D; 0 and self.year % 100 !&#x3D; 0 or self.year % 400 &#x3D;&#x3D; 0:</span><br><span class="line">        print(self.year, &quot;是闰年&quot;)</span><br><span class="line">    else:</span><br><span class="line">        print(self.year, &#39;不是闰年&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>3)    year_sum()<br>打印从1到该年所在数字之间所有整数的和，如：如果属性year的值为2018，    则计算1+2+3+4+5+…+2018的值并输出结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def year_sum(self):</span><br><span class="line">    a &#x3D; 1</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    while a &lt;&#x3D; self.year:</span><br><span class="line">        sum +&#x3D; a</span><br><span class="line">        a +&#x3D; 1</span><br><span class="line">    print(sum)</span><br></pre></td></tr></table></figure>
+
+<p>4)    check_num()<br>判断该年所在数字是否是回文数（即是给定一个数，这个数顺读和逆读都是一样    的）并输出判断结果，如：如果属性year的值为2002，则输出“2002是回文    数”，    如果属性year的值为2018，则输出“2018不是回文数”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def check_num(self):</span><br><span class="line">    if self.year &#x3D;&#x3D; self.year[::-1]:</span><br><span class="line">        print(self.year,&#39;是回文数，回文数是&#39;,self.year[::-1])</span><br><span class="line">    else:</span><br><span class="line">        print(self.year,&quot;不是回文数&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>5)    show_leap_year()<br>判断从公元1年到该年所在的区间内的所有年份,输出所有闰年年份<br>如:如果属性year的值为20，则输出 4  8  12 16  20</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def show_leap_year(self):</span><br><span class="line">    for i in range(1,self.year+1):</span><br><span class="line">        if i % 4 &#x3D;&#x3D; 0 and i % 100 !&#x3D; 0 or i % 400 &#x3D;&#x3D; 0:</span><br><span class="line">            print(i, &quot;是闰年&quot;)</span><br><span class="line">        else:</span><br><span class="line">            pass</span><br></pre></td></tr></table></figure>
+
+<p>6)    show_num_div()<br>打印出从1-该年所在数字之间所有能被9整除或者包含数字9的年份,<br>如:如果属性year的值为20，则输出 9 18 19</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def show_num_div(self):</span><br><span class="line">    for i in range(1,self.year+1):</span><br><span class="line">        if i % 9 &#x3D;&#x3D; 0  or &#39;9&#39; in str(i) :</span><br><span class="line">            print(i)</span><br><span class="line">        else:</span><br><span class="line">            pass</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">b &#x3D;MyYear()</span><br><span class="line">b.year_sum()</span><br><span class="line">b.show_leap_year()</span><br><span class="line">b.show_num_div()</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>功能描述<br>定义一个类：MyNum，它包含：<br>1个实例属性：num<br>用户由键盘随机输入一个正整数数字，如：100，将该值作为MyNum类<strong>init</strong>方法的一个参数传入，并赋给类的实例属性num</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class MyNum(object):</span><br><span class="line">    def init(self):</span><br><span class="line">        self.num &#x3D; int(input(&quot;请输入一个整数数字：&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>6个实例方法：</p>
+<p>1)    show_num()<br>打印从1到属性num之间所有的数字，如：如果属性num为100，则打印“1 2 3 4 …99     100”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def show_num(self):</span><br><span class="line">    for i in range(1,self.num+1):</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+
+<p>2)    calc_sum()<br>计算从1-num之间所有数字的和并输出，如：如果属性num的值为100，则计算    1+2+3+…+99+100的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def calc_sum(self):</span><br><span class="line">    a &#x3D; 1</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    while a&lt;&#x3D; self.num:</span><br><span class="line">        sum +&#x3D; a</span><br><span class="line">        a +&#x3D;1</span><br><span class="line">    print(sum)</span><br></pre></td></tr></table></figure>
+
+<p>3)    calc_odd_sum()<br>计算从1-num之间所有奇数的和并输出，如：如果属性num的值为100，则计算    1+3+5+7+…+99的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def calc_odd_sum(self):</span><br><span class="line">    a &#x3D; 1</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    while a &lt;&#x3D; self.num:</span><br><span class="line">        if a%2&#x3D;&#x3D;1:</span><br><span class="line">            sum +&#x3D; a</span><br><span class="line">            a +&#x3D;2</span><br><span class="line">        else:</span><br><span class="line">            pass</span><br><span class="line">    print(sum)</span><br></pre></td></tr></table></figure>
+
+<p>4)    calc_even_sum()<br>计算从1-num之间所有偶数的和并输出，如：如果属性num的值为100，则计算    2+4+6+8+…+100的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def calc_even_sum(self):</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    for i in range(1,self.num+1):</span><br><span class="line">        if i%2&#x3D;&#x3D;0:</span><br><span class="line">            sum +&#x3D; i</span><br><span class="line">            i +&#x3D; 1</span><br><span class="line">    print(sum)</span><br></pre></td></tr></table></figure>
+
+<p>5)    show_num_div()<br>打印出从1-num之间所有能被7整除的数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def show_num_div(self):</span><br><span class="line">    for i in range(1,self.num+1):</span><br><span class="line">        if i%7&#x3D;&#x3D;0:</span><br><span class="line">            print(i)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>6)    check_num()<br>判断num是否是回文数（即是给定一个数，这个数顺读和逆读都是一样的）并输    出判断结果，如：如果属性num的值为101，则输出“101是回文数”；如果属性    num的值为123，则输出“123不是回文数”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def check_num(self):</span><br><span class="line">    if self.num &#x3D;&#x3D; self.num[::-1]:</span><br><span class="line">        print(self.num,&#39;是回文数，回文数是&#39;,self.num[::-1])</span><br><span class="line">    else:</span><br><span class="line">        print(self.num,&quot;不是回文数&quot;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">c &#x3D; MyNum()</span><br><span class="line">c.calc_sum()</span><br><span class="line">c.calc_odd_sum()</span><br><span class="line">c.calc_even_sum()</span><br><span class="line">c.show_num_div()</span><br><span class="line">c.check_num()</span><br></pre></td></tr></table></figure>
+
+
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python%E5%9F%BA%E7%A1%80/"># python基础</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/09/16/day12/">Linux-安装MySQL、jdk</a>
+            
+            
+            <a class="next" rel="next" href="/2019/06/18/%E5%88%97%E8%A1%A8/">python基础-列表</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

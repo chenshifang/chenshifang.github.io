@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>测试面试题 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">测试面试题</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">八月 6, 2020&nbsp;&nbsp;22:35:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">测试笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong><font color="#10aec2">面试题每天持续更新中…</font></strong></p>
+<h3 id="1，软件测试的原则和目的是什么？"><a href="#1，软件测试的原则和目的是什么？" class="headerlink" title="1，软件测试的原则和目的是什么？"></a>1，软件测试的原则和目的是什么？</h3><blockquote>
+<p><strong>目的：</strong><br>1，通过测试工作可以发现并修复软件当中存在的缺陷<br>2，可以降低同产品开发遇到的风险<br>3，记录软件运行过程中的一些数据，从而为决策者提供技术支持<br><strong>原则：</strong><br>1，2/8定律，核心功能占20%，非核心占80%，我们会集中测试20%的核心功能，发现缺陷的几率会高于80%，因此，遇到的缺陷都会集中20%功能模块里。<br>2，不能进行穷尽测试，有些功能是无法将所有测试情况逻辑出来的，任何的测试都有结束的时间。<br>3，为了更好地发现和解决软件中的缺陷</p>
+</blockquote>
+<hr>
+<h3 id="2，测试人员在测试中的任务是什么？"><a href="#2，测试人员在测试中的任务是什么？" class="headerlink" title="2，测试人员在测试中的任务是什么？"></a>2，测试人员在测试中的任务是什么？</h3><blockquote>
+<p>1，尽早的找出系统中的Bug<br>2，避免软件开发过程中缺陷的出现<br>3，确保缺件的质量<br>4，关注用户的需求，并保证系统符合用户需求</p>
+</blockquote>
+<hr>
+<h3 id="3，缺陷报告内容包括什么？"><a href="#3，缺陷报告内容包括什么？" class="headerlink" title="3，缺陷报告内容包括什么？"></a>3，缺陷报告内容包括什么？</h3><blockquote>
+<p>1,Bug的优先级<br>2，Bug的严重程度<br>3.开发的接口人员，与Bug产生对应的软件版本<br>4，Bug可能属于的模块。如果不能确认，可以由开发人员来判读<br>5，Bug标题，需要清晰的描述现象<br>6，Bug描述，需要尽量给出新的Bug步骤<br>7，Bug附件中能给出相关的日志与截图</p>
+</blockquote>
+<hr>
+<h3 id="4，请您描述一下测试的V模型？"><a href="#4，请您描述一下测试的V模型？" class="headerlink" title="4，请您描述一下测试的V模型？"></a>4，请您描述一下测试的V模型？</h3><blockquote>
+<p>用户需求-需求分析-概要设计-详细设计-编码-单元测试-集成测试-系统测试-验收测试</p>
+</blockquote>
+<hr>
+<h3 id="5，性能测试关注的指标是什么？"><a href="#5，性能测试关注的指标是什么？" class="headerlink" title="5，性能测试关注的指标是什么？"></a>5，性能测试关注的指标是什么？</h3><blockquote>
+<p>1，吞吐率，<br>2，用户的响应时间<br>3，每秒点击数<br>4，资源利用率<br>5，业务成功率<br>6，Tps</p>
+</blockquote>
+<hr>
+<h3 id="6，Bug不能复现怎么办"><a href="#6，Bug不能复现怎么办" class="headerlink" title="6，Bug不能复现怎么办?"></a>6，Bug不能复现怎么办?</h3><blockquote>
+<p>1，首先考虑环境问题，看是否能够还原原来的环境<br>2，遇到问题就要提，不能放过任何一个Bug，在提交的Bug描述中加上一句话，那就是复现概率，尝试20次，出现一次或尝试10次，交给开发，开发会根据Bug的复现概率，调整改Bug的优先级。<br>3，尽量回想发生问题时的复现步骤，不要漏掉任何一个细节，按照步骤的组合尝试复现<br>4，与开发人员配合，让开发人员对相应的代码检查，看是否通过代码层面检查出问题<br>5，保留发生bug时的log，附加到提交的Bug中，希望可以通过log中找到一些蛛丝马迹。<br>6， 查看代码，也许是代码变更，引起的Bug</p>
+</blockquote>
+<hr>
+<h3 id="7，什么是Http协议，请求方法是什么？，以及Http协议与Https协议的区别？"><a href="#7，什么是Http协议，请求方法是什么？，以及Http协议与Https协议的区别？" class="headerlink" title="7，什么是Http协议，请求方法是什么？，以及Http协议与Https协议的区别？"></a>7，什么是Http协议，请求方法是什么？，以及Http协议与Https协议的区别？</h3><blockquote>
+<p>Http协议又叫超文本传输协议，是定义了一个客户端到服务器请求与应答的标准，分别为请求头与响应头。<br>请求方法有：get请求与post请求。HTTPS协议是以安全为目标的HTTP通道，简称Http的安全版。<br><strong>区别：</strong><br>1，http协议需要ca申请证书，一般免费证书较少，需要一定费用。<br>2，http的链接简单，是无状态的，而https协议是由SSL+http协议构建的可进行加密传输，身份认证的网络协议要比HTTP协议安全。<br>3，http协议是超文本协议，又叫明码传输，而https是具有安全性的SSL加密传输协。<br>4，http协议与HTTps协议使用的链接方式不同，一个用的端口是80（http），一个是443（https）。</p>
+</blockquote>
+<hr>
+<h3 id="8，get请求与post请求的区别？"><a href="#8，get请求与post请求的区别？" class="headerlink" title="8，get请求与post请求的区别？"></a>8，get请求与post请求的区别？</h3><blockquote>
+<p>get请求通常从服务器获取数据，请求参数在地址栏之后，数据量有限制，不够安全<br>Post请求通常往服务器提交数据，请求参数在请求实体中，数据量无限制，较为安全。</p>
+</blockquote>
+<hr>
+<h3 id="9，重载与重写的区别？"><a href="#9，重载与重写的区别？" class="headerlink" title="9，重载与重写的区别？"></a>9，重载与重写的区别？</h3><blockquote>
+<p>1，重载是发生同一个类中，方法名相同，参数列表（列表类型，参数个数，或者二者接不同）却不同，与返回值无关。<br>2，重写是发生在父类与子类之间，子类的重写方法必须与父类的重写方法声明完全相同，有相同的返回值类型，比父类的重写方法更好访问。</p>
+</blockquote>
+<hr>
+<h3 id="10，APP测试与Web测试的区别？"><a href="#10，APP测试与Web测试的区别？" class="headerlink" title="10，APP测试与Web测试的区别？"></a>10，APP测试与Web测试的区别？</h3><blockquote>
+<p><strong>相同点：</strong><br>1，同样的测试用例方法相同。<br>2，同样的测试方法：都会依据原型图或效果图来检查UI。<br>3，测试页面载入与翻页的速度，登陆时长，内容是否溢出等。<br>4，测试应用系统的稳定性。<br><strong>不同点：</strong><br>1，app测试平台：百度云测，testin云测不同。<br>2，App的安装卸载：全新安装，升级安装，第三方工具安装，第三方工具卸载，直接卸载删除，消息推送测试，手机授权测试，前后台切换，网络环境（wifi/2G/3G/4G/无网络）。<br>3，App的中断测试：来电中断，短信中断，蓝牙，闹钟，拔插数据线，手机锁定，手机断电，手机问题（系统死机重启）。<br>4，兼容性测试：Web项目考虑不同浏览器的兼容，app需要考虑手机不同的操作系统，不同机型，不同屏幕等。<br>5，网路测试：不同网络与运营商，目前我国有三大运营商如：电信，移动，联通，不同的网络制式，如：GSM,CDMA,3G等，在不好或无网络的情况下的APP行为。<br>6，操作系统：大量的设备，各种的操作系统，目前使用最多的操作系统有：Android,ios,windows,blackberry等，它们之间的应用软件互不兼容。如设备不同：触摸式与非触摸式设备，有限的内存容量，电池耗电量，屏幕尺寸，分辨率等。</p>
+</blockquote>
+<hr>
+<h3 id="11，BS-CS架构的区别是什么？"><a href="#11，BS-CS架构的区别是什么？" class="headerlink" title="11，BS/CS架构的区别是什么？"></a>11，BS/CS架构的区别是什么？</h3><blockquote>
+<p><strong>概念：</strong>所谓的架构就是用来指导我们软件开发的一种思维，目前最长见的就是BS/CS.<br>B—browser 浏览器<br>C—clent 客户端<br>S—server 服务端<br><strong>区别：</strong><br>1，标准：相对于cs架构来说Bs架构的两端都是使用现成的成熟产品，bs会显示的标准一些。<br>2，效率：相对于bs架构来说cs中的客户端可以分担一些数据的处理，执行效率会高一些。<br>3，安全：bs架构当中得到数据的传输都是以Http协议进行传输的，而Http协议又是明文输出。可以被抓包，那么cs架构比Bs架构显得就不那么安全了，（其实都是相对的）。<br>4，升级：bs架构只需要在服务器端将数据进行更新，前台只需要刷新页面就可以升级，而cs架构必须要将两端都进行更新才可以。<br>5，开发成本：相对于bs架构来说cs当中的客户端需要自己开发，bs不用，所以说cs成本会高一些。</p>
+</blockquote>
+<hr>
+<h3 id="12，Jmeter与LoadRunner的区别是什么？哪个工具比较好？"><a href="#12，Jmeter与LoadRunner的区别是什么？哪个工具比较好？" class="headerlink" title="12，Jmeter与LoadRunner的区别是什么？哪个工具比较好？"></a>12，Jmeter与LoadRunner的区别是什么？哪个工具比较好？</h3><blockquote>
+<p><strong>相同点：</strong><br>jmeter与LoadRunner都是作为性能测试工具，基本参数都可以一样。<br><strong>不同点：</strong><br>LoadRunner是性能测试领域的王者，标准制定者，而Jmeter是后起之秀。<br><strong>开发语言不同：</strong><br>1，LoadRunner主要自C语言开发，支持Java、VB、C++。<br>2，Jmeter是纯JAVA开发，支持多种JAVA脚本语言。<br><strong>软件工具的费用、学习成本不同：</strong><br>1，LoadRunner费用高昂，（LoadRunner11有破解版，但LoadRunner12就没有破解版了）<br>2，Jmeter完全是免费的。<br>3，LoadRunner学习成本更低，主要是强大的录制功能能让大家钟爱，省事，效率高，门磕低，用的人多经验分享也多，相对容易上手。<br>4，Jmeter相对学习资料会少一些，而且没有LoadRunner强大的录制功能。<br>jmeter是一个轻量级的工具，可以进行接口性能压力测试，LoadRunner是一个重量级的工具，可以进行性能压力测试，Jemeter相对于LoadRunner来说简单，易操作，好上手，LoadRunner操作复杂<br><strong>LoadRunner比较好</strong></p>
+</blockquote>
+<hr>
+<h3 id="13，Android手机和IOS手机-系统有什么区别"><a href="#13，Android手机和IOS手机-系统有什么区别" class="headerlink" title="13，Android手机和IOS手机,系统有什么区别?"></a>13，Android手机和IOS手机,系统有什么区别?</h3><blockquote>
+<p>1,运行机制不同:IOS采用的是沙盒运行机制,安卓采用的是虚拟机运行机制<br>2,两者后台制度不同:IOS中任何第三方程序都不能在后台运行,安卓中任何程序都能在后台运行,直到没有内存才会关闭<br>3,IOS中用于UI指令权限最高,安卓中数据处理指令权限最高</p>
+</blockquote>
+<hr>
+<h3 id="14，请说一下MonKey的优缺点？"><a href="#14，请说一下MonKey的优缺点？" class="headerlink" title="14，请说一下MonKey的优缺点？"></a>14，请说一下MonKey的优缺点？</h3><blockquote>
+<p><strong>优点：</strong><br>1，使用简单。<br>2，节省了重复性操作的时间。<br>3，随机输入可能发现一些平常意想不到的缺陷。<br>4，MOnKey虽可以根据一个指定的命令脚本发送按键消息，但不支持条件判断，也不支持读取待测界面的信息来执行验证操作。<br>5，可对MonkeyTest的对象，事件数量，类型，频率等进行设置。<br><strong>缺点：</strong><br>测试的对象仅为应用程序包，有一定的局限性。</p>
+</blockquote>
+<hr>
+<h3 id="15-测试的计划内容以及重要性"><a href="#15-测试的计划内容以及重要性" class="headerlink" title="15,测试的计划内容以及重要性"></a>15,测试的计划内容以及重要性</h3><blockquote>
+<p>测试计划的内容：测试计划分为测试需求和测试计划,测试需求分为功能需求和性能需求,<br><strong>功能需求包括:</strong><br>1,逻辑功能<br>2,易用性<br>3,兼容性<br>4,安装卸载等功能性需求<br><strong>性能需求关注的就是：</strong><br>1,响应时间2成功率<br>3,吞吐量<br>4,CPU占有率<br>5，事物通过率<br>6，内存占有率等主要的能够反映我们软件和服务器性能的参数<br><strong>项目测试需求</strong><br>我们的性能需求是这样提的，30个在线用户按照正常的操作速度访问xxx功能，成功率是100%,且90%的响应时间不超过4s，当并发在线用户数超过100个时，xxx的成功率大于98%，其中90%的在线用户数的请求响应时间是不大于用户的最大容忍时间10s。<br><strong>测试计划：</strong><br>1,根据需求,产品原型图,UI效果图编写测试计划<br>2,测试背景<br>3,工期评定<br>4,人员安排<br>5,进度安排<br>6,测试班次</p>
+</blockquote>
+<hr>
+<h3 id="16，你以前工作时的测试流程是什么？"><a href="#16，你以前工作时的测试流程是什么？" class="headerlink" title="16，你以前工作时的测试流程是什么？"></a>16，你以前工作时的测试流程是什么？</h3><blockquote>
+<p>先要有需求评审（有开发人员—产品经理—测试人员—项目经理）<br>需求确定（出一份确定好的需求文档）<br>开发设计文档（开发人员在开始写代码前就能够输出设计文档）<br>制定测试计划—写出测试用例—发给开发人员与测试经理看一下—<br>接到测试版本—执行测试用例—提交Bug(有些时候可以直接写到TD{Test Director相当于禅道}—交给开发人员修改—回归测试</p>
+</blockquote>
+<hr>
+<h3 id="17，当你参加评审时，你的评审原则是什么？"><a href="#17，当你参加评审时，你的评审原则是什么？" class="headerlink" title="17，当你参加评审时，你的评审原则是什么？"></a>17，当你参加评审时，你的评审原则是什么？</h3><blockquote>
+<p>首先要从正确性，一致性，可行性，必要性，可跟踪性，分配优先级，可测性，可修改性考虑：<br>正确性：每一条需求都必须准确的陈述其要开发的功能。<br>一致性：必须与其他软件需求或高层需求不相矛盾。<br>可行性：其每一项需求都必须是已系统和环境的权能和限制范围可以来实施的。<br>必要性：每项需求都是用来授权你编写文档的“根源”，要使每项需求都能回潮至某项客户的输入。<br>可测性：每项需求都能通过设计测试用例或其他的验证方法来进行测试。<br>可修改性：每项需求只应在SRS中出现一次，这样更改会容易保持一致性。<br>可跟踪性：在每项软件需求与它的根源与设计元素，源代码，测试用例之间建立起链接，而这种可跟踪性要求每项需求都必须以一种结构化的，粒度好（fine-grained）的方式编写并单独标明，而不是大段大段的陈述。<br>分配优先级：应当对所有的需求分配优先级，如把所有需求都看作同样重要，那么项目管理者在开发或节省预算或调度中丧失控制自由度</p>
+</blockquote>
+<hr>
+<h3 id="188，软件测试的需求标准是什么？"><a href="#188，软件测试的需求标准是什么？" class="headerlink" title="188，软件测试的需求标准是什么？"></a>188，软件测试的需求标准是什么？</h3><blockquote>
+<p>1，文档版本信息：包含文档版本，作者，完成日期，修订版需要加上修订记录（版本号，修订者，日期，内容）。<br>2，目录结构要清晰，不同级别的标题要区分字号。<br>3，产品架构：一般只有功能以及信息架构，功能：一级-二级，三级功能要划出。以及产品特性（功能列表，原型界面，详细设计）其它产品需求需根据公司产品需求来定，如（兼容性，产品运营，性能要求等）</p>
+</blockquote>
+<hr>
+<h3 id="19，请写一下W模型图？"><a href="#19，请写一下W模型图？" class="headerlink" title="19，请写一下W模型图？"></a>19，请写一下W模型图？</h3><blockquote>
+<p><img src="/image/w%E6%A8%A1%E5%9E%8B%E5%9B%BE.png" alt=""></p>
+</blockquote>
+<hr>
+<h3 id="20，软件质量的特性是什么？"><a href="#20，软件质量的特性是什么？" class="headerlink" title="20，软件质量的特性是什么？"></a>20，软件质量的特性是什么？</h3><blockquote>
+<p>1，功能性：软件需求要满足用户显示或者稳式的功能。<br>2，易用性：软件易于学习和上手使用<br>3，可靠性：软件必须实现需求当中指明的具体功能。<br>4，效率性：类似于软件的功能。<br>5，可维护性：需求软件具有将某个功能修复之后继续使用的功能。</p>
+</blockquote>
+<hr>
+<h3 id="21，测试计划工作的目的是什么？以及测试计划文档的内容包括什么？"><a href="#21，测试计划工作的目的是什么？以及测试计划文档的内容包括什么？" class="headerlink" title="21，测试计划工作的目的是什么？以及测试计划文档的内容包括什么？"></a>21，测试计划工作的目的是什么？以及测试计划文档的内容包括什么？</h3><blockquote>
+<p><strong>目的：</strong><br>1，明确测试任务与测试方法，保持测试实施过程的顺畅沟通，跟踪和控制测试进度，应对测试过程中的各种变更。<br><strong>内容：</strong><br>1，是指软件测试过程的纲领性文件。<br>2，里面包含了产品概述，测试策略，测试方法，区域，配置，周期，资源，交流，风险分析等内容。<br>3，测试不同的起止时间。<br>4，相应文档，缺陷的存放位置，测试环境等。<br>5，项目有关人员的组成，安排那些测试人员进行测试。</p>
+</blockquote>
+<hr>
+<h3 id="22，搭建过什么环境，搭建工作环境是如何搭建的？"><a href="#22，搭建过什么环境，搭建工作环境是如何搭建的？" class="headerlink" title="22，搭建过什么环境，搭建工作环境是如何搭建的？"></a>22，搭建过什么环境，搭建工作环境是如何搭建的？</h3><blockquote>
+<p>测试环境<br>操作系统用Linux，通常测试环境包括JDK环境，Tomcat环境和MySQL环境<br><strong>JDK:</strong><br>1.安装jdk<br>如果有自带，先卸载再装<br>2.把包复制/usr/local<br>3.解压<br>4.配置环境变量<br>5.检查java是否安装成功<br>java -version<br><strong>Tomcat:</strong><br>1.安装tomcat<br>2.把下载的tomcat包复制/usr/local<br>3.解压<br>4.在tomcat/bin目录执行startup.sh文件<br>启动服务<br>在浏览器中连接：IP:8080<br>5.如果连接不上，但tomcat又是显示启动OK，检查firewall<br>路径为 /etc/sysconfig/iptables，将8080端口开启<br>6重启服务<br><strong>Mysql数据库</strong><br>mysql安装比较简单，可以使用源码安装，也可以使用yum在线安装，在这里简单地介绍一下yum在线安装<br>用yum在线安装</p>
+</blockquote>
+<ol>
+<li>rpm -qa|grep mysql –检查linux是否有存在的mysql</li>
+<li>如果有mysql,卸载<br>rpm -e –nodeps mysql</li>
+<li>安装<br>yum install mysql-server mysql mysql-dev -y</li>
+<li>安装成功后，启动服务<br>service mysqld start<br>service 服务名 restart/start</li>
+<li>直接输入mysql 进入到数据库。</li>
+</ol>
+<hr>
+<h3 id="23，压力测试与负载测试的区别是什么？"><a href="#23，压力测试与负载测试的区别是什么？" class="headerlink" title="23，压力测试与负载测试的区别是什么？"></a>23，压力测试与负载测试的区别是什么？</h3><blockquote>
+<p>通常性能测试中的压力测试是在系统资源特别低的情况下软件系统运行的情况，其目的是找到系统在哪里失效以及失效的地方，关注点在于系统咋峰值负载或超出最大负荷情况下的处理能力，而负载测试是指数据在超负荷环境下运行，程序是否能够承受并满足最终确定性能指标的情况下所能承受的最大负载量。</p>
+</blockquote>
+<hr>
+<h3 id="24，服务器部署是如何去部署的？"><a href="#24，服务器部署是如何去部署的？" class="headerlink" title="24，服务器部署是如何去部署的？"></a>24，服务器部署是如何去部署的？</h3><blockquote>
+<p>三台，可以从开发环境，测试环境，生产环境。去部署</p>
+</blockquote>
+<hr>
+<h3 id="25，开发环境与测试环境有什么区别？"><a href="#25，开发环境与测试环境有什么区别？" class="headerlink" title="25，开发环境与测试环境有什么区别？"></a>25，开发环境与测试环境有什么区别？</h3><blockquote>
+<p><strong>开发环境：</strong>是在编码阶段，一般我们的代码基本上都是在开发环境中，不会再生产与测试环境，如操作系统，web服务器，语言环境，php,数据库等等。<br><strong>测试环境：</strong>项目完成后，找Bug,以及修改Bug。<br><strong>生产环境：</strong> 项目数据前后端已经疏通，部署到阿里云上有客户去使用以及访问，网络正常运行就好了。</p>
+</blockquote>
+<hr>
+<h3 id="26，如果给你购物商城网页（京东，淘宝等）你会怎样进行测试？测试哪些主要功能？"><a href="#26，如果给你购物商城网页（京东，淘宝等）你会怎样进行测试？测试哪些主要功能？" class="headerlink" title="26，如果给你购物商城网页（京东，淘宝等）你会怎样进行测试？测试哪些主要功能？"></a>26，如果给你购物商城网页（京东，淘宝等）你会怎样进行测试？测试哪些主要功能？</h3><blockquote>
+<p>1，首先要先进行需求分析，xmind梳理测试点，编写案例，案例评审，寻求他人意见，再完善案例，交给其他人检查。<br>2，测试点：如UI，美观度，易操作型，易理解型方面进行测试。<br>3，在考虑功能点，如登陆注册，添加购物车，下单，付款，发货，确认收货，评价。<br>4，还有就是支付时候的绑定银行卡，以及实名认证。<br>5，性能方面：如打开网页，确认订单，付款的响应时间等。<br>6，兼容性：如支持各种主流浏览器，如（EI,360，火狐，谷歌等）。</p>
+</blockquote>
+<hr>
+<h3 id="27，-微信发红包的测试用例？"><a href="#27，-微信发红包的测试用例？" class="headerlink" title="27， 微信发红包的测试用例？"></a>27， 微信发红包的测试用例？</h3><blockquote>
+<p><strong>功能</strong><br>1.在红包钱数，和红包个数的输入框中只能输入数字<br>2.红包里最多和最少可以输入的钱数  200  0.01<br>3.拼手气红包最多可以发多少个红包  100<br>3.1超过最大拼手气红包的个数是否有提醒<br>4.当红包钱数超过最大范围是不是有对应的提示<br>5.当发送的红包个数超过最大范围是不是有提示<br>6.当余额不足时，红包发送失败<br>7.在红包描述里是否可以输入汉字，英文，符号，表情，纯数字，汉字英语符号，<br>7.1是否可以输入它们的混合搭配<br>8.输入红包钱数是不是只能输入数字<br>9.红包描述里许多能有多少个字符   10个<br>10.红包描述，金额，红包个数框里是否支持复制粘贴操作<br>12.红包描述里的表情可以删除<br>13.发送的红包别人是否可以领取<br>13.1发的红包自己可不可以领取   2人<br>14. 24小时内没有领取的红包是否可以退回到原来的账户<br>14.1  超过24小时没有领取的红包，是否还可以领取<br>15.用户是否可以多次抢一个红包<br>16.发红包的人是否还可以抢红包   多人<br>17.红包的金额里的小数位数是否有限制<br>18.可以按返回键，取消发红包<br>19. 断网时，无法抢红包<br>20.可不可以自己选择支付方式<br><strong>兼容：</strong><br>1.苹果，安卓是否都可以发送红包<br>2.电脑端可以抢微信红包<br><strong>界面</strong><br>1.发红包界面没有错别字<br>2.抢完红包界面没有错别字<br>3.发红包和收红包界面排版合理，<br>4.发红包和收到红包界面颜色搭配合理</p>
+</blockquote>
+<p><strong>安全：</strong><br>1.对方微信号异地登录，是否会有提醒   2人<br>2.红包被领取以后，发送红包人的金额会减少，收红包金额会增加<br>3.发送红包失败，余额和银行卡里的钱数不会少<br>4.红包发送成功，是否会收到微信支付的通知</p>
+<p><strong>易用性(有点重复)</strong><br>1.红包描述，可以通过语音输入<br>2.可以指纹支付也可以密码支付</p>
+<hr>
+<h3 id="28，Jemeter为什么要参数化？"><a href="#28，Jemeter为什么要参数化？" class="headerlink" title="28，Jemeter为什么要参数化？"></a>28，Jemeter为什么要参数化？</h3><blockquote>
+<p>1，多用户登录的时候，如果不进行参数化就没演示了。<br>2，需要使用CSV将参数放到文件，来演示多用户登陆。<br>3，在进行录制的时候，有可能存在第二个请求的参数是从第一个请求中获取出来的，需要在第一个请求下，去将参数提取出来，再到第二个请求中进行参数化。</p>
+</blockquote>
+<hr>
+<h3 id="29，Jemeter如何进行压力测试？"><a href="#29，Jemeter如何进行压力测试？" class="headerlink" title="29，Jemeter如何进行压力测试？"></a>29，Jemeter如何进行压力测试？</h3><blockquote>
+<p>我们在公司大部分是进行的数据库压测以及接口压测。</p>
+</blockquote>
+<hr>
+<h3 id="30，请您介绍一下Jemeter是如何使用的？"><a href="#30，请您介绍一下Jemeter是如何使用的？" class="headerlink" title="30，请您介绍一下Jemeter是如何使用的？"></a>30，请您介绍一下Jemeter是如何使用的？</h3><blockquote>
+<p>先创建一个线程组，指定并发的线程数量，在指定测试的接口，创建相应的监听器，（如，表格结果，结果树，以及聚合报告信息）通过监听器来进行监听测试是否通过以及接口存在什么问题。</p>
+</blockquote>
+<hr>
+<h3 id="31，进行接口测试，你是如何进行去测试的？"><a href="#31，进行接口测试，你是如何进行去测试的？" class="headerlink" title="31，进行接口测试，你是如何进行去测试的？"></a>31，进行接口测试，你是如何进行去测试的？</h3><blockquote>
+<p>1，首先要看有没有接口文档，如果有文档的时候按接口文档去做，没有的话就去抓包。<br>2，我们一般使用postmian以及jemter.<br>3，没有接口文档的情况下，要先创建一个线程组，指定并发的线程数量，在指定测试的接口，创建相应的监听器，（如，表格结果，结果树，以及聚合报告信息）通过监听器来进行监听测试是否通过以及接口存在什么问题。</p>
+</blockquote>
+<hr>
+<h3 id="32，性能测试的工具有哪些以及使用流程？"><a href="#32，性能测试的工具有哪些以及使用流程？" class="headerlink" title="32，性能测试的工具有哪些以及使用流程？"></a>32，性能测试的工具有哪些以及使用流程？</h3><blockquote>
+<p><strong>Jmeter:</strong><br>先创建一个线程组，指定并发的线程数量，在指定测试的接口，创建相应的监听器，（如，表格结果，结果树，以及聚合报告信息）通过监听器来进行监听测试是否通过以及接口存在什么问题。<br><strong>LoadRunner:</strong><br>一个是虚拟用户生成器，一个是Controller，还有一个分析器，VUgen,(记录操作，录制，脚本生成，以及回放功能）.</p>
+</blockquote>
+<hr>
+<h3 id="高频面试题"><a href="#高频面试题" class="headerlink" title="高频面试题"></a>高频面试题</h3><ul>
+<li>对任意物品的测试<br>  1，从功能上考虑，包括体积、形状、用途、材质<br>  2，从外观上考虑，包括颜色、图案<br>  3，从性能上考虑<br>  4，从安全性考虑<br>  5，从易用性考虑</li>
+</ul>
+<ul>
+<li>如果在测试过程中出现的bug，而开发人员不认为是bug的时候你怎么办？<br>  1，首先我会从自身去经过多次的测试发现bug的出现次数和频率，记录复现bug的方式，然后发送给开发人员<br>  2，再根据需求文档来确认是否为bug<br>  3，如果开发不认为是bug，将复现bug的记录和需求文档找产品经理进行商议，由产品和项目经理来确认是否bug<br>  4，如果项目经理和产品经理都不认为是bug，我会将bug记录在测试文档中，方便在下次评审会上将问题再次抛出</li>
+</ul>
+<ul>
+<li>测试评审的标准<br>  1，测试用例的正确性<br>  2，测试用例是否冗余<br>  3，测试用例的覆盖率<br>  4，测试用例是否满足需求文档</li>
+</ul>
+<ul>
+<li>测试评审内容<br>  1，用例设计的结构安排是否清晰、合理，是否利于高效对需求进行覆盖。<br>  2，优先极安排是否合理。<br>  3，是否覆盖测试需求上的所有功能点。<br>  4，用例是否具有很好可执行性。例如用例的前提条件、执行步骤、输入数据和期待结果是否清晰、正确期待结果是否有明显的验证方法。<br>  5，是否已经删除了冗余的用例。<br>  6，是否包含充分的负面测试用例。充分的定义，如果在这里使用2&amp;8法则，那就是4倍于正面用例的数量，毕竟一个健壮的软件，其中80%的代码都是在”保护”20%的功能实现。<br>  7，是否从用户层面来设计用户使用场景和使用流程的测试用例。<br>  8，是否简洁，复用性强。例如，可将重复度高的步骤或过程抽取出来定义为一些可复用标准步骤</li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"># 面试题</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/08/22/%E6%B5%8B%E8%AF%95%E4%B8%80%E5%9B%9E%E9%A1%BE/">软测总结</a>
+            
+            
+            <a class="next" rel="next" href="/2020/07/12/unittest/">自动化框架-unittest</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>python基础 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">python基础</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">二月 17, 2018&nbsp;&nbsp;22:02:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="python简介"><a href="#python简介" class="headerlink" title="python简介"></a>python简介</h3><p>1989年，为了打发圣诞节假期，龟叔开始写Python语言的编译器。Python这个名字，来自龟叔所挚爱的电视剧Monty Python’s Flying Circus（巨蟒剧团的飞行的马戏团）</p>
+<p>最初的Python完全由龟叔本人开发。Python得到龟叔同事的欢迎。他们迅速的反馈使用意见，并参与到Python的改进。龟叔和一些同事构成Python的核心团队。他们将自己大部分的业余时间用于改进 Python。随后，Python拓 展到研究所之外。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>规范的代码，简单，易学，高层语言，跨平台（可移植性强），支持面向对象编程，丰富的库等优点。<br>提高开发效率：（假设开发某一功能模块）<br>C – 1000行代码<br>java – 100行代码<br>python – 20行代码</p>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><p>Python语言非常完善，没有明显的短板和缺点，唯一的缺点就是执行效率慢，这个是解释型语言所通有的，同时这个缺点也将被计算机越来越强大的性能所弥补。</p>
+<h3 id="七大数据类型"><a href="#七大数据类型" class="headerlink" title="七大数据类型"></a>七大数据类型</h3><p><img src="/image/%E5%8F%98%E9%87%8F617-1.png" alt=""></p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>什么是标识符？<br>开发人员在程序中自定义的一些符号和名称<br>标识符是自己定义的,如变量名 、函数名等</p>
+<p><strong>标识符的命名规则：</strong></p>
+<ol>
+<li><p>标识符只能由字母、下划线“_”、数字组成。</p>
+</li>
+<li><p>标识符不能以数字开头。</p>
+</li>
+<li><p>标识符不能使用关键字（不能与python中的关键字重名）。</p>
+<p> 标识符命名建议：<br> 标识符命名应“见名知意”。</p>
+</li>
+</ol>
+<p><strong>驼峰命名法</strong><br>小驼峰式命名法（lower camel case）： 第一个单词以小写字母开始；第二个单词的首字母大写，例如：myName、myList<br>大驼峰式命名法（upper camel case）： 每一个单字的首字母都采用大写字母，例如：UserName、FirstName、LastName</p>
+<h3 id="输出和输入"><a href="#输出和输入" class="headerlink" title="输出和输入"></a>输出和输入</h3><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&#39;hello world&#39;)</span><br></pre></td></tr></table></figure>
+<p><img src="/image/%E8%BE%93%E5%87%BA617-1.png" alt=""></p>
+<h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age &#x3D; 10</span><br><span class="line">print(&quot;我今年%d岁&quot;%age)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/%E8%BE%93%E5%87%BA617-2.png" alt=""><br><img src="/image/%E8%BE%93%E5%87%BA617-3.png" alt=""></p>
+<h4 id="格式化输入——换行"><a href="#格式化输入——换行" class="headerlink" title="格式化输入——换行"></a>格式化输入——换行</h4><p>在输出的时候，如果有\n那么，此时\n后的内容会在另外一行显示<br><img src="/image/%E8%BE%93%E5%87%BA617-4.png" alt=""></p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">password &#x3D; input()</span><br><span class="line">print(&#39;您输入的密码是%s&#39;%password)</span><br></pre></td></tr></table></figure>
+<p>运行结果为：</p>
+<p><img src="/image/%E8%BE%93%E5%85%A5617-1.png" alt=""></p>
+<h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><p>在使用if的时候，它只能做到满足条件时要做的事情。那万一需要在不满足条件的时候，做某些事，该怎么办呢？<br>答：使用 if-else<br><img src="/image/%E5%88%A4%E6%96%AD617-1.png" alt=""></p>
+<p>例1：<img src="/image/%E5%88%A4%E6%96%AD617-2.png" alt=""> 例2：<img src="/image/%E5%88%A4%E6%96%AD617-3.png" alt=""></p>
+<p>if能完成当xxx时做事情</p>
+<p>if-else能完成当xxx时做事情1，否则做事情2</p>
+<p>如果有这样一种情况：当xxx1满足时做事情1；当xxx1不满足、xxx2满足时做事情2；当xxx2不满足、xxx3满足时做事情3，那该怎么实现呢？</p>
+<p>答:elif</p>
+<p><img src="/image/%E5%88%A4%E6%96%AD617-4.png" alt=""></p>
+<p>例：<img src="/image/%E5%88%A4%E6%96%AD617-5.png" alt="">  </p>
+<pre><code>特别注意：
+1. elif必须和if一起使用，否则出错
+2. else 一般用在最后，即所有条件都不满足时使用</code></pre><h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><ol>
+<li><p>while和if的用法基本类似，<br>区别在于：if 条件成立，则执行一次；<br>while 条件成立，则重复执行，直到条件不成立为止。</p>
+</li>
+<li><p>一般情况下，需要多次重复执行的代码，都可以用循环的方式来完成</p>
+</li>
+<li><p>循环不是必须要使用的，但是为了提高代码的重复使用率，所以有经验的开发者都会采用循环</p>
+</li>
+</ol>
+<p>例1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while i &lt; 5:</span><br><span class="line">     print(&#39;hello&#39;)</span><br><span class="line">     i +&#x3D; 1</span><br></pre></td></tr></table></figure>
+<p>运行结果为：<br><img src="/image/while%E5%BE%AA%E7%8E%AF1.png" alt=""></p>
+<p>例2：计算1–100之间的整数和（包含1和100）</p>
+<p><img src="/image/while%E5%BE%AA%E7%8E%AF2.png" alt="">  </p>
+<p>例3：计算1–100之间的偶数和（包含1和100）</p>
+<p><img src="/image/while%E5%BE%AA%E7%8E%AF3.png" alt=""></p>
+<h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><p>像while循环一样，for可以完成循环的功能。</p>
+<p>在Python中 for循环可以遍历任何序列的项目，如一个列表或者一个字符串等。</p>
+<p>for循环的格式：<br>for 临时变量 in 列表或者字符串等可迭代对象:<br>    循环满足条件时执行的代码</p>
+<p>例：<br><img src="/image/for%E5%BE%AA%E7%8E%AF1.png" alt=""></p>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>切片是指对操作的对象截取其中一部分的操作。字符串、列表、元组都支持切片操作。</p>
+<p>切片的语法：[起始下标:结束:步长]</p>
+<pre><code>注意：选取的区间从&quot;起始&quot;位开始，到&quot;结束&quot;位的前一位结束（不包含结束位本身)，步长表示选取间隔。</code></pre><p>以字符串为例：<br><img src="/image/%E5%88%87%E7%89%87618.png" alt=""></p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"># str &#x3D; &#39;那车水马龙的人世间，那样地来那样地去，太匆忙&#39;</span><br><span class="line"></span><br><span class="line">index &#x3D; str.find(&#39;那&#39;)</span><br><span class="line">rindex &#x3D; str.rfind(&#39;那&#39;)</span><br><span class="line">print(rindex)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 1.	str &#x3D; &quot;  fgh        &quot;   写一个函数，只去掉字符串右侧的空格，左侧的空格保留</span><br><span class="line"></span><br><span class="line">str &#x3D; &quot;  fgh        &quot;</span><br><span class="line">str.rstrip()</span><br><span class="line">print(str)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 2.	输入10个数字到列表中，如果输入的不是数字，则跳过，不存</span><br><span class="line"></span><br><span class="line">lists &#x3D; []</span><br><span class="line">for i in range(10):</span><br><span class="line">    a &#x3D; input()</span><br><span class="line"></span><br><span class="line">    try:</span><br><span class="line">        if int(a):</span><br><span class="line">            lists.append(a)</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">print(lists)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 3.	写一个函数，可以判断一个字符串是否为回文例子qwewq，函数返回true或者false</span><br><span class="line"></span><br><span class="line">def hw(n):</span><br><span class="line">    p&#x3D;str(n)</span><br><span class="line">    k&#x3D;&#39;&#39;.join(reversed(p))</span><br><span class="line">    if k&#x3D;&#x3D; p:</span><br><span class="line">        return True</span><br><span class="line">    else:</span><br><span class="line">        return False</span><br><span class="line">print(hw(&#39;qwq&#39;))</span><br><span class="line">print(hw(1234531))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 4.	请手写一个函数，可以打印出 I&#39;m &quot;ok&quot; it&#39;s your&#39;s  注意必须是原样输出</span><br><span class="line"></span><br><span class="line">a &#x3D; &quot;I&#39;m \&quot;ok\&quot; it&#39;s your&#39;s&quot;</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"># 5.	str2 &#x3D; &quot;This is the voa special English,health,report&quot;  写一个函数，统计字符串中单词出现的个数，注意是单词而不是字母</span><br><span class="line">word &#x3D; &quot;This is the voa special English,health,report&quot;</span><br><span class="line">word &#x3D; word.replace(&#39;,&#39;, &#39;&#39;).replace(&#39;.&#39;, &#39;&#39;)</span><br><span class="line">word &#x3D; word.split()</span><br><span class="line">print(word)</span><br><span class="line">setword &#x3D; set(word)</span><br><span class="line">for i in setword:</span><br><span class="line">    count &#x3D; word.count(i)</span><br><span class="line">    print(i, &#39;出现次数：&#39;, count)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 6.	My_str &#x3D; ‘11sdsfsdf4sfxcv1qwe_1’ 手写一个函数，计算出字符串中所有数字的和</span><br><span class="line"></span><br><span class="line">def numsum(s):</span><br><span class="line">    # 定义变量，准备记录数字的和</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    # 遍历字符串</span><br><span class="line">    for i in range(len(s)):</span><br><span class="line">        # 如果i处的字符属于数字字符</span><br><span class="line">        if s[i] &gt;&#x3D; &#39;0&#39; and s[i] &lt;&#x3D; &#39;9&#39;:</span><br><span class="line">            # 将字符转成int，求和</span><br><span class="line">            sum &#x3D; sum + int(s[i])</span><br><span class="line">    return sum</span><br><span class="line">s &#x3D; &#39;11sdsfsdf45sfxcvqwe_&#39;</span><br><span class="line">print(numsum(s))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 7.	s &#x3D; &#39;&lt;a href&#x3D;&quot;www.test.com&quot;&gt;test&lt;&#x2F;a&gt;&#39;  写一个函数，能将字符串中的网址提取出来，即提取出www.test.com</span><br><span class="line"></span><br><span class="line">s &#x3D; &#39;&lt;a href&#x3D;&quot;www.test.com&quot;&gt;test&lt;&#x2F;a&gt;&#39;</span><br><span class="line">a &#x3D; s[9:-10]</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 8.	str &#x3D; &quot;卡巴斯基#杀毒软件#免费版#俄罗斯#&quot; 手写一个函数，将该字符串解析为[&#39;卡巴斯基&#39;, &#39;杀毒软件&#39;, &#39;免费版&#39;, &#39;俄罗斯&#39;]</span><br><span class="line"></span><br><span class="line">str &#x3D; &quot;卡巴斯基#杀毒软件#免费版#俄罗斯#&quot;</span><br><span class="line">str &#x3D; str[:-1]</span><br><span class="line"></span><br><span class="line">print(str.split(&quot;#&quot;))</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python%E5%9F%BA%E7%A1%80/"># python基础</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2018/02/21/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">python文件操作</a>
+            
+            
+            <a class="next" rel="next" href="/2018/01/08/HTTP%E7%8A%B6%E6%80%81%E7%A0%81/">HTTP状态码</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>

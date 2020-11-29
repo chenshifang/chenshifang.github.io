@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="陈士方">
+
+
+
+
+
+<title>python基础-列表 | 陈士方的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+				<a href="/">
+				陈士方的博客
+				</a>
+			</div>
+			
+			
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">陈士方的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">目录</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="http://chenshifang.gitee.io/chen_resume/" target="_blank" rel="noopener">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">python基础-列表</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">陈士方</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 18, 2019&nbsp;&nbsp;23:02:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="列表的循环"><a href="#列表的循环" class="headerlink" title="列表的循环"></a>列表的循环</h3><p>for循环：<br><img src="/image/%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF.png" alt=""></p>
+<p>while循环：<br><img src="/image/%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF2.png" alt=""></p>
+<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><p>append：通过append可以向列表（尾部）添加元素</p>
+<p><img src="/image/append.png" alt=""></p>
+<p>extend：通过extend可以将另一个集合中的元素逐一添加到列表中</p>
+<p><img src="/image/extend.png" alt=""></p>
+<p>insert：insert(index, object) 在指定位置index前插入元素object</p>
+<p><img src="/image/insert.png" alt=""></p>
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><p>del：根据下标进行删除</p>
+<p><img src="/image/del%E5%88%97%E8%A1%A8%E5%88%A0%E9%99%A4.png" alt=""></p>
+<p>pop：删除最后一个元素</p>
+<p><img src="/image/pop%E5%88%97%E8%A1%A8%E5%88%A0%E9%99%A4.png" alt=""></p>
+<p>remove：根据元素的值进行删除</p>
+<p><img src="/image/remove%E5%88%97%E8%A1%A8%E5%88%A0%E9%99%A4.png" alt=""></p>
+<h3 id="修改元素"><a href="#修改元素" class="headerlink" title="修改元素"></a>修改元素</h3><p>修改元素的时候，要通过下标来确定要修改的是哪个元素，然后才能进行修改</p>
+<p><img src="/image/%E5%88%97%E8%A1%A8%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0.png" alt=""></p>
+<h3 id="reverse、sort"><a href="#reverse、sort" class="headerlink" title="reverse、sort"></a>reverse、sort</h3><p>reverse:将列表逆转<br><img src="/image/reverse%E5%88%97%E8%A1%A8.png" alt=""></p>
+<p>sort：将列表重新排序，默认从小到大<br><img src="/image/sort%E5%88%97%E8%A1%A8.png" alt=""></p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"># python优点</span><br><span class="line"># 免费开源、简单易学、解释型语言、高级语言、面向对象、可扩展。。。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 变量的类型</span><br><span class="line"># 数字、字符串、字典、列表、元祖、集合、布尔</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 标识符命名规则</span><br><span class="line"># 下划线、大驼峰、小驼峰</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 如何在python中查找关键字.</span><br><span class="line"># import keyword</span><br><span class="line"># print(keyword.kwlist)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 常用的格式符号有哪些（3个即可）</span><br><span class="line"># %s、%d、%w</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 运算符（至少5个）</span><br><span class="line"># + - * &#x2F; &#x3D; &#x3D;&#x3D; !&#x3D;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># python常用的数据类型转换（至少3个）</span><br><span class="line"># int、str、dict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 计较运算符（至少3个）</span><br><span class="line"># &lt; &gt; &#x3D;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 逻辑运算符是哪3个</span><br><span class="line"># and、or、not</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 自己写一个if-elif-else条件语句并输出</span><br><span class="line"># a &#x3D; 1</span><br><span class="line"># b &#x3D; 2</span><br><span class="line"># if a &gt; b:</span><br><span class="line">#     print(&#39;a大于b&#39;)</span><br><span class="line"># elif a &lt; b:</span><br><span class="line">#     print(&#39;a小于b&#39;)</span><br><span class="line"># else:</span><br><span class="line">#     print(&#39;a和b一样大&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 通过程序写一个等边三角形</span><br><span class="line"># for i in range(1,6):</span><br><span class="line">#     for j in range(1,6-i):</span><br><span class="line">#         print(&quot; &quot;,end&#x3D;&quot;&quot;)</span><br><span class="line">#     print(&quot;* &quot;*i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 通过程序写一个九九乘法表</span><br><span class="line"># print (&#39;\n&#39;.join([&#39; &#39;.join([&#39;%s*%s&#x3D;%-2s&#39; % (y,x,x*y) for y in range(1,x+1)]) for x in range(1,10)]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 通过代码针对str&#x3D;&quot;abcdefg&quot;  :</span><br><span class="line"># 	1取出bcd</span><br><span class="line">#   str[1:4]</span><br><span class="line"># 	2将str倒序</span><br><span class="line">#   str.reverse()</span><br><span class="line"># 	3取出bdf</span><br><span class="line">#   str[1:5:2]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 通过代码针对mystr &#x3D; &quot;hello world python and python&quot;进行如下操作</span><br><span class="line"># 	1.找到右边第一个p的索引</span><br><span class="line">#   mystr.rfind(&quot;f&quot;)</span><br><span class="line"># 	2.找z结果要求报错</span><br><span class="line">#   mystr.find(&#39;z&#39;)</span><br><span class="line"># 	3.将所有空格替换成逗点</span><br><span class="line">#   mystr.replace(&quot; &quot;, &quot;,&quot;)</span><br><span class="line"># 	4.通过逗点生成一个列表</span><br><span class="line">#   mystr.split(&quot;,&quot;)</span><br><span class="line"># 	5.将d全部替换成大写D</span><br><span class="line">#   mystr.upper(&quot;d&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># a &#x3D; [1,2,3,4,5,6]，在a中元素5前添加一个5.5元素</span><br><span class="line"># a.insert(4, 5.5)</span><br><span class="line"># 	          在a中元素6后面添加&quot;我心态炸了&quot;</span><br><span class="line"># a.append(&quot;我心态炸了&quot;)</span><br><span class="line"># 	          删除a中的元素1</span><br><span class="line"># a.remove(&#39;1&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># b &#x3D; [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;b&quot;,&quot;a&quot;] 查找索引区间在2-4的“b”的索引</span><br><span class="line"># b.index(&quot;b&quot;,2,4)</span><br><span class="line"># 		    查找索引区间在3-4的“a”的索引</span><br><span class="line"># b.index(&quot;a&quot;,3,4)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 试着修改一个自己创建的元组，达到报错的目的，提醒自己元组不可修改</span><br><span class="line"># t &#x3D; (&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;)</span><br><span class="line"># t[0] &#x3D; &#39;A&#39;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 自己写一个字典，计算自己写的字典中存在键值对的个数，找出字典中所有的key，找出字典中所有的value，试着遍历字典中的item，最后删除字典中的第一个键所对应的数据</span><br><span class="line"># d &#x3D; &#123;&quot;name&quot;:&quot;musk&quot;,&quot;age&quot;:42&#125;</span><br><span class="line"># for i in d.keys():</span><br><span class="line">#     print(i)</span><br><span class="line"></span><br><span class="line"># for i in d.values():</span><br><span class="line">#     print(i)</span><br><span class="line"></span><br><span class="line"># del d[&#39;age&#39;]</span><br><span class="line"># print(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 集合中的discard的概念</span><br><span class="line"># discard() 方法从集合中删除指定项目</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 试着自己写两个集合，分别进行 &amp; 和 | 的操作</span><br><span class="line"># a &#x3D; &#123;1,2,3,4,5&#125;</span><br><span class="line"># b &#x3D; &#123;4,5,6&#125;</span><br><span class="line"># c &#x3D; a|b</span><br><span class="line"># d &#x3D; a&amp;b</span><br><span class="line"># print(c)</span><br><span class="line"># print(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 如果以上觉得没挑战，思维扩展：一个学校，有3个办公室，现在有8位老师等待工位的分配，请编写程序，完成随机分配</span><br><span class="line"></span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line"># 定义一个列表来保存3个办公室</span><br><span class="line">offices &#x3D; [[], [], []]</span><br><span class="line"></span><br><span class="line"># 定义一个列表来存储8位老师的名字</span><br><span class="line">names &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;]</span><br><span class="line"></span><br><span class="line"># 开始分配</span><br><span class="line">for name in names:</span><br><span class="line">    index &#x3D; random.randint(0, 2)</span><br><span class="line">    offices[index].append(name)</span><br><span class="line"></span><br><span class="line"># 遍历输出分配结果</span><br><span class="line">i &#x3D; 1</span><br><span class="line">for tempNames in offices:</span><br><span class="line">    print(&#39;办公室%d中有%d个老师，分别是：&#39; % (i, len(tempNames)))</span><br><span class="line">    i +&#x3D; 1</span><br><span class="line">    for name in tempNames:</span><br><span class="line">        print(&#39;%s&#39; % name)</span><br><span class="line">    print(&#39;\n&#39;)</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python%E5%9F%BA%E7%A1%80/"># python基础</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/06/19/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">python基础-面向对象</a>
+            
+            
+            <a class="next" rel="next" href="/2019/06/18/%E5%AD%97%E7%AC%A6%E4%B8%B2/">python基础-字符串</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 陈士方 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+			
+    </div>
+	
+<iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" frameborder="0" id="catIframe"></iframe>
+
+</body>
+
+
+<style>
+#catIframe {
+position: fixed;
+width: 400px;
+/* padding: 50px 0px; */
+top: 80%;
+left: 10%;
+transform: translate(-68%, -50%);
+}
+
+</style>
+</html>
